@@ -1,0 +1,229 @@
+import React from "react";
+import type { Metadata } from "next";
+import {
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  ExternalLink,
+} from "lucide-react";
+import { SITE_CONFIG } from "@/data/site-config";
+import { Subheader } from "@/components/layout/Subheader";
+import { ShortcutStrip } from "@/components/layout/ShortcutStrip";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
+
+export const metadata: Metadata = {
+  title: "Contato - Solicite uma Proposta de Síndico Profissional | Síndico Né!",
+  description:
+    "Entre em contato com o Síndico Né! em Copacabana, Rio de Janeiro. Solicite uma proposta de sindicância profissional para seu condomínio na Zona Sul, Barra da Tijuca ou Tijuca. Tel: (21) 3828-0273.",
+  alternates: {
+    canonical: "https://www.sindicone.com.br/contato/",
+  },
+};
+
+export default function ContatoPage() {
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Início", url: "/" },
+    { name: "Contato", url: "/contato/" },
+  ]);
+
+  return (
+    <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      <Subheader
+        badge="Atendimento Condominial no RJ"
+        title="Entre em Contato com o Síndico Né!"
+        subtitle="Solicite uma proposta personalizada de sindicância profissional, agende uma reunião com o conselho ou tire suas dúvidas com nossa equipe em Copacabana."
+        breadcrumbs={[{ label: "Contato" }]}
+      />
+
+      <ShortcutStrip overlap={true} />
+
+      <section className="py-12 sm:py-16 bg-[#f4f6f8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Left Column: NAP Details, Credentials & Map */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-[#171c24] text-white rounded-xl p-7 border border-white/10 shadow-md space-y-6">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#d9e141]">
+                    Canais Oficiais
+                  </span>
+                  <h2 className="font-heading text-2xl font-bold text-white mt-1">
+                    Fale Diretamente Conosco
+                  </h2>
+                </div>
+
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start gap-3.5">
+                    <Phone
+                      className="w-5 h-5 text-[#d9e141] shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[#9ca2aa] font-semibold">
+                        Telefone Fixo (Escritório)
+                      </p>
+                      <a
+                        href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
+                        className="text-lg font-bold text-white hover:text-[#d9e141]"
+                      >
+                        {SITE_CONFIG.contact.phoneDisplay}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <MessageCircle
+                      className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[#9ca2aa] font-semibold">
+                        WhatsApp Direto
+                      </p>
+                      <a
+                        href={SITE_CONFIG.contact.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-bold text-[#d9e141] hover:underline"
+                      >
+                        {SITE_CONFIG.contact.whatsappDisplay}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <Mail
+                      className="w-5 h-5 text-[#d9e141] shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[#9ca2aa] font-semibold">
+                        E-mail Corporativo
+                      </p>
+                      <a
+                        href={`mailto:${SITE_CONFIG.contact.email}`}
+                        className="text-base font-medium text-white hover:text-[#d9e141]"
+                      >
+                        {SITE_CONFIG.contact.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <MapPin
+                      className="w-5 h-5 text-[#d9e141] shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[#9ca2aa] font-semibold">
+                        Endereço da Sede
+                      </p>
+                      <address className="not-italic text-white leading-relaxed">
+                        Rua Barata Ribeiro, 543, Conjunto 705
+                        <br />
+                        Copacabana, Rio de Janeiro - RJ
+                        <br />
+                        CEP 22040-001
+                      </address>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3.5">
+                    <Clock
+                      className="w-5 h-5 text-[#d9e141] shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[#9ca2aa] font-semibold">
+                        Horário de Funcionamento
+                      </p>
+                      <p className="text-white">
+                        De Segunda à Sexta, das 09h00 às 17h00
+                      </p>
+                      <p className="text-xs text-[#b8c0cc]">
+                        Plantão 24h para emergências nos condomínios administrados
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-white/10 text-xs text-[#c2c7ce] space-y-2">
+                  <div className="flex items-center gap-2 font-bold text-[#d9e141]">
+                    <ShieldCheck className="w-4 h-4" aria-hidden="true" />
+                    <span>Garantia Técnica e Registro Profissional</span>
+                  </div>
+                  <p>
+                    CRA-RJ nº {SITE_CONFIG.credentials.craRj} | CRECI-J nº{" "}
+                    {SITE_CONFIG.credentials.creciJ}
+                  </p>
+                  <p>
+                    Seguro de Responsabilidade Civil Síndico de até R$ 2.000.000,00 (Tokio Marine / Akad)
+                  </p>
+                </div>
+              </div>
+
+              {/* Portal SIN Quick Card */}
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-xs">
+                <h3 className="font-heading text-lg font-bold text-[#171c24]">
+                  Já é condômino de um prédio administrado pelo Síndico Né!?
+                </h3>
+                <p className="text-xs sm:text-sm text-[#5c6470] mt-1">
+                  Acesse segunda via de comunicados, atas, documentos e serviços em tempo real pelo portal SIN:
+                </p>
+                <a
+                  href={SITE_CONFIG.portal.sinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 bg-[#171c24] text-[#d9e141] font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-md"
+                >
+                  <span>Acessar Portal SIN</span>
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Validated Contact Form */}
+            <div className="lg:col-span-7">
+              <ContactForm />
+            </div>
+          </div>
+
+          {/* Lazy-loaded Google Map of Rua Barata Ribeiro 543, Copacabana */}
+          <div className="mt-12 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs">
+            <div className="p-4 sm:px-6 bg-[#171c24] text-white flex flex-wrap items-center justify-between gap-2">
+              <span className="text-xs sm:text-sm font-semibold">
+                Localização: Rua Barata Ribeiro, 543, Conjunto 705 — Copacabana, Rio de Janeiro - RJ
+              </span>
+              <a
+                href={SITE_CONFIG.geo.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-[#d9e141] hover:underline"
+              >
+                Abrir no Google Maps →
+              </a>
+            </div>
+            <iframe
+              title="Mapa de Localização Síndico Né! em Copacabana"
+              src={SITE_CONFIG.geo.googleMapsEmbedUrl}
+              width="100%"
+              height="380"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="border-0 w-full"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
