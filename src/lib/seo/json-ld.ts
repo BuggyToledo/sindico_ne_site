@@ -63,6 +63,11 @@ export function buildLocalBusinessJsonLd() {
         identifier: [
           {
             "@type": "PropertyValue",
+            name: "CNPJ",
+            value: "02.634.709/0001-74",
+          },
+          {
+            "@type": "PropertyValue",
             name: "CRA-RJ",
             value: SITE_CONFIG.credentials.craRj,
           },
@@ -72,6 +77,7 @@ export function buildLocalBusinessJsonLd() {
             value: SITE_CONFIG.credentials.creciJ,
           },
         ],
+        taxID: "02.634.709/0001-74",
         areaServed: SITE_CONFIG.areasServed.map((area) => ({
           "@type": "Place",
           name: `${area}, Rio de Janeiro - RJ`,

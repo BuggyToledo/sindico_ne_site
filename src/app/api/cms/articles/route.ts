@@ -5,7 +5,10 @@ import {
   getAllArticles,
   createOrUpdateArticle,
 } from "@/lib/cms/store";
-import { verifySessionToken, hasRolePermission } from "@/lib/cms/auth";
+import {
+  getAuthenticatedUserFromRequest,
+  hasRolePermission,
+} from "@/lib/cms/auth";
 
 const COOKIE_NAME = "sindicone_cms_session";
 
@@ -19,20 +22,25 @@ const ArticleUpsertSchema = z.object({
   featuredImage: z
     .object({
       url: z.string().min(1),
-      alt: z.string().min(2, "O texto alternativo (alt) da imagem é obrigatório para acessibilidade e SEO."),
+      alt: z
+        .string()
+        .min(
+          2,
+          "O texto alternativo (alt) da imagem é obrigatório para acessibilidade e SEO."
+        ),
       width: z.number().default(1200),
       height: z.number().default(675),
       caption: z.string().optional(),
     })
     .optional(),
-  authorId: z.string().default("adriano-toledo"),
+  authorId: z.string().default("adriano"),
   reviewerId: z.string().optional(),
-  categorySlug: z.string().default("gestao-condominial"),
+  categorySlug: z.string().default("sindico-profissional"),
   tags: z.array(z.string()).default(["sindico-profissional"]),
   publishedAt: z.string().optional(),
   scheduledFor: z.string().optional(),
   status: z
-    .enum(["draft", "in_review", "scheduled", "published", "archived"])
+    .enum(["draft", "review", "in_review", "scheduled", "published", "archived"])
     .default("draft"),
   seoTitle: z.string().optional(),
   seoDescription: z.string().optional(),
@@ -47,7 +55,10 @@ export async function GET(request: Request) {
 
   if (includeDrafts) {
     const cookieStore = await cookies();
-    const user = verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
+    const user = getAuthenticatedUserFromRequest(
+      request,
+      cookieStore.get(COOKIE_NAME)?.value
+    );
     if (!user) {
       return NextResponse.json(
         { ok: false, error: "Acesso restrito ao painel editorial." },
@@ -64,7 +75,10 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   const cookieStore = await cookies();
-  const user = verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
+  const user = getAuthenticatedUserFromRequest(
+    request,
+    cookieStore.get(COOKIE_NAME)?.value
+  );
 
   if (!user) {
     return NextResponse.json(
@@ -81,7 +95,8 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           ok: false,
-          error: parsed.error.issues[0]?.message || "Dados editoriais inválidos.",
+          error:
+            parsed.error.issues[0]?.message || "Dados editoriais inválidos.",
         },
         { status: 400 }
       );
@@ -89,7 +104,6 @@ export async function POST(request: Request) {
 
     const desiredStatus = parsed.data.status;
 
-    // RBAC Check: Authors can create/edit drafts & review requests, but cannot publish or schedule directly
     if (
       (desiredStatus === "published" || desiredStatus === "scheduled") &&
       !hasRolePermission(user.role, "publish")

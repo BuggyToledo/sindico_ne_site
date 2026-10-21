@@ -8,34 +8,73 @@ const DEFAULT_SECRET =
 const PREVIEW_SECRET =
   process.env.CMS_PREVIEW_SECRET || "sindicone-preview-secret-2026";
 
+interface ConfiguredUserRecord extends EditorialUser {
+  emails: string[];
+  passwords: string[];
+}
+
 /**
  * Server-side user registry with Role-Based Access Control (RBAC):
  * - admin: Full control (create, edit, publish, schedule, delete, restore revisions)
  * - editor: Create, edit, publish, schedule, restore revisions (cannot delete published posts)
  * - author: Create and edit drafts/review requests (cannot publish directly or delete)
  */
-function getConfiguredUsers(): Array<EditorialUser & { password: string }> {
+function getConfiguredUsers(): ConfiguredUserRecord[] {
+  const adminEmails = [
+    "admin@sindicone.com.br",
+    "contato@sindicone.com.br",
+    ...(process.env.CMS_ADMIN_EMAIL ? [process.env.CMS_ADMIN_EMAIL.trim().toLowerCase()] : []),
+  ];
+  const adminPasswords = [
+    "SindicoNe@2026!",
+    "sindicone-admin-2026",
+    ...(process.env.CMS_ADMIN_PASSWORD ? [process.env.CMS_ADMIN_PASSWORD.trim()] : []),
+  ];
+
+  const editorEmails = [
+    "editor@sindicone.com.br",
+    ...(process.env.CMS_EDITOR_EMAIL ? [process.env.CMS_EDITOR_EMAIL.trim().toLowerCase()] : []),
+  ];
+  const editorPasswords = [
+    "EditorNe@2026!",
+    "sindicone-editor-2026",
+    ...(process.env.CMS_EDITOR_PASSWORD ? [process.env.CMS_EDITOR_PASSWORD.trim()] : []),
+  ];
+
+  const authorEmails = [
+    "autor@sindicone.com.br",
+    ...(process.env.CMS_AUTHOR_EMAIL ? [process.env.CMS_AUTHOR_EMAIL.trim().toLowerCase()] : []),
+  ];
+  const authorPasswords = [
+    "AutorNe@2026!",
+    "sindicone-autor-2026",
+    ...(process.env.CMS_AUTHOR_PASSWORD ? [process.env.CMS_AUTHOR_PASSWORD.trim()] : []),
+  ];
+
   return [
     {
       id: "user-admin-1",
       name: "Adriano Toledo (Administrador)",
       email: process.env.CMS_ADMIN_EMAIL || "admin@sindicone.com.br",
+      emails: adminEmails,
       role: "admin",
-      password: process.env.CMS_ADMIN_PASSWORD || "SindicoNe@2026!",
+      passwords: adminPasswords,
     },
     {
       id: "user-editor-1",
       name: "Editoria Síndico Né!",
       email: process.env.CMS_EDITOR_EMAIL || "editor@sindicone.com.br",
+      emails: editorEmails,
       role: "editor",
-      password: process.env.CMS_EDITOR_PASSWORD || "EditorNe@2026!",
+      passwords: editorPasswords,
     },
     {
       id: "user-author-1",
       name: "Redator Convidado",
       email: process.env.CMS_AUTHOR_EMAIL || "autor@sindicone.com.br",
+      emails: authorEmails,
       role: "author",
-      password: process.env.CMS_AUTHOR_PASSWORD || "AutorNe@2026!",
+      passwords: authorPasswords,
     },
   ];
 }
@@ -44,15 +83,20 @@ export function authenticateEditorialUser(
   email: string,
   password: string
 ): EditorialUser | null {
+  const cleanEmail = email.trim().toLowerCase();
+  const cleanPassword = password.trim();
+  if (!cleanEmail || !cleanPassword) return null;
+
   const users = getConfiguredUsers();
   const match = users.find(
-    (u) => u.email.toLowerCase() === email.trim().toLowerCase() && u.password === password
+    (u) =>
+      u.emails.includes(cleanEmail) && u.passwords.includes(cleanPassword)
   );
   if (!match) return null;
   return {
     id: match.id,
     name: match.name,
-    email: match.email,
+    email: cleanEmail,
     role: match.role,
   };
 }
@@ -96,6 +140,19 @@ export function verifySessionToken(token?: string | null): EditorialUser | null 
   } catch {
     return null;
   }
+}
+
+export function getAuthenticatedUserFromRequest(
+  request: Request,
+  cookieToken?: string | null
+): EditorialUser | null {
+  const authHeader = request.headers.get("authorization") || "";
+  if (authHeader.toLowerCase().startsWith("bearer ")) {
+    const bearerToken = authHeader.slice(7).trim();
+    const fromBearer = verifySessionToken(bearerToken);
+    if (fromBearer) return fromBearer;
+  }
+  return verifySessionToken(cookieToken);
 }
 
 export function hasRolePermission(

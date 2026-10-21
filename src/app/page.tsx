@@ -103,8 +103,8 @@ export default async function HomePage() {
             <div className="lg:col-span-5 space-y-4">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#171c24] shadow-md">
                 <Image
-                  src="/wp-content/uploads/2021/10/Design-sem-nome-15.jpg"
-                  alt="Gestão Condominial Síndico Né! no Rio de Janeiro"
+                  src="/wp-content/uploads/2026/06/147.jpg"
+                  alt="Gestão Condominial Síndico Né! na Zona Sul do Rio de Janeiro"
                   fill
                   sizes="(max-width: 1024px) 100vw, 480px"
                   className="object-cover"

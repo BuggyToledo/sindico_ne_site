@@ -128,11 +128,11 @@ export default function ContatoPage() {
                         Endereço da Sede
                       </p>
                       <address className="not-italic text-white leading-relaxed">
-                        Rua Barata Ribeiro, 543, Conjunto 705
+                        Rua Xavier da Silveira 45/1009, Copacabana
                         <br />
-                        Copacabana, Rio de Janeiro - RJ
+                        Rio de Janeiro-RJ, CEP 22061-010
                         <br />
-                        CEP 22040-001
+                        CNPJ 02.634.709/0001-74
                       </address>
                     </div>
                   </div>
@@ -197,11 +197,11 @@ export default function ContatoPage() {
             </div>
           </div>
 
-          {/* Lazy-loaded Google Map of Rua Barata Ribeiro 543, Copacabana */}
+          {/* Lazy-loaded Google Map of Rua Xavier da Silveira 45/1009, Copacabana */}
           <div className="mt-12 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs">
             <div className="p-4 sm:px-6 bg-[#171c24] text-white flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs sm:text-sm font-semibold">
-                Localização: Rua Barata Ribeiro, 543, Conjunto 705 — Copacabana, Rio de Janeiro - RJ
+                Localização: Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010
               </span>
               <a
                 href={SITE_CONFIG.geo.googleMapsUrl}

@@ -66,9 +66,11 @@ const AVAILABLE_MEDIA = [
 
 export function EditorialDashboard() {
   const [user, setUser] = useState<EditorialUser | null>(null);
+  const [sessionToken, setSessionToken] = useState<string>("");
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [email, setEmail] = useState("admin@sindicone.com.br");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState("");
 
   const [articles, setArticles] = useState<Article[]>([]);
@@ -80,29 +82,66 @@ export function EditorialDashboard() {
   } | null>(null);
   const [saving, setSaving] = useState(false);
 
-  const fetchArticles = useCallback(async () => {
-    const res = await fetch("/api/cms/articles/?includeDrafts=true");
-    if (res.ok) {
-      const data = (await res.json()) as {
-        articles: Article[];
-        user: EditorialUser;
+  const getAuthHeaders = useCallback(
+    (extra: Record<string, string> = {}) => {
+      const storedToken =
+        sessionToken ||
+        (typeof window !== "undefined"
+          ? window.sessionStorage.getItem("sindicone_cms_token") || ""
+          : "");
+      return {
+        ...extra,
+        ...(storedToken ? { Authorization: `Bearer ${storedToken}` } : {}),
       };
-      setArticles(data.articles || []);
-      if (data.user) setUser(data.user);
-    }
-  }, []);
+    },
+    [sessionToken]
+  );
+
+  const fetchArticles = useCallback(
+    async (overrideToken?: string) => {
+      const tokenToUse =
+        overrideToken ||
+        sessionToken ||
+        (typeof window !== "undefined"
+          ? window.sessionStorage.getItem("sindicone_cms_token") || ""
+          : "");
+      const res = await fetch("/api/cms/articles/?includeDrafts=true", {
+        headers: tokenToUse ? { Authorization: `Bearer ${tokenToUse}` } : {},
+        credentials: "include",
+      });
+      if (res.ok) {
+        const data = (await res.json()) as {
+          articles: Article[];
+          user: EditorialUser;
+        };
+        setArticles(data.articles || []);
+        if (data.user) setUser(data.user);
+      }
+    },
+    [sessionToken]
+  );
 
   useEffect(() => {
     async function checkSession() {
       try {
-        const res = await fetch("/api/cms/auth/");
+        const storedToken =
+          typeof window !== "undefined"
+            ? window.sessionStorage.getItem("sindicone_cms_token") || ""
+            : "";
+        if (storedToken) setSessionToken(storedToken);
+        const res = await fetch("/api/cms/auth/", {
+          headers: storedToken
+            ? { Authorization: `Bearer ${storedToken}` }
+            : {},
+          credentials: "include",
+        });
         const data = (await res.json()) as {
           authenticated: boolean;
           user: EditorialUser | null;
         };
         if (data.authenticated && data.user) {
           setUser(data.user);
-          await fetchArticles();
+          await fetchArticles(storedToken);
         }
       } finally {
         setLoadingAuth(false);
@@ -114,31 +153,53 @@ export function EditorialDashboard() {
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setAuthError("");
-    const res = await fetch("/api/cms/auth/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = (await res.json()) as {
-      ok?: boolean;
-      user?: EditorialUser;
-      error?: string;
-    };
-    if (!res.ok || !data.ok || !data.user) {
-      setAuthError(data.error || "Falha na autenticação.");
-      return;
+    try {
+      const res = await fetch("/api/cms/auth/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          email: email.trim(),
+          password: password.trim(),
+        }),
+      });
+      const data = (await res.json()) as {
+        ok?: boolean;
+        user?: EditorialUser;
+        token?: string;
+        error?: string;
+      };
+      if (!res.ok || !data.ok || !data.user) {
+        setAuthError(data.error || "Falha na autenticação.");
+        return;
+      }
+      if (data.token) {
+        setSessionToken(data.token);
+        if (typeof window !== "undefined") {
+          window.sessionStorage.setItem("sindicone_cms_token", data.token);
+        }
+      }
+      setUser(data.user);
+      setPassword("");
+      await fetchArticles(data.token);
+    } catch {
+      setAuthError(
+        "Erro de conexão com o servidor. Verifique se a aplicação está rodando."
+      );
     }
-    setUser(data.user);
-    setPassword("");
-    await fetchArticles();
   }
 
   async function handleLogout() {
     await fetch("/api/cms/auth/", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: getAuthHeaders({ "Content-Type": "application/json" }),
+      credentials: "include",
       body: JSON.stringify({ action: "logout" }),
     });
+    if (typeof window !== "undefined") {
+      window.sessionStorage.removeItem("sindicone_cms_token");
+    }
+    setSessionToken("");
     setUser(null);
     setSelected(null);
   }
@@ -211,7 +272,8 @@ export function EditorialDashboard() {
     try {
       const res = await fetch("/api/cms/articles/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: getAuthHeaders({ "Content-Type": "application/json" }),
+        credentials: "include",
         body: JSON.stringify(payload),
       });
       const data = (await res.json()) as {
@@ -252,7 +314,11 @@ export function EditorialDashboard() {
     ) {
       return;
     }
-    const res = await fetch(`/api/cms/articles/${id}/`, { method: "DELETE" });
+    const res = await fetch(`/api/cms/articles/${id}/`, {
+      method: "DELETE",
+      headers: getAuthHeaders(),
+      credentials: "include",
+    });
     const data = (await res.json()) as { ok?: boolean; error?: string };
     if (!res.ok || !data.ok) {
       setFeedback({
@@ -273,7 +339,8 @@ export function EditorialDashboard() {
     if (!selected?.id) return;
     const res = await fetch(`/api/cms/articles/${selected.id}/`, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: getAuthHeaders({ "Content-Type": "application/json" }),
+      credentials: "include",
       body: JSON.stringify({ revisionId }),
     });
     const data = (await res.json()) as {
@@ -345,19 +412,28 @@ export function EditorialDashboard() {
           </div>
 
           <div>
-            <label
-              htmlFor="cms-password"
-              className="block text-xs font-bold uppercase tracking-wider text-[#171c24] mb-1"
-            >
-              Senha
-            </label>
+            <div className="flex items-center justify-between mb-1">
+              <label
+                htmlFor="cms-password"
+                className="block text-xs font-bold uppercase tracking-wider text-[#171c24]"
+              >
+                Senha
+              </label>
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="text-[11px] font-semibold text-[#171c24] underline cursor-pointer"
+              >
+                {showPassword ? "Ocultar senha" : "Mostrar senha"}
+              </button>
+            </div>
             <input
               id="cms-password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••••••"
+              placeholder="SindicoNe@2026!"
               className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm"
             />
           </div>

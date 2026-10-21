@@ -6,7 +6,8 @@ import type {
 
 export const SITE_CONFIG = {
   name: "Síndico Né!",
-  legalName: "Ícone-Rio Ltda (Síndico Né!)",
+  legalName: "Grupo Ícone-Rio (Síndico Né!)",
+  cnpj: "02.634.709/0001-74",
   tagline: "Valorização do Patrimônio, Síndico Profissional",
   defaultTitle: "Síndico Profissional no Rio de Janeiro - Síndico Né! | (21) 97878-8211",
   description:

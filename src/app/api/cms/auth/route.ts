@@ -3,15 +3,15 @@ import { cookies } from "next/headers";
 import {
   authenticateEditorialUser,
   createSessionToken,
-  verifySessionToken,
+  getAuthenticatedUserFromRequest,
 } from "@/lib/cms/auth";
 
 const COOKIE_NAME = "sindicone_cms_session";
 
-export async function GET() {
+export async function GET(request: Request) {
   const cookieStore = await cookies();
-  const token = cookieStore.get(COOKIE_NAME)?.value;
-  const user = verifySessionToken(token);
+  const cookieToken = cookieStore.get(COOKIE_NAME)?.value;
+  const user = getAuthenticatedUserFromRequest(request, cookieToken);
   if (!user) {
     return NextResponse.json({ authenticated: false, user: null });
   }
@@ -52,12 +52,17 @@ export async function POST(request: Request) {
       ok: true,
       authenticated: true,
       user,
+      token,
     });
+
+    const isHttps =
+      request.url.startsWith("https://") ||
+      request.headers.get("x-forwarded-proto") === "https";
 
     res.cookies.set(COOKIE_NAME, token, {
       httpOnly: true,
       sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
+      secure: isHttps,
       path: "/",
       maxAge: 60 * 60 * 12,
     });

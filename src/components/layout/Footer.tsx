@@ -14,7 +14,7 @@ import { SITE_CONFIG } from "@/data/site-config";
 export function Footer() {
   return (
     <footer className="bg-[#171c24] text-[#9ca2aa] border-t border-white/10">
-      {/* Main 3-Column Footer matching original BeTheme #Footer */}
+      {/* Main 3-Column Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
           {/* Column 1: Telefone & Horários */}
@@ -28,14 +28,22 @@ export function Footer() {
                 href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
                 className="hover:text-[#d9e141] transition-colors"
               >
-                {SITE_CONFIG.contact.phoneDisplay}
+                (21) 97878-8211
+              </a>
+            </p>
+            <p className="text-sm text-[#c2c7ce]">
+              <a
+                href={`mailto:${SITE_CONFIG.contact.email}`}
+                className="hover:text-[#d9e141] transition-colors"
+              >
+                {SITE_CONFIG.contact.email}
               </a>
             </p>
             <div className="flex items-start gap-2.5 text-sm leading-relaxed text-[#c2c7ce]">
               <Clock className="w-4 h-4 text-[#d9e141] shrink-0 mt-1" aria-hidden="true" />
               <div>
-                <p>De Segunda à Sexta</p>
-                <p>Das 09h00 às 17h00</p>
+                <p>{SITE_CONFIG.openingHours.weekdays}</p>
+                <p>{SITE_CONFIG.openingHours.saturday}</p>
                 <p className="text-xs text-[#9ca2aa] mt-1">
                   Plantão 24h para emergências condominiais
                 </p>
@@ -48,6 +56,7 @@ export function Footer() {
                 Credenciais e Seguros Oficiais:
               </p>
               <p>CRA-RJ: {SITE_CONFIG.credentials.craRj} | CRECI-J: {SITE_CONFIG.credentials.creciJ}</p>
+              <p>CNPJ: 02.634.709/0001-74</p>
               <p>Seguro RC Síndico até R$ 2.000.000,00 (Tokio Marine / Akad)</p>
             </div>
           </div>
@@ -59,11 +68,9 @@ export function Footer() {
               <span>Sede Copacabana — Rio de Janeiro</span>
             </div>
             <address className="not-italic text-white text-base leading-relaxed font-medium">
-              Rua Barata Ribeiro, 543
+              Rua Xavier da Silveira 45/1009, Copacabana
               <br />
-              Conjunto 705 - Copacabana
-              <br />
-              Rio de Janeiro - RJ, CEP 22040-001
+              Rio de Janeiro-RJ, CEP 22061-010
             </address>
 
             <div className="pt-3 border-t border-white/10">
@@ -163,7 +170,7 @@ export function Footer() {
                   className="inline-block opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <Image
-                    src="/wp-content/uploads/2021/10/Disponivel_App_Store-300x89.png"
+                    src={SITE_CONFIG.sinPortal.appStoreBadgeUrl}
                     alt="Disponível na App Store"
                     width={135}
                     height={40}
@@ -178,7 +185,7 @@ export function Footer() {
                   className="inline-block opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <Image
-                    src="/wp-content/uploads/2021/10/Disponivel_Google_Play-300x89.png"
+                    src={SITE_CONFIG.sinPortal.googlePlayBadgeUrl}
                     alt="Disponível no Google Play"
                     width={135}
                     height={40}
@@ -191,13 +198,38 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Copyright Bar */}
+      {/* Institutional Identification & Copyright Bar */}
       <div className="border-t border-white/10 bg-[#12161d]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9ca2aa]">
-          <div>
-            © {new Date().getFullYear()} Síndico Né! Administração Condominial Profissional. Todos os direitos reservados.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs text-[#c2c7ce]">
+          <div className="space-y-1 leading-relaxed">
+            <p className="font-semibold text-white text-sm">
+              Síndico Né! · Uma empresa Grupo Ícone-Rio
+            </p>
+            <p>
+              Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010
+            </p>
+            <p>
+              <a
+                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
+                className="hover:text-[#d9e141] transition-colors"
+              >
+                (21) 97878-8211
+              </a>{" "}
+              ·{" "}
+              <a
+                href={`mailto:${SITE_CONFIG.contact.email}`}
+                className="hover:text-[#d9e141] transition-colors"
+              >
+                contato@sindicone.com.br
+              </a>
+            </p>
+            <p>CNPJ 02.634.709/0001-74</p>
+            <p className="text-[#9ca2aa] pt-1">
+              © 2026 Grupo Ícone-Rio. Todos os direitos reservados.
+            </p>
           </div>
-          <div className="flex items-center gap-4">
+
+          <div className="flex items-center gap-4 self-end md:self-center">
             <a
               href={SITE_CONFIG.social.instagram}
               target="_blank"
@@ -213,14 +245,6 @@ export function Footer() {
               className="hover:text-[#d9e141] transition-colors"
             >
               Facebook
-            </a>
-            <a
-              href={SITE_CONFIG.social.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#d9e141] transition-colors"
-            >
-              YouTube
             </a>
             <a
               href="#top"

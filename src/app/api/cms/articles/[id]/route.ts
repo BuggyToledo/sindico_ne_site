@@ -5,16 +5,22 @@ import {
   deleteArticleById,
   restoreArticleRevision,
 } from "@/lib/cms/store";
-import { verifySessionToken, hasRolePermission } from "@/lib/cms/auth";
+import {
+  getAuthenticatedUserFromRequest,
+  hasRolePermission,
+} from "@/lib/cms/auth";
 
 const COOKIE_NAME = "sindicone_cms_session";
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const cookieStore = await cookies();
-  const user = verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
+  const user = getAuthenticatedUserFromRequest(
+    request,
+    cookieStore.get(COOKIE_NAME)?.value
+  );
   if (!user) {
     return NextResponse.json(
       { ok: false, error: "Não autenticado." },
@@ -39,7 +45,10 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const cookieStore = await cookies();
-  const user = verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
+  const user = getAuthenticatedUserFromRequest(
+    request,
+    cookieStore.get(COOKIE_NAME)?.value
+  );
   if (!user) {
     return NextResponse.json(
       { ok: false, error: "Não autenticado." },
@@ -49,7 +58,10 @@ export async function PATCH(
 
   if (!hasRolePermission(user.role, "restore")) {
     return NextResponse.json(
-      { ok: false, error: "Seu perfil não tem permissão para restaurar revisões." },
+      {
+        ok: false,
+        error: "Seu perfil não tem permissão para restaurar revisões.",
+      },
       { status: 403 }
     );
   }
@@ -63,7 +75,11 @@ export async function PATCH(
     );
   }
 
-  const restored = await restoreArticleRevision(id, body.revisionId, user.email);
+  const restored = await restoreArticleRevision(
+    id,
+    body.revisionId,
+    user.email
+  );
   if (!restored) {
     return NextResponse.json(
       { ok: false, error: "Revisão não encontrada." },
@@ -75,11 +91,14 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const cookieStore = await cookies();
-  const user = verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
+  const user = getAuthenticatedUserFromRequest(
+    request,
+    cookieStore.get(COOKIE_NAME)?.value
+  );
   if (!user) {
     return NextResponse.json(
       { ok: false, error: "Não autenticado." },

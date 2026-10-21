@@ -122,35 +122,35 @@ export default function SobreNosPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#d9e141] shrink-0 mt-1" aria-hidden="true" />
                     <span>
-                      <strong>Sede em Copacabana:</strong> Rua Barata Ribeiro, 543, Conj. 705 — Rio de Janeiro, RJ
+                      <strong>Sede em Copacabana (Grupo Ícone-Rio):</strong> Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010 (CNPJ 02.634.709/0001-74)
                     </span>
                   </li>
                 </ul>
 
                 <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-4">
                   <Image
-                    src="/wp-content/uploads/2021/10/Design-sem-nome-4.png"
+                    src="/wp-content/uploads/2025/07/CRA.jpg"
                     alt="Registro CRA-RJ"
                     width={64}
                     height={64}
                     className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
                   />
                   <Image
-                    src="/wp-content/uploads/2021/10/Design-sem-nome-3.png"
+                    src="/wp-content/uploads/2025/07/CRECI.jpg"
                     alt="Registro CRECI-RJ"
                     width={64}
                     height={64}
                     className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
                   />
                   <Image
-                    src="/wp-content/uploads/2021/10/Design-sem-nome-2.png"
-                    alt="Certificação Gábor RH"
+                    src="/wp-content/uploads/2025/07/TOWN.jpg"
+                    alt="Certificação TownSq"
                     width={64}
                     height={64}
                     className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
                   />
                   <Image
-                    src="/wp-content/uploads/2021/10/Design-sem-nome-5.png"
+                    src="/wp-content/uploads/2026/07/tokio.jpg"
                     alt="Seguros Tokio Marine e Akad"
                     width={64}
                     height={64}
