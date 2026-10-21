@@ -87,91 +87,93 @@ export default function SobreNosPage() {
             </div>
 
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-[#171c24] text-white rounded-xl p-7 border border-white/10 shadow-md space-y-5">
+              <div className="bg-[#eff4ff] text-[#0b1c30] rounded-2xl p-7 border border-[#dbe1ff] shadow-xs space-y-5">
                 <div className="flex items-center gap-3">
-                  <Award className="w-8 h-8 text-[#d9e141]" aria-hidden="true" />
+                  <div className="w-10 h-10 rounded-xl bg-[#131b2e] flex items-center justify-center">
+                    <Award className="w-5 h-5 text-[#d0f121]" aria-hidden="true" />
+                  </div>
                   <div>
-                    <h3 className="font-heading text-xl font-bold text-white">
+                    <h3 className="font-heading text-xl font-bold text-[#0b1c30]">
                       Credenciais Verificáveis
                     </h3>
-                    <p className="text-xs text-[#b8c0cc]">
+                    <p className="text-xs text-[#45464d]">
                       Regularidade Técnica e Jurídica no RJ
                     </p>
                   </div>
                 </div>
 
-                <ul className="space-y-3 text-sm text-[#d6dce5]">
+                <ul className="space-y-3 text-sm text-[#334155]">
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#d9e141] shrink-0 mt-1" aria-hidden="true" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
                       <strong>Conselho Regional de Administração:</strong> Registro PJ CRA-RJ nº {SITE_CONFIG.credentials.craRj}
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#d9e141] shrink-0 mt-1" aria-hidden="true" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
                       <strong>Conselho Regional de Corretores de Imóveis:</strong> Registro PJ CRECI-J nº {SITE_CONFIG.credentials.creciJ}
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#d9e141] shrink-0 mt-1" aria-hidden="true" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
                       <strong>Certificação Especializada:</strong> Síndico Profissional aprovado com louvor pela Gábor RH
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#d9e141] shrink-0 mt-1" aria-hidden="true" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
                       <strong>Sede em Copacabana (Grupo Ícone-Rio):</strong> Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010 (CNPJ 02.634.709/0001-74)
                     </span>
                   </li>
                 </ul>
 
-                <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-4">
+                <div className="pt-4 border-t border-[#dbe1ff] flex flex-wrap items-center gap-4">
                   <Image
                     src="/wp-content/uploads/2025/07/CRA.jpg"
                     alt="Registro CRA-RJ"
                     width={64}
                     height={64}
-                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
+                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"
                   />
                   <Image
                     src="/wp-content/uploads/2025/07/CRECI.jpg"
                     alt="Registro CRECI-RJ"
                     width={64}
                     height={64}
-                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
+                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"
                   />
                   <Image
                     src="/wp-content/uploads/2025/07/TOWN.jpg"
                     alt="Certificação TownSq"
                     width={64}
                     height={64}
-                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
+                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"
                   />
                   <Image
                     src="/wp-content/uploads/2026/07/tokio.jpg"
                     alt="Seguros Tokio Marine e Akad"
                     width={64}
                     height={64}
-                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5"
+                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"
                   />
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-xs">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#171c24] mb-2">
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6 shadow-xs">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0051d5] mb-2">
                   <Building2 className="w-4 h-4" aria-hidden="true" />
                   <span>Regiões de Atendimento</span>
                 </div>
-                <p className="text-sm text-[#4a525d] leading-relaxed">
+                <p className="text-sm text-[#45464d] leading-relaxed">
                   Atendemos condomínios na <strong>Zona Sul</strong> (Copacabana, Leme, Ipanema, Leblon, Botafogo, Flamengo, Laranjeiras, Catete, Glória, Humaitá, Lagoa, Gávea, Jardim Botânico), <strong>Barra da Tijuca</strong>, <strong>Tijuca</strong> e <strong>Grande Tijuca</strong>.
                 </p>
                 <Link
                   href="/contato/"
-                  className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#171c24] text-[#d9e141] font-bold text-xs uppercase tracking-wider py-3 px-4 rounded-md hover:bg-[#242c38] transition-colors"
+                  className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#0b1c30] text-white font-semibold text-xs uppercase tracking-wider py-3.5 px-4 rounded-lg hover:bg-[#131b2e] transition-colors"
                 >
-                  <PhoneCall className="w-4 h-4" aria-hidden="true" />
+                  <PhoneCall className="w-4 h-4 text-[#d0f121]" aria-hidden="true" />
                   <span>Agendar Apresentação ao Conselho</span>
                 </Link>
               </div>

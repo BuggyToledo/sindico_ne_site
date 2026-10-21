@@ -17,19 +17,19 @@ export function Breadcrumbs({ items, variant = "light" }: BreadcrumbsProps) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`text-xs sm:text-sm ${
-        isDark ? "text-[#b8c0cc]" : "text-[#5c6470]"
+      className={`text-xs sm:text-[13px] ${
+        isDark ? "text-[#b8c0cc]" : "text-[#45464d]"
       }`}
     >
       <ol className="flex flex-wrap items-center gap-1.5">
         <li>
           <Link
             href="/"
-            className={`inline-flex items-center gap-1 transition-colors ${
-              isDark ? "hover:text-[#d9e141]" : "hover:text-[#171c24]"
+            className={`inline-flex items-center gap-1 font-medium transition-colors ${
+              isDark ? "hover:text-[#d0f121]" : "hover:text-[#0051d5]"
             }`}
           >
-            <Home className="w-3.5 h-3.5 text-[#d9e141]" aria-hidden="true" />
+            <Home className="w-3.5 h-3.5 text-[#0051d5]" aria-hidden="true" />
             <span>Início</span>
           </Link>
         </li>
@@ -45,7 +45,7 @@ export function Breadcrumbs({ items, variant = "light" }: BreadcrumbsProps) {
                 <Link
                   href={item.href}
                   className={`transition-colors ${
-                    isDark ? "hover:text-[#d9e141]" : "hover:text-[#171c24]"
+                    isDark ? "hover:text-[#d0f121]" : "hover:text-[#0051d5]"
                   }`}
                 >
                   {item.label}
@@ -53,8 +53,8 @@ export function Breadcrumbs({ items, variant = "light" }: BreadcrumbsProps) {
               ) : (
                 <span
                   aria-current="page"
-                  className={`font-medium line-clamp-1 max-w-[260px] sm:max-w-md ${
-                    isDark ? "text-white" : "text-[#171c24]"
+                  className={`font-semibold line-clamp-1 max-w-[260px] sm:max-w-md ${
+                    isDark ? "text-white" : "text-[#0b1c30]"
                   }`}
                 >
                   {item.label}

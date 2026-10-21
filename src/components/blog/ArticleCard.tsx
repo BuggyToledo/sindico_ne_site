@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowRight, UserCheck } from "lucide-react";
 import type { Article } from "@/types/editorial";
 import { EDITORIAL_CATEGORIES, AUTHORS } from "@/data/site-config";
 
@@ -33,67 +32,89 @@ export function ArticleCard({
     year: "numeric",
   }).format(new Date(article.publishedAt));
 
-  return (
-    <article className="group bg-white rounded-xl border border-gray-200/90 overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col h-full">
-      <Link
-        href={href}
-        className="relative block aspect-[16/9] overflow-hidden bg-[#171c24]"
-      >
-        <Image
-          src={article.featuredImage.url}
-          alt={article.featuredImage.alt || article.title}
-          fill
-          priority={priority}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <span className="absolute top-3 left-3 bg-[#171c24]/90 backdrop-blur-xs text-[#d9e141] text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
-          {category.name}
-        </span>
-      </Link>
+  const initials = author.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
-      <div className="p-6 flex flex-col flex-1 justify-between">
-        <div>
-          <div className="flex flex-wrap items-center gap-3 text-xs text-[#68707c] mb-3">
-            <span className="inline-flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5 text-[#171c24]" aria-hidden="true" />
-              <time dateTime={article.publishedAt}>{formattedDate}</time>
-            </span>
-            <span>•</span>
-            <span className="inline-flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-[#171c24]" aria-hidden="true" />
-              <span>{article.readingTimeMinutes} min de leitura</span>
+  return (
+    <article className="group bg-white rounded-2xl border border-[#e2e8f0] shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between h-full hover:-translate-y-1">
+      <div>
+        <Link
+          href={href}
+          className="relative block h-52 w-full overflow-hidden bg-[#131b2e]"
+        >
+          <Image
+            src={article.featuredImage.url}
+            alt={article.featuredImage.alt || article.title}
+            fill
+            priority={priority}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute top-4 left-4 right-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#0051d5] font-bold text-[10px] uppercase tracking-[0.06em] shadow-xs">
+              {category.name}
             </span>
           </div>
+        </Link>
 
-          <h2 className="font-heading text-xl font-bold text-[#171c24] group-hover:text-[#2a3442] leading-snug line-clamp-2">
-            <Link href={href} className="hover:underline decoration-[#d9e141] decoration-2">
-              {article.title}
-            </Link>
-          </h2>
+        <div className="p-6">
+          <div className="flex items-center gap-2 text-[#45464d] font-bold text-[11px] uppercase tracking-[0.04em] mb-3">
+            <span
+              className="material-symbols-outlined text-[14px] text-[#0051d5]"
+              aria-hidden="true"
+            >
+              calendar_today
+            </span>
+            <time dateTime={article.publishedAt}>{formattedDate}</time>
+            <span>•</span>
+            <span
+              className="material-symbols-outlined text-[14px] text-[#0051d5]"
+              aria-hidden="true"
+            >
+              timer
+            </span>
+            <span>{article.readingTimeMinutes} min de leitura</span>
+          </div>
 
-          <p className="mt-2.5 text-sm text-[#5c6470] leading-relaxed line-clamp-3">
+          <h3 className="text-[18px] leading-[26px] font-bold text-[#0b1c30] mb-3 group-hover:text-[#0051d5] transition-colors line-clamp-2">
+            <Link href={href}>{article.title}</Link>
+          </h3>
+
+          <p className="text-[15px] text-[#45464d] line-clamp-3 mb-4 leading-relaxed">
             {article.excerpt}
           </p>
         </div>
+      </div>
 
-        <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between gap-2">
-          <Link
-            href={`/author/${author.slug}/`}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#4a525d] hover:text-[#171c24]"
-          >
-            <UserCheck className="w-3.5 h-3.5 text-[#171c24]" aria-hidden="true" />
-            <span>{author.name}</span>
-          </Link>
+      <div className="px-6 pb-6 pt-3 flex items-center justify-between border-t border-[#dce9ff]/80">
+        <Link
+          href={`/author/${author.slug}/`}
+          className="flex items-center gap-2 group/author"
+        >
+          <div className="w-7 h-7 rounded-full bg-[#131b2e] flex items-center justify-center text-white font-bold text-[11px]">
+            {initials}
+          </div>
+          <span className="font-semibold text-[12px] text-[#0b1c30] group-hover/author:text-[#0051d5] transition-colors">
+            {author.name}
+          </span>
+        </Link>
 
-          <Link
-            href={href}
-            className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#171c24] group-hover:translate-x-0.5 transition-transform"
+        <Link
+          href={href}
+          className="font-semibold text-[13px] text-[#0051d5] inline-flex items-center gap-1 hover:underline"
+        >
+          <span>Ler artigo</span>
+          <span
+            className="material-symbols-outlined text-[16px]"
+            aria-hidden="true"
           >
-            <span>Ler artigo</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#171c24]" aria-hidden="true" />
-          </Link>
-        </div>
+            arrow_right_alt
+          </span>
+        </Link>
       </div>
     </article>
   );

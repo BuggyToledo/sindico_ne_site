@@ -10,40 +10,41 @@ interface SubheaderProps {
 }
 
 /**
- * Matches BeTheme `#Subheader` dark navy hero banner with background image overlay
+ * Modern PropTech Corporate Light Subheader with ambient glow and crisp hierarchy.
  */
 export function Subheader({
   title,
   subtitle,
   badge,
   breadcrumbs,
-  backgroundImage = "/wp-content/uploads/2019/10/cityhall-subheader1.jpg",
 }: SubheaderProps) {
   return (
-    <section
-      className="relative bg-[#171c24] text-white overflow-hidden border-b border-white/10"
-      style={{
-        backgroundImage: `linear-gradient(to right, rgba(23, 28, 36, 0.92), rgba(23, 28, 36, 0.78)), url('${backgroundImage}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+    <section className="relative bg-gradient-to-b from-[#eff4ff] via-white to-[#f8f9ff] text-[#0b1c30] overflow-hidden border-b border-[#dbe1ff]/80">
+      <div
+        className="pointer-events-none absolute -top-20 left-1/3 w-[640px] h-[280px] bg-[#dbe1ff]/45 rounded-full blur-3xl -z-10"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute top-10 right-10 w-64 h-64 bg-[#d0f121]/20 rounded-full blur-3xl -z-10"
+        aria-hidden="true"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-12 sm:py-16">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <div className="mb-4">
-            <Breadcrumbs items={breadcrumbs} variant="dark" />
+            <Breadcrumbs items={breadcrumbs} variant="light" />
           </div>
         )}
         {badge && (
-          <span className="inline-block bg-[#d9e141] text-[#171c24] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-3">
+          <span className="inline-flex items-center gap-1.5 bg-[#d0f121] text-[#181e00] text-[11px] font-bold uppercase tracking-[0.08em] px-3.5 py-1 rounded-full mb-3 shadow-xs">
             {badge}
           </span>
         )}
-        <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white max-w-4xl leading-tight">
+        <h1 className="text-[28px] sm:text-[38px] lg:text-[44px] font-extrabold tracking-[-0.025em] text-[#0b1c30] max-w-4xl leading-tight">
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-4 text-base sm:text-lg text-[#d0d6df] max-w-3xl leading-relaxed">
+          <p className="mt-4 text-[16px] sm:text-[18px] text-[#45464d] max-w-3xl leading-relaxed">
             {subtitle}
           </p>
         )}

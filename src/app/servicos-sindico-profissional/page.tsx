@@ -151,22 +151,24 @@ export default function ServicosPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-14 bg-[#171c24] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
-          <h2 className="font-heading text-3xl font-bold">
-            Seu condomínio enfrenta desafios semelhantes?
-          </h2>
-          <p className="text-[#c2c7ce] text-base">
-            Solicite um diagnóstico técnico e conheça nossa proposta de trabalho para o seu condomínio.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contato/"
-              className="inline-flex items-center gap-2 bg-[#d9e141] text-[#171c24] font-bold text-sm px-7 py-3.5 rounded-md hover:bg-[#c5cd32] transition-colors"
-            >
-              <PhoneCall className="w-4 h-4" aria-hidden="true" />
-              <span>Solicitar Diagnóstico Condominial</span>
-            </Link>
+      <section className="py-16 bg-[#eff4ff] border-t border-[#dbe1ff]/60">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#e2e8f0] shadow-md space-y-4">
+            <h2 className="font-heading text-3xl font-bold text-[#0b1c30]">
+              Seu condomínio enfrenta desafios semelhantes?
+            </h2>
+            <p className="text-[#45464d] text-base max-w-2xl mx-auto">
+              Solicite um diagnóstico técnico e conheça nossa proposta de trabalho para o seu condomínio.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/contato/"
+                className="inline-flex items-center gap-2 bg-[#0b1c30] text-white font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-[#131b2e] transition-colors shadow-sm"
+              >
+                <PhoneCall className="w-4 h-4 text-[#d0f121]" aria-hidden="true" />
+                <span>Solicitar Diagnóstico Condominial</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -40,7 +40,7 @@ export function ContactForm() {
         setStatus("error");
         setFeedback(
           data.error ||
-            "Não foi possível enviar sua mensagem. Por favor, tente novamente ou fale conosco pelo WhatsApp (21) 96898-8668."
+            "Não foi possível enviar sua mensagem. Por favor, tente novamente ou fale conosco pelo WhatsApp (21) 97878-8211."
         );
         return;
       }
@@ -62,7 +62,7 @@ export function ContactForm() {
     } catch {
       setStatus("error");
       setFeedback(
-        "Erro de conexão ao enviar o formulário. Você também pode falar diretamente pelo WhatsApp (21) 96898-8668."
+        "Erro de conexão ao enviar o formulário. Você também pode falar diretamente pelo WhatsApp (21) 97878-8211."
       );
     }
   }
@@ -70,17 +70,17 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-sm space-y-5"
+      className="bg-white rounded-2xl border border-[#e2e8f0] p-6 sm:p-8 shadow-sm space-y-5"
       noValidate={false}
     >
       <div>
-        <span className="text-xs font-bold uppercase tracking-widest text-[#171c24] bg-[#d9e141] px-2.5 py-1 rounded">
+        <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-[#181e00] bg-[#d0f121] px-3 py-1 rounded-full">
           Atendimento Direto
         </span>
-        <h2 className="font-heading text-2xl font-bold text-[#171c24] mt-2">
+        <h2 className="font-heading text-2xl font-bold text-[#0b1c30] mt-2.5">
           Envie uma Mensagem ou Solicite uma Proposta
         </h2>
-        <p className="text-sm text-[#5c6470] mt-1">
+        <p className="text-sm text-[#45464d] mt-1">
           Preencha os dados abaixo para agendar uma conversa ou diagnóstico do seu condomínio.
         </p>
       </div>
@@ -258,9 +258,9 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#171c24] hover:bg-[#242c38] disabled:opacity-60 text-[#d9e141] font-bold text-sm px-8 py-3.5 rounded-md transition-colors shadow-sm cursor-pointer"
+        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0b1c30] hover:bg-[#131b2e] disabled:opacity-60 text-white font-semibold text-sm px-8 py-3.5 rounded-lg transition-colors shadow-sm cursor-pointer"
       >
-        <Send className="w-4 h-4" aria-hidden="true" />
+        <Send className="w-4 h-4 text-[#d0f121]" aria-hidden="true" />
         <span>
           {status === "submitting" ? "Enviando mensagem..." : "Enviar Mensagem"}
         </span>

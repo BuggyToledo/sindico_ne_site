@@ -88,17 +88,17 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(globalJsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#f4f6f8] text-[#2b313a] antialiased">
+      <body className="min-h-screen flex flex-col bg-[#f8f9ff] text-[#0b1c30] antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-[#d9e141] focus:text-[#171c24] focus:px-4 focus:py-2 focus:rounded focus:font-bold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-[#d0f121] focus:text-[#0b1c30] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
         >
           Pular para o conteúdo principal
         </a>
