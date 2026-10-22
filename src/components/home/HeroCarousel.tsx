@@ -29,7 +29,7 @@ const HERO_SLIDES = [
     badge: "SÍNDICO PROFISSIONAL NO RIO DE JANEIRO",
     title: "Administração Condominial Profissional, Transparente e Segura",
     subtitle:
-      "Atuação técnica registrada no CRA-RJ (03-06783) e CRECI-J (12.974), com apólice de responsabilidade civil de até R$ 2.000.000,00 para tranquilidade total dos condôminos.",
+      "Atuação técnica registrada no CRA-RJ (03-06783), com apólice de responsabilidade civil de até R$ 2.000.000,00 para tranquilidade total dos condôminos.",
     primaryCta: {
       label: "Solicitar Diagnóstico",
       href: "/contato/",
@@ -136,10 +136,6 @@ export function HeroCarousel() {
                 <span className="inline-flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                   CRA-RJ {SITE_CONFIG.credentials.craRj} Ativo
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#0051d5]" />
-                  CRECI-J {SITE_CONFIG.credentials.creciJ} Homologado
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#b5d300]" />

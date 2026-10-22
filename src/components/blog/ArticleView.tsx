@@ -423,8 +423,7 @@ export function ArticleView({
                     aria-hidden="true"
                   />
                   <span>
-                    Registro ativo no <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong> e{" "}
-                    <strong>CRECI-J ({SITE_CONFIG.credentials.creciJ})</strong>
+                    Registro ativo no <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong>
                   </span>
                 </li>
                 <li className="flex items-start gap-2">

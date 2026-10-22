@@ -41,15 +41,6 @@ export function Footer() {
                   className="material-symbols-outlined text-[15px] text-[#0051d5]"
                   aria-hidden="true"
                 >
-                  domain_verification
-                </span>
-                CRECI-J: {SITE_CONFIG.credentials.creciJ}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[15px] text-[#0051d5]"
-                  aria-hidden="true"
-                >
                   verified_user
                 </span>
                 Seguro RC Síndico e Empresa
@@ -237,7 +228,15 @@ export function Footer() {
         <div className="mt-10 pt-6 border-t border-[#e2e8f0] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-[13px] text-[#45464d]">
           <div className="space-y-1 leading-relaxed">
             <p className="font-bold text-[#0b1c30] text-[14px]">
-              Síndico Né! · Uma empresa Grupo Ícone-Rio
+              Síndico Né! ·{" "}
+              <a
+                href="https://www.icone-rio.com.br/"
+                target="_blank"
+                rel="noopener"
+                className="hover:underline"
+              >
+                Uma empresa Grupo Ícone-Rio
+              </a>
             </p>
             <p className="text-[#64748b] pt-0.5">
               © 2026 Grupo Ícone-Rio. Todos os direitos reservados.

@@ -12,7 +12,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 export const metadata: Metadata = {
   title: "Síndico Profissional na Zona Sul do RJ - Síndico Né!",
   description:
-    "Conheça a história, credenciais (CRA-RJ 03-06783 e CRECI-J 12.974) e metodologia do Síndico Né! para administração condominial profissional na Zona Sul, Barra da Tijuca e Tijuca.",
+    "Conheça a história, credenciais (CRA-RJ 03-06783) e metodologia do Síndico Né! para administração condominial profissional na Zona Sul, Barra da Tijuca e Tijuca.",
   alternates: {
     canonical: "https://www.sindicone.com.br/sindico-profissional-na-zona-sul-do-rj/",
   },
@@ -68,9 +68,8 @@ export default function SobreNosPage() {
               </p>
 
               <p className="text-[#3b424d] text-base leading-relaxed">
-                Diferente de atuações informais, o <strong>Síndico Né!</strong> opera como pessoa jurídica regularmente inscrita nos órgãos fiscalizadores:{" "}
-                <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong> e{" "}
-                <strong>CRECI-J ({SITE_CONFIG.credentials.creciJ})</strong>, garantindo respaldo institucional completo aos condomínios contratantes.
+                Diferente de atuações informais, o <strong>Síndico Né!</strong> opera como pessoa jurídica regularmente inscrita no órgão fiscalizador:{" "}
+                <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong>, garantindo respaldo institucional completo aos condomínios contratantes.
               </p>
 
               <div className="bg-[#f4f6f8] border-l-4 border-[#171c24] p-5 rounded-r-xl space-y-2">
@@ -112,12 +111,6 @@ export default function SobreNosPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
-                      <strong>Conselho Regional de Corretores de Imóveis:</strong> Registro PJ CRECI-J nº {SITE_CONFIG.credentials.creciJ}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
-                    <span>
                       <strong>Certificação Especializada:</strong> Síndico Profissional aprovado com louvor pela Gábor RH
                     </span>
                   </li>
@@ -133,13 +126,6 @@ export default function SobreNosPage() {
                   <Image
                     src="/wp-content/uploads/2025/07/CRA.jpg"
                     alt="Registro CRA-RJ"
-                    width={64}
-                    height={64}
-                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"
-                  />
-                  <Image
-                    src="/wp-content/uploads/2025/07/CRECI.jpg"
-                    alt="Registro CRECI-RJ"
                     width={64}
                     height={64}
                     className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"

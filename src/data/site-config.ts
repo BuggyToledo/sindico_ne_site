@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   tagline: "Valorização do Patrimônio, Síndico Profissional",
   defaultTitle: "Síndico Profissional no Rio de Janeiro - Síndico Né! | (21) 97878-8211",
   description:
-    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783, CRECI-J nº 12.974 e Seguro de Responsabilidade Civil de até R$ 2 milhões.",
+    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783 e Seguro de Responsabilidade Civil de até R$ 2 milhões.",
   siteTitleSuffix: "Síndico Né! | (21) 97878-8211",
   url: "https://www.sindicone.com.br",
   locale: "pt_BR",
@@ -37,7 +37,6 @@ export const SITE_CONFIG = {
   },
   credentials: {
     craRj: "03-06783",
-    creciJ: "12.974",
     founder: "Adriano Toledo",
     founderRole: "Síndico Profissional e Administrador (CRA-RJ 03-06783)",
     insuranceCoverage: "R$ 2.000.000,00 (Tokio Marine PJ + Akad PF)",
@@ -242,16 +241,6 @@ export const SITE_CONFIG = {
       height: 300,
     },
     {
-      id: "creci-juridico",
-      title: "CRECI-Jurídico",
-      description: "Experiência em gestão imobiliária CRECI J - nº 12.974",
-      image: "/wp-content/uploads/2025/07/CRECI.jpg",
-      imageUrl: "/wp-content/uploads/2025/07/CRECI.jpg",
-      alt: "Conselho Regional de Corretores de Imóveis - CRECI Jurídico nº 12.974",
-      width: 300,
-      height: 300,
-    },
-    {
       id: "syndic-crm",
       title: "Syndic CRM",
       description: "Tecnologia e inovação na gestão condominial",
@@ -386,7 +375,6 @@ const ADRIANO_AUTHOR: EditorialAuthor = {
   role: "Síndico Profissional e Gestor da Síndico Né!",
   credentials: [
     "Administrador registrado no CRA-RJ nº 03-06783",
-    "Gestão Imobiliária CRECI-J nº 12.974",
     "Certificação em Gestão Condominial TownSq",
     "Seguro RC Profissional Tokio Marine + Akad (R$ 2 milhões)",
   ],

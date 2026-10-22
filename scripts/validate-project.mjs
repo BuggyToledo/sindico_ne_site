@@ -52,8 +52,8 @@ async function runValidation() {
     ? fs.readFileSync(llmsPath, "utf-8")
     : "";
   check(
-    "GEO Structured File (public/llms.txt) with CRA-RJ & CRECI-J credentials",
-    llmsContent.includes("03-06783") && llmsContent.includes("12.974"),
+    "GEO Structured File (public/llms.txt) with CRA-RJ credential and no CRECI",
+    llmsContent.includes("03-06783") && !/creci|12\.974/i.test(llmsContent),
     `${llmsContent.length} bytes`
   );
 

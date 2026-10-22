@@ -42,8 +42,7 @@ export default function PoliticaDePrivacidadePage() {
               <strong>https://www.sindicone.com.br</strong>, mantido por{" "}
               <strong>{SITE_CONFIG.legalName}</strong>, com sede na{" "}
               {SITE_CONFIG.address.fullDisplay}, registrada no CRA-RJ sob o nº{" "}
-              {SITE_CONFIG.credentials.craRj} e no CRECI-J sob o nº{" "}
-              {SITE_CONFIG.credentials.creciJ}.
+              {SITE_CONFIG.credentials.craRj}.
             </p>
 
             <h2>2. Quais Dados Pessoais Coletamos e Por Quê</h2>

@@ -12,7 +12,7 @@ import { getAllArticles } from "@/lib/cms/store";
 export const metadata: Metadata = {
   title: "Síndico Profissional no Rio de Janeiro - Síndico Né!",
   description:
-    "Síndico Profissional no Rio de Janeiro (Copacabana, Zona Sul, Barra da Tijuca e Tijuca). Gestão condominial com registro no CRA-RJ (03-06783), CRECI-J (12.974) e Seguro de Responsabilidade Civil até R$ 2 milhões.",
+    "Síndico Profissional no Rio de Janeiro (Copacabana, Zona Sul, Barra da Tijuca e Tijuca). Gestão condominial com registro no CRA-RJ (03-06783) e Seguro de Responsabilidade Civil até R$ 2 milhões.",
   alternates: {
     canonical: "https://www.sindicone.com.br/",
   },
@@ -83,10 +83,6 @@ export default async function HomePage() {
                   Somos empresa regularmente registrada no{" "}
                   <strong className="text-[#0b1c30]">
                     CRA-RJ ({SITE_CONFIG.credentials.craRj})
-                  </strong>{" "}
-                  e no{" "}
-                  <strong className="text-[#0b1c30]">
-                    CRECI-J ({SITE_CONFIG.credentials.creciJ})
                   </strong>
                   , contando com seguro de responsabilidade civil profissional
                   de até{" "}

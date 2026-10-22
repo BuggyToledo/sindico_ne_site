@@ -162,8 +162,7 @@ export default function ContatoPage() {
                     <span>Garantia Técnica e Registro Profissional</span>
                   </div>
                   <p className="font-medium text-[#0b1c30]">
-                    CRA-RJ nº {SITE_CONFIG.credentials.craRj} | CRECI-J nº{" "}
-                    {SITE_CONFIG.credentials.creciJ}
+                    CRA-RJ nº {SITE_CONFIG.credentials.craRj}
                   </p>
                   <p>
                     Seguro de Responsabilidade Civil Síndico de até R$ 2.000.000,00 (Tokio Marine / Akad)
