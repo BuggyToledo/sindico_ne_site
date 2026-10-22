@@ -1,8 +1,11 @@
 # ESTRATÉGIA EDITORIAL E PLANO DE CONTEÚDO (`EDITORIAL_STRATEGY.md`)
 
+> **Regra do grupo:** o CRECI J 12.974 é da **Direct Houses** e **não se usa** no site da Síndico Né!. Adriano atua aqui como **síndico profissional** (CRA-RJ 03-06783), não como corretor de imóveis.
+
+
 **Projeto:** Blog e Hub de Autoridade — Síndico Né! (`sindicone.com.br`)  
 **Foco Geográfico e Comercial:** Condomínios Residenciais, Comerciais e Misto na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico, Leme, Leblon, Humaitá, Laranjeiras, Catete, Glória e Gávea).  
-**Responsável Técnico e Editorial:** Adriano Toledo (Síndico Profissional, Administrador CRA-RJ nº `03-06783`, CRECI-J nº `12.974`).
+**Responsável Técnico e Editorial:** Adriano Toledo (Síndico Profissional, Administrador CRA-RJ nº `03-06783`).
 
 ---
 
@@ -29,7 +32,7 @@ O blog do Síndico Né! atende quatro perfis reais de leitores na jornada de dec
 | Estágio do Funil | Intenção de Busca | Exemplos de Termos de Busca | Papel do Conteúdo |
 |---|---|---|---|
 | **Fundo de Funil (Transacional / Comercial Local)** | Contratar síndico profissional ou consultoria no RJ | `síndico profissional zona sul rj`, `síndico profissional copacabana`, `empresa de síndico profissional rio de janeiro`, `auditoria de contratos condomínio rj` | Direcionar imediatamente para `/sindico-profissional-na-zona-sul-do-rj/`, `/servicos-sindico-profissional/`, `/servico-item/*` e `/contato/`. |
-| **Meio de Funil (Investigação Comercial)** | Avaliar custo, formato de trabalho, vantagens e processo de contratação | `quanto ganha um síndico profissional no rj`, `carga horária síndico profissional`, `síndico profissional ou morador`, `como contratar síndico profissional` | Demonstrar transparência, explicar modelos (presencial, híbrido, sob demanda), comprovar credenciais (CRA-RJ, CRECI-J, Seguro R$ 2M) e converter em pedido de diagnóstico/proposta. |
+| **Meio de Funil (Investigação Comercial)** | Avaliar custo, formato de trabalho, vantagens e processo de contratação | `quanto ganha um síndico profissional no rj`, `carga horária síndico profissional`, `síndico profissional ou morador`, `como contratar síndico profissional` | Demonstrar transparência, explicar modelos (presencial, híbrido, sob demanda), comprovar credenciais (CRA-RJ, Seguro R$ 2M) e converter em pedido de diagnóstico/proposta. |
 | **Topo de Funil (Informativo / Jurídico-Operacional)** | Resolver dúvidas práticas de legislação, finanças, obras e trabalho | `risco jurídico reforma de fachada condomínio`, `quem paga condomínio inquilino ou proprietário`, `escala 6x1 portaria condomínio clt`, `o que é condomínio edilício` | Atrair tráfego qualificado, conquistar citações em mecanismos de IA (GEO) e introduzir a gestão profissional como solução preventiva. |
 
 ---
@@ -236,10 +239,10 @@ Todo artigo informativo deve operar como uma ponte qualificada para as páginas 
 - **Perguntas Reais a Responder:**
   1. Qual a diferença entre o seguro obrigatório da edificação (Art. 1.346 do Código Civil) e a cobertura de Responsabilidade Civil Profissional (RC Síndico)?
   2. Como as apólices de RC Pessoa Jurídica e Pessoa Física protegem o patrimônio do condomínio em caso de sinistros ou falhas operacionais?
-  3. Por que verificar o registro ativo no CRA-RJ e a experiência imobiliária (CRECI-J) ao selecionar propostas de sindicância profissional?
+  3. Por que verificar o registro ativo no CRA-RJ ao selecionar propostas de sindicância profissional?
 - **Fontes Necessárias:** Código Civil (Art. 1.346); SUSEP (normas de seguro condominial e RC); Conselho Regional de Administração do Rio de Janeiro (CRA-RJ).
 - **Links Internos Sugeridos:** `/sindico-profissional-na-zona-sul-do-rj/`, `/contratacao-de-um-sindico-profissional/` e `/a-fachada-do-seu-condominio-pode-ser-o-maior-risco-juridico-do-sindico/`.
-- **Oportunidade de Conversão:** Destaque direto para as credenciais reais da Síndico Né! (CRA-RJ `03-06783`, CRECI-J `12.974`, Tokio Marine R$ 1M + Akad Seguro R$ 1M).
+- **Oportunidade de Conversão:** Destaque direto para as credenciais reais da Síndico Né! (CRA-RJ `03-06783`, Tokio Marine R$ 1M + Akad Seguro R$ 1M).
 
 ---
 

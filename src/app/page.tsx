@@ -75,8 +75,8 @@ export default async function HomePage() {
                   nasceu para profissionalizar a gestão de condomínios
                   residenciais, comerciais e mistos no Rio de Janeiro. Liderado
                   por <strong className="text-[#0b1c30]">Adriano Toledo</strong>{" "}
-                  — Síndico Profissional certificado com louvor pela Gábor RH,
-                  Administrador e Corretor de Imóveis —, nosso trabalho une
+                  — Síndico Profissional certificado com louvor pela Gábor RH
+                  e Administrador —, nosso trabalho une
                   rigor financeiro, manutenção preventiva e diálogo construtivo.
                 </p>
                 <p>

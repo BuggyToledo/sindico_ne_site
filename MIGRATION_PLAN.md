@@ -1,5 +1,8 @@
 # PLANO DE MIGRAÇÃO E MODERNIZAÇÃO — SÍNDICO NÉ! (`sindicone.com.br`)
 
+> **Regra do grupo:** o CRECI J 12.974 é da **Direct Houses** e **não se usa** no site da Síndico Né!. Adriano atua aqui como **síndico profissional** (CRA-RJ 03-06783), não como corretor de imóveis.
+
+
 **Data da Auditoria:** 20 de Outubro de 2026  
 **Domínio Auditado:** `https://www.sindicone.com.br/`  
 **Escopo da Fase 1:** Auditoria Integral (URLs, Conteúdo, Design System, Arquitetura, Performance, SEO Técnico, SEO Local, GEO, Funcionalidades) e Planejamento Arquitetural para Reconstrução em Next.js + React + TypeScript.
@@ -207,7 +210,7 @@ Todo o conteúdo textual das 35 páginas foi extraído e arquivado sem abreviaç
      1. **TOKIO MARINE** (`tokio.jpg`): *"Cobertura pessoa jurídica até 1 MILHÃO de Reais"*
      2. **AKAD SEGURO** (`AKAD.jpg`): *"Cobertura pessoa física até 1 MILHÃO de Reais"*
      3. **CRA-RJ** (`CRA.jpg`): *"Administrador registrado CRA número 03-06783 - Rio de Janeiro"*
-     4. **CRECI-Jurídico** (`CRECI.jpg`): *"Experiência em gestão imobiliária CRECI J - nº 12.974"*
+     4. ~~CRECI-Jurídico~~ — **removido**: o CRECI J 12.974 é da Direct Houses e não se usa na Síndico Né!.
      5. **SIN ICONDEV** (`Ativo-2@2x.png`): *"Tecnologia e inovação na gestão condominial"*
      6. **TOWNSQ** (`TOWN.jpg`): *"Curso em gestão condominial"*
 7. **Seção "O QUE VOCÊ ESTÁ PROCURANDO?" (Grade de 8 Serviços em 2 Colunas):**
@@ -319,7 +322,7 @@ Foram catalogados todos os ativos públicos em `/wp-content/uploads/`:
 | **Ícones de Atalhos** | `2019/10/cityhall-shortcuts-icon1.png`<br>`2019/10/cityhall-shortcuts-icon2.png`<br>`2019/10/cityhall-shortcuts-icon4.png` | `38x32`<br>`38x32`<br>`33x32` | PNG | Ícones dos 4 cards da faixa de atalhos rápidos. |
 | **Pino do Mapa** | `2019/10/cityhall-contact-pin.png` | `50x50` | PNG | Marcador customizado no Google Maps da página `/contato/`. |
 | **Foto Institucional** | `2025/07/ChatGPT-Image-18-de-jul.-de-2025-06_59_00.png` | `1024x1536` | PNG | Foto institucional de Adriano Toledo na página `/sindico-profissional-na-zona-sul-do-rj/`. |
-| **Certificados / Selos** | `2026/07/tokio.jpg`<br>`2025/07/AKAD.jpg`<br>`2025/07/CRA.jpg`<br>`2025/07/CRECI.jpg`<br>`2026/07/Ativo-2@2x.png`<br>`2025/07/TOWN.jpg` | `900x900`<br>`300x300`<br>`300x300`<br>`300x300`<br>`1043x1043`<br>`300x300` | JPEG / PNG | Seção "AUTORIDADE E CONFIANÇA" na Home (Tokio Marine, Akad Seguro, CRA-RJ, CRECI-J, SIN Icondev, TownSq). |
+| **Certificados / Selos** | `2026/07/tokio.jpg`<br>`2025/07/AKAD.jpg`<br>`2025/07/CRA.jpg`<br>`2026/07/Ativo-2@2x.png`<br>`2025/07/TOWN.jpg` | `900x900`<br>`300x300`<br>`300x300`<br>`1043x1043`<br>`300x300` | JPEG / PNG | Seção "AUTORIDADE E CONFIANÇA" na Home (Tokio Marine, Akad Seguro, CRA-RJ, SIN Icondev, TownSq). |
 | **Rodapé (App SIN)** | `2026/07/only-Logo-SIN-Full-NOVA.png`<br>`2026/07/disponivel-na-app-store-botao-scaled-e1785252591642.png`<br>`2026/07/googleplay-e1785252567698.png` | `400x225`<br>`535x158`<br>`535x163` | PNG | Coluna 3 do Rodapé ("Acesso via site" + botões App Store e Google Play). |
 | **Cases (`/servico-item/*`)** | `2025/07/2151953950.jpg` (`auditoria-de-contratos`)<br>`2025/07/2166.jpg` (`reducao-de-custos`)<br>`2025/07/2151957111.jpg` (`planejamento-orcamentario`)<br>`2025/07/121191.jpg` (`assembleia-condominial`)<br>`2025/07/662.jpg` (`gestao-de-fornecedores`)<br>`2025/07/2150440960.jpg` e `2147842995.jpg` (`apoio-tecnico-ao-conselho-fiscal`)<br>`2025/07/3881.jpg` (`transicao-de-sindico`)<br>`2025/07/20242.jpg` (`mediacao-moradores-e-zeladoria`) | `667x1000` a `1000x1000` | JPEG | Imagens principais e de galeria dos 8 estudos de caso. |
 | **Artigos do Blog** | `2026/06/7566.jpg`, `147.jpg`, `21421.jpg` (`post_fachada`)<br>`2026/06/escala-6x.webp` (`post_escala_6x1`)<br>`2026/05/Captura-de-tela-de-2026-05-16-06-43-33.png` + 6 capturas (`post_parceria_forneria`)<br>`2026/03/mini-house-stack-coins-with-green-blur-scaled-e1773999796910.jpg` + `rmb-coins-stacked...jpg` (`post_quem_paga`)<br>`2026/03/framing-landscape-while-traveling-scaled-e1773914521806.jpg` (`post_o_que_e_condominio`)<br>`2025/07/sindico-profissional.jpg` (`post_por_que_contratar`)<br>`2025/07/aproxime-se-de-uma-pessoa-sorridente-na-sala-de-conferencias.webp`, `Sindico_Profissional.webp`, `Sindico_Profissional_reuniao.webp` (`post_o_que_faz`)<br>`2025/07/1743.jpg`, `contrato-sindico.webp` (`post_contratacao`)<br>`2026/03/29440.jpg` (`post_profissional_ou_morador`)<br>`2025/06/29310.jpg`, `horario-sindico.webp`, `carga-horaria-sindico.webp` (`post_carga_horaria`)<br>`2019/10/cityhall-blog-pic1.jpg`, `dinheiro-sindico.webp`, `sindico-dinheiro.webp` (`post_quanto_ganha`) | `680x853` a `2000x2000` | JPEG / WebP / PNG | Imagens destacadas (`og:image` / hero do post) e imagens internas do corpo dos 11 artigos. |
@@ -446,10 +449,10 @@ A análise técnica do HTML, árvore de recursos e cabeçalhos de rede revelou *
   - O arquivo `/locations.kml` gerado pelo Rank Math está **totalmente vazio** (`<address></address>`, `<phoneNumber></phoneNumber>`, `<coordinates></coordinates>`).
   - O JSON-LD atual utiliza apenas `@type: "Organization"` genérico, sem declarar endereço físico, coordenadas geográficas, telefone, horário de atendimento, faixa de preço ou bairros atendidos.
 - **Otimização Planejada no Next.js:**
-  - Implementar JSON-LD rico do tipo `ProfessionalService` e `LocalBusiness` (subtipo de `RealEstateAgent` / `LegalService` / `ProfessionalService`) contendo:
+  - Implementar JSON-LD rico do tipo `ProfessionalService` e `LocalBusiness` (sem `RealEstateAgent`) contendo:
     - **Nome Oficial:** `Síndico Né! — Gestão Condominial e Síndico Profissional`
     - **Razão Social / Mantenedora:** `Ícone-Rio Ltda`
-    - **Responsável Técnico (`founder` / `employee`):** `Adriano Toledo` (Administrador CRA-RJ nº `03-06783`, CRECI-J nº `12.974`).
+    - **Responsável Técnico (`founder` / `employee`):** `Adriano Toledo` (Síndico Profissional, Administrador CRA-RJ nº `03-06783`).
     - **Endereço (`PostalAddress`):** `Rua Xavier da Silveira, 45, Sala 1009, Copacabana, Rio de Janeiro - RJ, CEP 22061-010, Brasil`.
     - **Coordenadas (`GeoCoordinates`):** `latitude: -22.9765877`, `longitude: -43.1906181`.
     - **Telefone:** `+55-21-97878-8211` | **E-mail:** `contato@sindicone.com.br`.
@@ -462,9 +465,9 @@ A análise técnica do HTML, árvore de recursos e cabeçalhos de rede revelou *
 Para posicionar a **Síndico Né!** como a principal fonte citada por **Google AI Overviews (SGE), ChatGPT Search, Perplexity, Claude e Gemini** quando usuários pesquisarem por *"síndico profissional Zona Sul RJ"*, *"quanto custa síndico profissional no Rio de Janeiro"*, *"síndico profissional Copacabana"* ou *"quem paga condomínio inquilino ou proprietário"*:
 
 1. **Implementação de `/llms.txt` e `/llms-full.txt`:**
-   - Criar na raiz do projeto o padrão aberto `/llms.txt` contendo o resumo estruturado em Markdown da empresa, credenciais verificáveis (CRA-RJ `03-06783`, CRECI-J `12.974`, apólices Tokio Marine e Akad de R$ 2 milhões), endereço em Copacabana, serviços oferecidos, estudos de caso com métricas reais (ex.: *redução de 20% nas despesas fixas em Copacabana*, *redução de 80% nas reclamações internas em 1 trimestre*, *remuneração média no RJ entre R$ 2.000 e R$ 8.000/mês e carga horária de 12h a 32h mensais*) e links canônicos para todas as páginas.
+   - Criar na raiz do projeto o padrão aberto `/llms.txt` contendo o resumo estruturado em Markdown da empresa, credenciais verificáveis (CRA-RJ `03-06783`, apólices Tokio Marine e Akad de R$ 2 milhões), endereço em Copacabana, serviços oferecidos, estudos de caso com métricas reais (ex.: *redução de 20% nas despesas fixas em Copacabana*, *redução de 80% nas reclamações internas em 1 trimestre*, *remuneração média no RJ entre R$ 2.000 e R$ 8.000/mês e carga horária de 12h a 32h mensais*) e links canônicos para todas as páginas.
 2. **Dados Estruturados Semânticos Avançados (Schema.org JSON-LD por Página):**
-   - **Home e Página Síndico:** `ProfessionalService` + `LocalBusiness` + `Person` (Adriano Toledo com `hasCredential` CRA-RJ e CRECI-J) + `FAQPage` + `BreadcrumbList`.
+   - **Home e Página Síndico:** `ProfessionalService` + `LocalBusiness` + `Person` (Adriano Toledo com `hasCredential` CRA-RJ) + `FAQPage` + `BreadcrumbList`.
    - **Páginas de Serviços (`/servico-item/*`):** `Service` + `Article` (Case Study) + `BreadcrumbList`.
    - **Artigos do Blog:** `BlogPosting` / `Article` com `author` (`Person`: Adriano Toledo), `citation` (referenciando as leis oficiais citadas no texto: Lei 10.406/2002, Lei 8.245/1991, CLT Art. 67), `datePublished`, `dateModified` e `FAQPage` extraído das perguntas reais do texto.
 3. **HTML Semântico Nativo para Extração por LLMs:**
@@ -585,7 +588,7 @@ novo-site-sindico-ne/
     │   │   └── ShortcutStrip.tsx   # Faixa de 4 cartões sobrepostos (-80px margin-top)
     │   ├── home/
     │   │   ├── HeroCarousel.tsx    # Carrossel Hero leve em CSS/React (substitui RevSlider)
-    │   │   ├── TrustBadges.tsx     # Seção Autoridade e Confiança (Tokio Marine, Akad, CRA, CRECI, SIN, TownSq)
+    │   │   ├── TrustBadges.tsx     # Seção Autoridade e Confiança (Tokio Marine, Akad, CRA, SIN, TownSq)
     │   │   └── ServicesGrid.tsx    # Grade de 8 serviços (agora com links funcionais!)
     │   ├── blog/
     │   │   ├── PostCard.tsx

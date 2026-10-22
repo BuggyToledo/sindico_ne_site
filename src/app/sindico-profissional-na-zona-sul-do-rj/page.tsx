@@ -64,7 +64,7 @@ export default function SobreNosPage() {
 
               <p className="text-[#3b424d] text-base leading-relaxed">
                 Para oferecer o mais alto padrão técnico ao mercado condominial carioca, Adriano Toledo graduou-se e especializou-se, obtendo certificação de{" "}
-                <strong>Síndico Profissional aprovado com louvor pela Gábor RH</strong>, além de manter registros profissionais ativos como Administrador e Corretor de Imóveis.
+                <strong>Síndico Profissional aprovado com louvor pela Gábor RH</strong>, além de manter registro profissional ativo como Administrador no CRA-RJ.
               </p>
 
               <p className="text-[#3b424d] text-base leading-relaxed">
