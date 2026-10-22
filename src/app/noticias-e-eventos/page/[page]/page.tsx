@@ -1,11 +1,17 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { queryArticles, getAllArticles } from "@/lib/cms/store";
+import {
+  queryArticles,
+  getAllArticles,
+  getCategoriesWithCounts,
+  getTagsWithCounts,
+} from "@/lib/cms/store";
 import { Subheader } from "@/components/layout/Subheader";
 import { ShortcutStrip } from "@/components/layout/ShortcutStrip";
-import { ArticleCard } from "@/components/blog/ArticleCard";
+import { BlogSearchAndFilter } from "@/components/blog/BlogSearchAndFilter";
 import { Pagination } from "@/components/blog/Pagination";
+import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 
 export async function generateStaticParams() {
   const all = await getAllArticles({ includeUnpublished: false });
@@ -55,8 +61,26 @@ export default async function NoticiasPaginatedPage({
     notFound();
   }
 
+  const allPublished = await getAllArticles({ includeUnpublished: false });
+  const categories = getCategoriesWithCounts(allPublished);
+  const tags = getTagsWithCounts(allPublished);
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Início", url: "/" },
+    { name: "Notícias e Eventos", url: "/noticias-e-eventos/" },
+    {
+      name: `Página ${pageNum}`,
+      url: `/noticias-e-eventos/page/${pageNum}/`,
+    },
+  ]);
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <Subheader
         badge={`Notícias e Eventos — Página ${pageNum} de ${result.totalPages}`}
         title="Notícias e Eventos"
@@ -70,12 +94,13 @@ export default async function NoticiasPaginatedPage({
       <ShortcutStrip overlap={true} />
 
       <section className="py-12 sm:py-16 bg-[#f4f6f8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {result.items.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <BlogSearchAndFilter
+            initialArticles={result.items}
+            allArticlesForSearch={allPublished}
+            categories={categories}
+            tags={tags}
+          />
 
           <Pagination
             currentPage={result.page}

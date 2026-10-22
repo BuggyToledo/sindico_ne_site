@@ -20,11 +20,7 @@ export function ArticleCard({
     EDITORIAL_CATEGORIES[0];
   const author = AUTHORS[article.authorId] ?? AUTHORS["adriano-toledo"];
 
-  // Preserve original root URLs by default or link to /blog/[slug]/ when inside the /blog/ experience
-  const href =
-    preferBlogPath || !article.LegacyRootUrl
-      ? `/blog/${article.slug}/`
-      : `/${article.slug}/`;
+  const href = `/${article.slug}/`;
 
   const formattedDate = new Intl.DateTimeFormat("pt-BR", {
     day: "2-digit",

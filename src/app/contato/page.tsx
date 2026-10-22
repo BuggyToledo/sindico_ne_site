@@ -18,7 +18,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 export const metadata: Metadata = {
   title: "Contato - Solicite uma Proposta de Síndico Profissional | Síndico Né!",
   description:
-    "Entre em contato com o Síndico Né! em Copacabana, Rio de Janeiro. Solicite uma proposta de sindicância profissional para seu condomínio na Zona Sul, Barra da Tijuca ou Tijuca. Tel: (21) 3828-0273.",
+    "Entre em contato com o Síndico Né! em Copacabana, Rio de Janeiro. Solicite uma proposta de sindicância profissional para seu condomínio na Zona Sul, Barra da Tijuca ou Tijuca. Tel/WhatsApp: (21) 97878-8211.",
   alternates: {
     canonical: "https://www.sindicone.com.br/contato/",
   },
@@ -171,13 +171,13 @@ export default function ContatoPage() {
                 </div>
               </div>
 
-              {/* Portal SIN Quick Card */}
+              {/* Syndic CRM Quick Card */}
               <div className="bg-[#eff4ff] rounded-2xl border border-[#dbe1ff] p-6 shadow-xs">
                 <h3 className="font-heading text-lg font-bold text-[#0b1c30]">
                   Já é condômino de um prédio administrado pelo Síndico Né!?
                 </h3>
                 <p className="text-xs sm:text-sm text-[#45464d] mt-1">
-                  Acesse segunda via de comunicados, atas, documentos e serviços em tempo real pelo portal SIN:
+                  Acesse segunda via de comunicados, atas, documentos e serviços em tempo real pelo Syndic CRM:
                 </p>
                 <a
                   href={SITE_CONFIG.portal.sinUrl}
@@ -185,7 +185,7 @@ export default function ContatoPage() {
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-2 bg-[#0051d5] hover:bg-[#316bf3] text-white font-semibold text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg transition-colors"
                 >
-                  <span>Acessar Portal SIN</span>
+                  <span>Acessar Syndic CRM</span>
                   <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
                 </a>
               </div>

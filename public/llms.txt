@@ -1,6 +1,6 @@
 # Síndico Né! — Administração Condominial Profissional (Rio de Janeiro, RJ)
 
-> Síndico Profissional e Gestão Condominial na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico e Leme). Empresa registrada no CRA-RJ (nº 03-06783) e CRECI-J (nº 12.974), com apólice de responsabilidade civil profissional de até R$ 2.000.000,00 (Tokio Marine PJ R$ 1M + Akad Seguros PF R$ 1M).
+> Síndico Profissional e Gestão Condominial na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon, Jardim Botânico e Leme), atendendo também Barra da Tijuca e Tijuca. Empresa registrada no CRA-RJ (nº 03-06783) e CRECI-J (nº 12.974), com apólice de responsabilidade civil profissional de até R$ 2.000.000,00 (Tokio Marine PJ R$ 1M + Akad Seguros PF R$ 1M).
 
 ## Identificação Institucional e Credenciais (E-E-A-T)
 - **Nome Comercial**: Síndico Né! · Uma empresa Grupo Ícone-Rio
@@ -15,7 +15,8 @@
 - **Horário de Atendimento**: Segunda a Sexta das 09:00 às 18:00 | Sábado das 09:00 às 14:00.
 
 ## Áreas Geográficas Atendidas no Rio de Janeiro
-- **Zona Sul do Rio de Janeiro**: Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico, Leme, Leblon, Humaitá, Laranjeiras, Catete, Glória e Gávea.
+- **Foco Principal — Zona Sul do Rio de Janeiro**: Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico, Leme, Leblon, Humaitá, Laranjeiras, Catete, Glória e Gávea.
+- **Atendimento Adicional**: Barra da Tijuca e Tijuca.
 
 ## Principais Serviços e Estudos de Caso Reais (`/servicos-sindico-profissional/`)
 1. **Gestão Condominial e Redução de Custos**: Redução comprovada de até 20% nas despesas fixas mensais por meio de renegociação contratual (`/servico-item/reducao-de-custos/`).
@@ -27,7 +28,7 @@
 7. **Administração e Mediação de Conflitos**: Intervenção neutra e protocolos de comunicação (`/servico-item/mediacao-moradores-e-zeladoria/`).
 8. **Transição e Substituição de Síndico**: Condução jurídica e operacional segura (`/servico-item/transicao-de-sindico/`).
 
-## Artigos e Guias Técnicos Publicados (`/blog/`)
+## Artigos e Guias Técnicos Publicados (`/noticias-e-eventos/`)
 - [A fachada do seu condomínio pode ser o maior risco jurídico do síndico](https://www.sindicone.com.br/a-fachada-do-seu-condominio-pode-ser-o-maior-risco-juridico-do-sindico/)
 - [O Fim da Escala 6x1 Foi Aprovado? Entenda o Que Realmente Está Acontecendo na Lei](https://www.sindicone.com.br/o-fim-da-escala-6x1-foi-aprovado-entenda-o-que-realmente-esta-acontecendo-na-lei/)
 - [Como Contratar um Síndico Profissional para o Seu Condomínio](https://www.sindicone.com.br/como-contratar-um-sindico-profissional-para-o-seu-condominio/)

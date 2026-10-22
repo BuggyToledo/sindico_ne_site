@@ -21,7 +21,7 @@ export default function GlobalError({
           Ocorreu uma instabilidade temporária
         </h1>
         <p className="mt-2 text-sm text-[#5c6470] leading-relaxed">
-          Não se preocupe: nossos canais de atendimento condominial seguem funcionando normalmente. Tente recarregar a página ou fale conosco pelo telefone (21) 3828-0273.
+          Não se preocupe: nossos canais de atendimento condominial seguem funcionando normalmente. Tente recarregar a página ou fale conosco pelo telefone/WhatsApp (21) 97878-8211.
         </p>
         <div className="mt-6 flex items-center justify-center gap-3">
           <button

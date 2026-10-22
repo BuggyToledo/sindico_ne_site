@@ -36,16 +36,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blog/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/noticias-e-eventos/`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/contato/`,
@@ -94,7 +88,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // 5. Editorial Categories (`/blog/categoria/[slug]/` + `/category/noticias/`)
+  // 5. Editorial Categories (`/category/[slug]/` + `/category/noticias/`)
   const categoryEntries: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/category/noticias/`,
@@ -103,7 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     ...EDITORIAL_CATEGORIES.filter((c) => c.slug !== "noticias").map((cat) => ({
-      url: `${baseUrl}/blog/categoria/${cat.slug}/`,
+      url: `${baseUrl}/category/${cat.slug}/`,
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.75,

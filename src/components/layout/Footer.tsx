@@ -123,50 +123,29 @@ export function Footer() {
               Áreas de Atuação - RJ
             </h3>
             <ul className="flex flex-col gap-2 text-[13px] text-[#45464d]">
-              <li className="flex items-center gap-1.5">
+              <li className="flex items-center gap-1.5 font-semibold text-[#0b1c30]">
                 <span
                   className="material-symbols-outlined text-[15px] text-[#0051d5]"
                   aria-hidden="true"
                 >
                   pin_drop
                 </span>
-                Copacabana &amp; Leme
+                Zona Sul do Rio de Janeiro:
               </li>
-              <li className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[15px] text-[#0051d5]"
-                  aria-hidden="true"
-                >
-                  pin_drop
-                </span>
-                Ipanema, Leblon &amp; Lagoa
+              <li className="pl-5 text-[12px]">
+                Copacabana, Leme, Ipanema, Leblon, Botafogo, Flamengo, Jardim Botânico, Laranjeiras, Humaitá, Catete, Glória e Gávea
               </li>
-              <li className="flex items-center gap-1.5">
+              <li className="flex items-center gap-1.5 pt-1 font-semibold text-[#0b1c30]">
                 <span
                   className="material-symbols-outlined text-[15px] text-[#0051d5]"
                   aria-hidden="true"
                 >
                   pin_drop
                 </span>
-                Botafogo, Flamengo &amp; Laranjeiras
+                Atendimento Adicional:
               </li>
-              <li className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[15px] text-[#0051d5]"
-                  aria-hidden="true"
-                >
-                  pin_drop
-                </span>
-                Barra da Tijuca &amp; Recreio
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[15px] text-[#0051d5]"
-                  aria-hidden="true"
-                >
-                  pin_drop
-                </span>
-                Grande Tijuca &amp; Vila Isabel
+              <li className="pl-5 text-[12px]">
+                Barra da Tijuca &amp; Tijuca
               </li>
             </ul>
 

@@ -56,7 +56,7 @@ export default async function LegacyTagPage({
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Início", url: "/" },
-    { name: "Blog", url: "/blog/" },
+    { name: "Notícias e Eventos", url: "/noticias-e-eventos/" },
     { name: `#${tag.name}`, url: `/tag/${tag.slug}/` },
   ]);
 
@@ -72,7 +72,7 @@ export default async function LegacyTagPage({
         title={`Artigos sobre ${tag.name}`}
         subtitle={tag.description}
         breadcrumbs={[
-          { label: "Blog", href: "/blog/" },
+          { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
           { label: `#${tag.name}` },
         ]}
       />
@@ -88,10 +88,10 @@ export default async function LegacyTagPage({
                 : "artigos publicados neste tópico"}
             </span>
             <Link
-              href="/blog/"
+              href="/noticias-e-eventos/"
               className="text-xs font-bold uppercase tracking-wider text-[#171c24] hover:underline"
             >
-              ← Voltar ao Blog Completo
+              ← Voltar para Notícias &amp; Eventos
             </Link>
           </div>
 

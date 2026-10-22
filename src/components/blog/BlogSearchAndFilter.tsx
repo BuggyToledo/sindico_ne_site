@@ -88,7 +88,7 @@ export function BlogSearchAndFilter({
             Categorias:
           </span>
           <Link
-            href="/blog/"
+            href="/noticias-e-eventos/"
             className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors shrink-0 ${
               !activeCategorySlug && !activeTagSlug
                 ? "bg-[#171c24] text-[#d9e141]"
@@ -104,7 +104,7 @@ export function BlogSearchAndFilter({
               return (
                 <Link
                   key={cat.slug}
-                  href={`/blog/categoria/${cat.slug}/`}
+                  href={`/category/${cat.slug}/`}
                   className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors shrink-0 ${
                     isActive
                       ? "bg-[#171c24] text-[#d9e141]"

@@ -65,7 +65,7 @@ export default async function AuthorAdrianoPaginatedPage({
         title={`Publicações de ${author.name}`}
         subtitle={`${author.role} — ${author.credentials}`}
         breadcrumbs={[
-          { label: "Blog", href: "/blog/" },
+          { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
           { label: author.name, href: "/author/adriano/" },
           { label: `Página ${pageNum}` },
         ]}

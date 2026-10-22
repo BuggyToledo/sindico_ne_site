@@ -85,10 +85,10 @@ export function ArticleView({
           <Breadcrumbs
             variant="dark"
             items={[
-              { label: "Blog", href: "/blog/" },
+              { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
               {
                 label: category.name,
-                href: `/blog/categoria/${category.slug}/`,
+                href: `/category/${category.slug}/`,
               },
               { label: article.title },
             ]}
@@ -96,7 +96,7 @@ export function ArticleView({
 
           <div className="mt-6 flex flex-wrap items-center gap-2.5">
             <Link
-              href={`/blog/categoria/${category.slug}/`}
+              href={`/category/${category.slug}/`}
               className="bg-[#d9e141] text-[#171c24] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded hover:bg-[#c5cd32] transition-colors"
             >
               {category.name}
@@ -487,14 +487,14 @@ export function ArticleView({
             {/* Categories Directory */}
             <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-xs">
               <h2 className="font-heading text-lg font-bold text-[#171c24] mb-3">
-                Editorias do Blog
+                Editorias de Notícias e Eventos
               </h2>
               <ul className="divide-y divide-gray-100 text-sm">
                 {EDITORIAL_CATEGORIES.filter((c) => c.slug !== "noticias").map(
                   (cat) => (
                     <li key={cat.slug}>
                       <Link
-                        href={`/blog/categoria/${cat.slug}/`}
+                        href={`/category/${cat.slug}/`}
                         className="py-2.5 flex items-center justify-between text-[#4a525d] hover:text-[#171c24] font-medium"
                       >
                         <span>{cat.name}</span>
@@ -527,7 +527,7 @@ export function ArticleView({
                 </h2>
               </div>
               <Link
-                href="/blog/"
+                href="/noticias-e-eventos/"
                 className="text-sm font-bold text-[#171c24] hover:underline"
               >
                 Ver todos os artigos →

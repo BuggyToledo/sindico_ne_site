@@ -18,18 +18,21 @@ export const metadata: Metadata = {
   },
 };
 
-const BAIRROS_ATUACAO = [
+const BAIRROS_ZONA_SUL = [
   "Copacabana",
   "Ipanema",
   "Leblon",
   "Botafogo",
   "Flamengo",
+  "Jardim Botânico",
   "Laranjeiras",
   "Humaitá",
-  "Barra da Tijuca",
-  "Tijuca",
-  "Grande Tijuca",
+  "Leme",
+  "Catete",
+  "Gávea",
 ];
+
+const BAIRROS_EXPANSAO = ["Barra da Tijuca", "Tijuca"];
 
 export default async function HomePage() {
   const articles = await getAllArticles({ includeUnpublished: false });
@@ -192,26 +195,48 @@ export default async function HomePage() {
                   </span>
                 </div>
                 <span className="text-[11px] font-bold text-[#0051d5] uppercase tracking-[0.08em] block mb-2">
-                  Presença In Loco
+                  Presença In Loco — Zona Sul RJ
                 </span>
                 <h3 className="text-[22px] sm:text-[24px] font-bold text-[#0b1c30] tracking-[-0.015em] mb-4">
-                  ATUAÇÃO PRESENCIAL NO RIO DE JANEIRO
+                  ATUAÇÃO PRESENCIAL NA ZONA SUL DO RIO DE JANEIRO
                 </h3>
-                <p className="text-[15px] text-[#45464d] mb-6 leading-relaxed">
+                <p className="text-[15px] text-[#45464d] mb-5 leading-relaxed">
                   Visitas operacionais periódicas, vistorias prediais e reuniões
-                  com comissões de moradores nos principais bairros cariocas:
+                  com conselhos na <strong>Zona Sul do Rio de Janeiro</strong>, com disponibilidade de atendimento também na <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>:
                 </p>
 
                 {/* Bairros Tag Cloud */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {BAIRROS_ATUACAO.map((bairro) => (
-                    <span
-                      key={bairro}
-                      className="px-3 py-1.5 rounded-lg bg-[#e5eeff] text-[#0b1c30] font-semibold text-[13px]"
-                    >
-                      {bairro}
+                <div className="space-y-3 mb-6">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#45464d] block mb-2">
+                      Foco Principal — Zona Sul RJ:
                     </span>
-                  ))}
+                    <div className="flex flex-wrap gap-2">
+                      {BAIRROS_ZONA_SUL.map((bairro) => (
+                        <span
+                          key={bairro}
+                          className="px-3 py-1.5 rounded-lg bg-[#e5eeff] text-[#0b1c30] font-semibold text-[13px]"
+                        >
+                          {bairro}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#45464d] block mb-1.5">
+                      Atendimento Adicional:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {BAIRROS_EXPANSAO.map((bairro) => (
+                        <span
+                          key={bairro}
+                          className="px-3 py-1 rounded-lg bg-[#f1f5f9] text-[#334155] border border-[#e2e8f0] font-semibold text-[12px]"
+                        >
+                          {bairro}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Regional Map / Headquarters Preview */}

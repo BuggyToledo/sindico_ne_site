@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogPreviewPage({
+export default async function AdminPreviewPage({
   params,
 }: {
   params: Promise<{ slug: string }>;

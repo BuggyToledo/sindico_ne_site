@@ -99,15 +99,17 @@ async function runValidation() {
       label: "Serviços (/servicos-sindico-profissional/)",
       file: "servicos-sindico-profissional.html",
     },
-    { label: "Blog Hub (/blog/)", file: "blog.html" },
-    { label: "Blog Paginação (/blog/page/2/)", file: "blog/page/2.html" },
-    {
-      label: "Blog Categoria (/blog/categoria/sindico-profissional/)",
-      file: "blog/categoria/sindico-profissional.html",
-    },
     {
       label: "Notícias e Eventos (/noticias-e-eventos/)",
       file: "noticias-e-eventos.html",
+    },
+    {
+      label: "Notícias e Eventos Paginação (/noticias-e-eventos/page/2/)",
+      file: "noticias-e-eventos/page/2.html",
+    },
+    {
+      label: "Categoria Editorial (/category/sindico-profissional/)",
+      file: "category/sindico-profissional.html",
     },
     { label: "Contato (/contato/)", file: "contato.html" },
     {
@@ -164,15 +166,15 @@ async function runValidation() {
     );
   }
 
-  // 6. Validate Draft Exclusion from Public Sitemap & Public Blog
-  const blogHtmlPath = path.join(appServerDir, "blog.html");
-  const blogHtml = fs.existsSync(blogHtmlPath)
-    ? fs.readFileSync(blogHtmlPath, "utf-8")
+  // 6. Validate Draft Exclusion from Public Sitemap & Public Noticias e Eventos
+  const noticiasHtmlPath = path.join(appServerDir, "noticias-e-eventos.html");
+  const noticiasHtml = fs.existsSync(noticiasHtmlPath)
+    ? fs.readFileSync(noticiasHtmlPath, "utf-8")
     : "";
   check(
-    "Draft Protection: Demo draft excluded from public /blog/ listing",
-    !blogHtml.includes("rascunho-demo-checklist-autovistoria-predial-rj"),
-    "Draft slug absent from public /blog/ HTML"
+    "Draft Protection: Demo draft excluded from public /noticias-e-eventos/ listing",
+    !noticiasHtml.includes("rascunho-demo-checklist-autovistoria-predial-rj"),
+    "Draft slug absent from public /noticias-e-eventos/ HTML"
   );
 
   const sitemapBodyPath = path.join(appServerDir, "sitemap.xml.body");
@@ -189,12 +191,12 @@ async function runValidation() {
   // 7. Validate Preview Page has noindex, nofollow
   const previewHtmlPath = path.join(
     appServerDir,
-    "blog/preview/rascunho-demo-checklist-autovistoria-predial-rj.html"
+    "admin/preview/rascunho-demo-checklist-autovistoria-predial-rj.html"
   );
   if (fs.existsSync(previewHtmlPath)) {
     const previewHtml = fs.readFileSync(previewHtmlPath, "utf-8");
     check(
-      "Draft Preview Route (/blog/preview/[slug]/) enforces noindex",
+      "Draft Preview Route (/admin/preview/[slug]/) enforces noindex",
       previewHtml.includes("noindex"),
       "robots noindex verified on preview HTML"
     );

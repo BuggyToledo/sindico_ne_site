@@ -55,19 +55,46 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      {
-        source: "/blog/preview/:path*",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex, nofollow, noarchive",
-          },
-        ],
-      },
     ];
   },
   async redirects() {
     return [
+      // Redirecionamentos de consolidação de /blog/ para /noticias-e-eventos/ (evita duplicidade)
+      {
+        source: "/blog/",
+        destination: "/noticias-e-eventos/",
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/noticias-e-eventos/",
+        permanent: true,
+      },
+      {
+        source: "/blog/page/:page/",
+        destination: "/noticias-e-eventos/page/:page/",
+        permanent: true,
+      },
+      {
+        source: "/blog/categoria/:slug/",
+        destination: "/category/:slug/",
+        permanent: true,
+      },
+      {
+        source: "/blog/tag/:slug/",
+        destination: "/tag/:slug/",
+        permanent: true,
+      },
+      {
+        source: "/blog/preview/:slug/",
+        destination: "/admin/preview/:slug/",
+        permanent: false,
+      },
+      {
+        source: "/blog/:slug/",
+        destination: "/:slug/",
+        permanent: true,
+      },
       // 1. Correção de link quebrado (404) herdado do tema CityHall na página de Serviços
       {
         source: "/news/",

@@ -253,9 +253,7 @@ export function EditorialDashboard() {
       selected.slug?.trim() || generateSlugFromTitle(selected.title || "");
     const canonicalUrl =
       selected.canonicalUrl?.trim() ||
-      (selected.LegacyRootUrl
-        ? `https://www.sindicone.com.br/${slug}/`
-        : `https://www.sindicone.com.br/blog/${slug}/`);
+      `https://www.sindicone.com.br/${slug}/`;
 
     const payload = {
       ...selected,
@@ -498,11 +496,11 @@ export function EditorialDashboard() {
             <span>Novo Artigo</span>
           </button>
           <Link
-            href="/blog/"
+            href="/noticias-e-eventos/"
             className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider px-4 py-2.5 rounded-md"
           >
             <Globe className="w-4 h-4" aria-hidden="true" />
-            <span>Ver Blog Público</span>
+            <span>Ver Notícias &amp; Eventos</span>
           </Link>
           <button
             type="button"
@@ -655,7 +653,7 @@ export function EditorialDashboard() {
 
                   {selected.slug && (
                     <Link
-                      href={`/blog/preview/${selected.slug}/`}
+                      href={`/admin/preview/${selected.slug}/`}
                       target="_blank"
                       className="inline-flex items-center gap-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs uppercase tracking-wider px-3.5 py-2.5 rounded-md"
                     >

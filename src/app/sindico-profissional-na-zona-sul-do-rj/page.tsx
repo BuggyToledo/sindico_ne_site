@@ -36,8 +36,8 @@ export default function SobreNosPage() {
 
       <Subheader
         badge="Quem Somos"
-        title="Síndico Profissional na Zona Sul do RJ, Barra da Tijuca e Grande Tijuca"
-        subtitle="Excelência técnica, transparência na prestação de contas e presença constante para transformar a convivência e valorizar o patrimônio do seu condomínio."
+        title="Síndico Profissional na Zona Sul do Rio de Janeiro"
+        subtitle="Excelência técnica, transparência na prestação de contas e presença constante na Zona Sul do RJ, com atendimento também na Barra da Tijuca e Tijuca."
         breadcrumbs={[
           { label: "Sobre Nós — Síndico Profissional na Zona Sul do RJ" },
         ]}
@@ -167,7 +167,7 @@ export default function SobreNosPage() {
                   <span>Regiões de Atendimento</span>
                 </div>
                 <p className="text-sm text-[#45464d] leading-relaxed">
-                  Atendemos condomínios na <strong>Zona Sul</strong> (Copacabana, Leme, Ipanema, Leblon, Botafogo, Flamengo, Laranjeiras, Catete, Glória, Humaitá, Lagoa, Gávea, Jardim Botânico), <strong>Barra da Tijuca</strong>, <strong>Tijuca</strong> e <strong>Grande Tijuca</strong>.
+                  Nossa atuação principal concentra-se na <strong>Zona Sul do Rio de Janeiro</strong> (Copacabana, Leme, Ipanema, Leblon, Botafogo, Flamengo, Jardim Botânico, Laranjeiras, Catete, Glória, Humaitá e Gávea), atendendo também condomínios na <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>.
                 </p>
                 <Link
                   href="/contato/"

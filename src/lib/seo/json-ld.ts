@@ -40,18 +40,17 @@ export function buildLocalBusinessJsonLd() {
           longitude: SITE_CONFIG.geo.longitude,
         },
         hasMap: SITE_CONFIG.geo.googleMapsUrl,
-        openingHoursSpecification: [
-          {
+        openingHoursSpecification: SITE_CONFIG.openingHours.schemaSpec.map(
+          (spec) => ({
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "09:00",
-            closes: "17:00",
-          },
-        ],
+            dayOfWeek: spec.dayOfWeek,
+            opens: spec.opens,
+            closes: spec.closes,
+          })
+        ),
         sameAs: [
           SITE_CONFIG.social.instagram,
           SITE_CONFIG.social.facebook,
-          SITE_CONFIG.social.youtube,
         ],
         founder: {
           "@type": "Person",
@@ -97,7 +96,7 @@ export function buildLocalBusinessJsonLd() {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `${SITE_CONFIG.url}/blog/?q={search_term_string}`,
+            urlTemplate: `${SITE_CONFIG.url}/noticias-e-eventos/?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },

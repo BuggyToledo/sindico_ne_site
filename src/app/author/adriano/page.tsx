@@ -29,7 +29,7 @@ export default async function AuthorAdrianoPage() {
   const authorJsonLd = buildAuthorJsonLd(author);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Início", url: "/" },
-    { name: "Blog", url: "/blog/" },
+    { name: "Notícias e Eventos", url: "/noticias-e-eventos/" },
     { name: author.name, url: "/author/adriano/" },
   ]);
 
@@ -49,7 +49,7 @@ export default async function AuthorAdrianoPage() {
         title={author.name}
         subtitle={`${author.role} — ${author.credentials}`}
         breadcrumbs={[
-          { label: "Blog", href: "/blog/" },
+          { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
           { label: author.name },
         ]}
       />

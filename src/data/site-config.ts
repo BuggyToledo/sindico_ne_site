@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   tagline: "Valorização do Patrimônio, Síndico Profissional",
   defaultTitle: "Síndico Profissional no Rio de Janeiro - Síndico Né! | (21) 97878-8211",
   description:
-    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo e Jardim Botânico). Gestão condominial profissional com registro no CRA-RJ nº 03-06783, CRECI-J nº 12.974 e Seguro de Responsabilidade Civil de até R$ 2 milhões.",
+    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783, CRECI-J nº 12.974 e Seguro de Responsabilidade Civil de até R$ 2 milhões.",
   siteTitleSuffix: "Síndico Né! | (21) 97878-8211",
   url: "https://www.sindicone.com.br",
   locale: "pt_BR",
@@ -98,6 +98,8 @@ export const SITE_CONFIG = {
     "Glória",
     "Gávea",
     "Zona Sul do Rio de Janeiro",
+    "Barra da Tijuca",
+    "Tijuca",
   ],
   areasServed: [
     "Copacabana",
@@ -113,11 +115,12 @@ export const SITE_CONFIG = {
     "Glória",
     "Gávea",
     "Zona Sul do Rio de Janeiro",
+    "Barra da Tijuca",
+    "Tijuca",
   ],
   social: {
     instagram: "https://www.instagram.com/sindico_ne/",
     facebook: "https://www.facebook.com/sindicone",
-    youtube: "https://www.instagram.com/sindico_ne/",
     authorFacebook: "https://www.facebook.com/toledo.adriano/",
     whatsapp: "https://wa.me/5521978788211",
   },
@@ -387,8 +390,8 @@ const ADRIANO_AUTHOR: EditorialAuthor = {
     "Certificação em Gestão Condominial TownSq",
     "Seguro RC Profissional Tokio Marine + Akad (R$ 2 milhões)",
   ],
-  bio: "Síndico profissional e administrador registrado no CRA-RJ (03-06783), com atuação especializada em condomínios residenciais e comerciais na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo e Jardim Botânico). Focado em eficiência operacional, transparência financeira, segurança jurídica e valorização patrimonial.",
-  avatarUrl: "/wp-content/uploads/2025/07/logo-sindicone-verde-roxo.svg",
+  bio: "Síndico profissional e administrador registrado no CRA-RJ (03-06783), com atuação principal em condomínios residenciais e comerciais na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), atendendo também Barra da Tijuca e Tijuca. Focado em eficiência operacional, transparência financeira, segurança jurídica e valorização patrimonial.",
+  avatarUrl: "/logo-sindicone-roxo-verde.svg",
   socialLinks: {
     facebook: "https://www.facebook.com/toledo.adriano/",
     instagram: "https://www.instagram.com/sindico_ne/",
@@ -408,7 +411,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
     shortName: "Síndico Profissional",
     description:
       "Guias práticos sobre o papel do síndico profissional, processo de contratação em assembleia, remuneração média no RJ, carga horária e comparativo com o síndico morador.",
-    seoTitle: "Síndico Profissional, Contratação e Gestão | Blog Síndico Né!",
+    seoTitle: "Síndico Profissional, Contratação e Gestão | Síndico Né!",
     seoDescription:
       "Artigos e guias sobre contratação, funções, carga horária e remuneração de síndico profissional na Zona Sul do Rio de Janeiro.",
     commercialTargetHref: "/sindico-profissional-na-zona-sul-do-rj/",
@@ -420,7 +423,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
     shortName: "Finanças e Orçamento",
     description:
       "Orientações sobre taxa condominial, divisão de despesas entre inquilino e proprietário, fundo de reserva, previsão orçamentária e redução estratégica de custos fixos.",
-    seoTitle: "Finanças, Orçamento e Taxa de Condomínio | Blog Síndico Né!",
+    seoTitle: "Finanças, Orçamento e Taxa de Condomínio | Síndico Né!",
     seoDescription:
       "Entenda despesas ordinárias, extraordinárias, fundo de reserva, previsão orçamentária e como reduzir custos fixos no seu condomínio.",
     commercialTargetHref: "/servico-item/reducao-de-custos/",
@@ -444,7 +447,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
     shortName: "Legislação e Governança",
     description:
       "Análises fundamentadas no Código Civil, CLT (escala 6x1, jornada de trabalho), Lei do Inquilinato, estrutura jurídica do condomínio edilício, assembleias e conselho.",
-    seoTitle: "Legislação Condominial, CLT e Governança | Blog Síndico Né!",
+    seoTitle: "Legislação Condominial, CLT e Governança | Síndico Né!",
     seoDescription:
       "Artigos sobre Código Civil, CLT em condomínios, escala 6x1, assembleias, direitos e deveres de condôminos e inquilinos.",
     commercialTargetHref: "/servico-item/assembleia-condominial/",

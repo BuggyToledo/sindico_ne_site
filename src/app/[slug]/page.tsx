@@ -90,8 +90,8 @@ export default async function RootArticleSlugPage({
   const articleJsonLd = buildArticleJsonLd(article, author);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Início", url: "/" },
-    { name: "Blog", url: "/blog/" },
-    { name: category.name, url: `/blog/categoria/${category.slug}/` },
+    { name: "Notícias e Eventos", url: "/noticias-e-eventos/" },
+    { name: category.name, url: `/category/${category.slug}/` },
     {
       name: article.title,
       url: article.canonicalUrl || article.seo.canonicalUrl,

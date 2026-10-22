@@ -49,9 +49,7 @@ export function normalizeArticle(raw: Article): Article {
       ? raw.LegacyRootUrl
       : Boolean(raw.wpId);
 
-  const defaultCanonical = isLegacyRoot
-    ? `https://www.sindicone.com.br/${raw.slug}/`
-    : `https://www.sindicone.com.br/blog/${raw.slug}/`;
+  const defaultCanonical = `https://www.sindicone.com.br/${raw.slug}/`;
 
   const seoTitle = raw.seoTitle || raw.seo?.title || `${raw.title} | Síndico Né!`;
   const seoDescription =
@@ -477,7 +475,7 @@ export async function createOrUpdateArticle(
 
   const status: ArticleStatus = input.status ?? "draft";
   const canonicalUrl =
-    input.canonicalUrl || `https://www.sindicone.com.br/blog/${sanitizedSlug}/`;
+    input.canonicalUrl || `https://www.sindicone.com.br/${sanitizedSlug}/`;
   const contentHtml = input.contentHtml ?? "<p>Rascunho em elaboração.</p>";
   const seoTitle = input.seoTitle ?? `${input.title} | Síndico Né!`;
   const seoDescription = input.seoDescription ?? input.excerpt ?? input.title;

@@ -13,7 +13,9 @@ import { BlogSearchAndFilter } from "@/components/blog/BlogSearchAndFilter";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 
 export async function generateStaticParams() {
-  return EDITORIAL_CATEGORIES.map((c) => ({ slug: c.slug }));
+  return EDITORIAL_CATEGORIES.filter((c) => c.slug !== "noticias").map((c) => ({
+    slug: c.slug,
+  }));
 }
 
 export async function generateMetadata({
@@ -29,12 +31,12 @@ export async function generateMetadata({
     title: category.seoTitle,
     description: category.seoDescription,
     alternates: {
-      canonical: `https://www.sindicone.com.br/blog/categoria/${category.slug}/`,
+      canonical: `https://www.sindicone.com.br/category/${category.slug}/`,
     },
   };
 }
 
-export default async function BlogCategoryPage({
+export default async function CategorySlugPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -56,8 +58,8 @@ export default async function BlogCategoryPage({
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Início", url: "/" },
-    { name: "Blog", url: "/blog/" },
-    { name: category.name, url: `/blog/categoria/${category.slug}/` },
+    { name: "Notícias e Eventos", url: "/noticias-e-eventos/" },
+    { name: category.name, url: `/category/${category.slug}/` },
   ]);
 
   return (
@@ -72,7 +74,7 @@ export default async function BlogCategoryPage({
         title={category.name}
         subtitle={category.description}
         breadcrumbs={[
-          { label: "Blog", href: "/blog/" },
+          { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
           { label: category.name },
         ]}
       />
