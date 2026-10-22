@@ -174,7 +174,7 @@ Cada `/servico-tipo/*` funciona como arquivo de categoria de portfólio (1:1 com
   - Presente logo abaixo do Hero/Subheader nas 6 páginas principais com sobreposição negativa (`margin-top: -80px`, `z-index: 2`).
   - 4 colunas iguais (`25%` cada no desktop, sem espaçamento lateral ou com `margin: 0px 2% 0px 0px`, `padding: 45px 40px 30px`, `border-radius: 3px`):
     1. **Card 1 (Fundo `#ffffff`, Texto `#2e2821`):** Ícone `cityhall-shortcuts-icon1.png` + `BLOG / NOTÍCIAS & EVENTOS` -> Link `/noticias-e-eventos/`.
-    2. **Card 2 (Fundo `#a2a2a2`, Texto `#ffffff`):** Ícone `cityhall-shortcuts-icon2.png` + `AVALIAÇÃO / GOOGLE / MEU NEGÓCIO` -> Link `https://g.page/r/CX359T8pB7J2EBM/review`.
+    2. **Card 2 (Fundo `#a2a2a2`, Texto `#ffffff`):** Ícone `cityhall-shortcuts-icon2.png` + `AVALIAÇÃO / GOOGLE / MEU NEGÓCIO` -> Link `https://g.page/r/Cfr7ld6BBftzEBI/review`.
     3. **Card 3 (Fundo `#aab921`, Texto `#ffffff`):** Ícone `cityhall-shortcuts-icon4.png` + `SÍNDICO PROFISSONAL / OU MORADOR` -> Link `/sindico-profissional-ou-morador/`.
     4. **Card 4 (Fundo `#2e2821`, Texto `#ffffff`):** Ícone `cityhall-shortcuts-icon4.png` + `ENVIE UMA / MENSAGEM / WHATAPP` -> Link `https://wa.link/hdxrtf`.
 
@@ -342,7 +342,7 @@ flowchart TD
 
     subgraph Faixa_Atalhos["Faixa de 4 Atalhos Rápidos (Em todas as 6 páginas)"]
         S1["Card 1: BLOG NOTÍCIAS & EVENTOS -> /noticias-e-eventos/ (⚠️ /news/ 404 na pág. Serviços)"]
-        S2["Card 2: AVALIAÇÃO GOOGLE MEU NEGÓCIO -> g.page/r/CX359T8pB7J2EBM/review"]
+        S2["Card 2: AVALIAÇÃO GOOGLE MEU NEGÓCIO -> g.page/r/Cfr7ld6BBftzEBI/review"]
         S3["Card 3: SÍNDICO PROFISSONAL OU MORADOR -> /sindico-profissional-ou-morador/ (⚠️ via 301)"]
         S4["Card 4: ENVIE UMA MENSAGEM WHATAPP -> wa.link/hdxrtf"]
     end
@@ -502,7 +502,7 @@ Todas as funcionalidades e pontos de conversão existentes foram mapeados e ser�
   - `https://wa.me/5521978788211` (presente no rodapé, no menu mobile `#Side_slide`, nos cards da página `/servicos-sindico-profissional/` e nos botões de CTA dos cases/artigos).
   - `https://wa.link/hdxrtf` (presente no Card 4 da faixa de atalhos rápidos).
 - **Avaliação Google Meu Negócio:**
-  - `https://g.page/r/CX359T8pB7J2EBM/review` (presente no Card 2 da faixa de atalhos rápidos).
+  - `https://g.page/r/Cfr7ld6BBftzEBI/review` (presente no Card 2 da faixa de atalhos rápidos).
 - **Redes Sociais:**
   - Instagram: `https://www.instagram.com/sindico_ne/` (botão `Instagram >` no topo e ícone no rodapé).
   - Facebook: `https://www.facebook.com/sindicone` (ícone no rodapé e metadados Open Graph).

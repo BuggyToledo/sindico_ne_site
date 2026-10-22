@@ -25,7 +25,7 @@ export const SITE_CONFIG = {
   whatsappDirectUrl: "https://wa.me/5521978788211",
   whatsappShortUrl: "https://wa.link/hdxrtf",
   email: "contato@sindicone.com.br",
-  googleReviewUrl: "https://g.page/r/CX359T8pB7J2EBM/review",
+  googleReviewUrl: "https://g.page/r/Cfr7ld6BBftzEBI/review",
   contact: {
     phoneDisplay: "+55 (21) 97878-8211",
     phoneRaw: "+5521978788211",
@@ -181,7 +181,7 @@ export const SITE_CONFIG = {
       title: "AVALIAÇÃO GOOGLE MEU NEGÓCIO",
       subtitle: "Confira ou registre sua avaliação sobre nossa gestão",
       lines: ["AVALIAÇÃO", "GOOGLE", "MEU NEGÓCIO"],
-      href: "https://g.page/r/CX359T8pB7J2EBM/review",
+      href: "https://g.page/r/Cfr7ld6BBftzEBI/review",
       bgColor: "#a2a2a2",
       textColor: "#ffffff",
       iconUrl: "/wp-content/uploads/2019/10/cityhall-shortcuts-icon2.png",
