@@ -5,7 +5,7 @@
   "description": "Site institucional, blog editorial e CMS integrado da Síndico Né! (Next.js + React + TypeScript)",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",

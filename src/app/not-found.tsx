@@ -25,11 +25,11 @@ export default function NotFound() {
             <span>Página Inicial</span>
           </Link>
           <Link
-            href="/blog/"
+            href="/noticias-e-eventos/"
             className="inline-flex items-center gap-2 bg-gray-100 text-[#171c24] font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-md hover:bg-gray-200 transition-colors"
           >
             <BookOpen className="w-4 h-4" aria-hidden="true" />
-            <span>Acessar o Blog</span>
+            <span>Notícias &amp; Eventos</span>
           </Link>
           <Link
             href="/contato/"
