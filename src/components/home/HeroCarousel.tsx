@@ -12,14 +12,14 @@ const HERO_SLIDES = [
     badge: "GESTÃO FINANCEIRA E MANUTENÇÃO PREDIAL",
     title: "Redução de Custos, Controle da Inadimplência e Valorização Patrimonial",
     subtitle:
-      "Planejamento orçamentário rigoroso, prestação de contas em tempo real pelo portal SIN e cronograma preventivo de manutenção predial na Zona Sul, Barra e Tijuca.",
+      "Planejamento orçamentário rigoroso, prestação de contas em tempo real pelo portal Syndic CRM e cronograma preventivo de manutenção predial na Zona Sul, Barra e Tijuca.",
     primaryCta: {
       label: "Ver Serviços e Casos Reais",
       href: "/servicos-sindico-profissional/",
     },
     secondaryCta: {
-      label: "Ler Guia Condominial",
-      href: "/blog/",
+      label: "Ver Notícias & Artigos",
+      href: "/noticias-e-eventos/",
       icon: "menu_book",
     },
   },
@@ -53,7 +53,7 @@ const HERO_SLIDES = [
     },
     secondaryCta: {
       label: "Artigos e Jurisprudência",
-      href: "/blog/",
+      href: "/noticias-e-eventos/",
       icon: "gavel",
     },
   },
@@ -186,7 +186,7 @@ export function HeroCarousel() {
                   </div>
                   <div>
                     <div className="text-[16px] font-bold text-[#0b1c30]">
-                      Painel Síndico Né! • SIN
+                      Painel Síndico Né! • Syndic CRM
                     </div>
                     <div className="text-[12px] text-[#45464d]">
                       Zona Sul &amp; Barra da Tijuca • RJ

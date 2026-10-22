@@ -124,7 +124,7 @@ export default function SobreNosPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
-                      <strong>Sede em Copacabana (Grupo Ícone-Rio):</strong> Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010 (CNPJ 02.634.709/0001-74)
+                      <strong>Sede em Copacabana (Grupo Ícone-Rio):</strong> Rua Xavier da Silveira, 45/1009 - Copacabana, Rio de Janeiro-RJ, CEP 22061-010 (CNPJ 02.634.709/0001-74)
                     </span>
                   </li>
                 </ul>

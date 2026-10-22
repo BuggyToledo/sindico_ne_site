@@ -132,7 +132,7 @@ export default async function HomePage() {
                     </span>
                   </div>
                   <span className="text-[14px] font-semibold text-[#0b1c30]">
-                    Acompanhamento em tempo real pelo SIN
+                    Acompanhamento em tempo real pelo Syndic CRM
                   </span>
                 </div>
 
@@ -226,7 +226,7 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-[#0b1c30]/35 backdrop-blur-[1px] flex items-end p-3">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-[#0b1c30] font-bold text-[11px] uppercase tracking-[0.05em] shadow-xs">
                       <span className="w-2 h-2 rounded-full bg-[#0051d5] animate-pulse shrink-0" />
-                      Sede: Rua Xavier da Silveira 45/1009 - Copacabana
+                      Sede: Rua Xavier da Silveira, 45/1009 - Copacabana
                     </span>
                   </div>
                 </div>
@@ -269,10 +269,10 @@ export default async function HomePage() {
             </div>
 
             <Link
-              href="/blog/"
+              href="/noticias-e-eventos/"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#dce9ff] text-[#0b1c30] hover:bg-[#0051d5] hover:text-white transition-all font-semibold text-[14px] shrink-0"
             >
-              <span>Acessar o Blog Completo</span>
+              <span>Acessar Notícias & Eventos</span>
               <span
                 className="material-symbols-outlined text-[18px]"
                 aria-hidden="true"

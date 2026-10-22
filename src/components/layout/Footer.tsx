@@ -10,18 +10,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Coluna 1: Identidade & Credenciais */}
           <div className="flex flex-col gap-3">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-[#131b2e] flex items-center justify-center">
-                <span
-                  className="material-symbols-outlined text-[#d0f121] text-[20px]"
-                  aria-hidden="true"
-                >
-                  apartment
-                </span>
-              </div>
-              <span className="text-[18px] font-bold uppercase tracking-tight text-[#0b1c30] group-hover:text-[#0051d5] transition-colors">
-                SÍNDICO NÉ!
-              </span>
+            <Link href="/" className="inline-block py-1" aria-label="Síndico Né! - Página Inicial">
+              <Image
+                src="/logo-sindicone-roxo-verde.svg"
+                alt="Síndico Né! Administração Condominial"
+                width={220}
+                height={27}
+                className="h-7 sm:h-8 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-[13px] leading-relaxed text-[#45464d] mt-1">
@@ -56,7 +52,7 @@ export function Footer() {
                 >
                   verified_user
                 </span>
-                RC Tokio Marine &amp; Akad (R$ 2 Mi)
+                Seguro RC Síndico e Empresa
               </span>
             </div>
 
@@ -99,12 +95,6 @@ export function Footer() {
                 className="text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Notícias &amp; Eventos
-              </Link>
-              <Link
-                href="/blog/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
-              >
-                Artigos e Blog
               </Link>
               <Link
                 href="/author/adriano/"
@@ -185,17 +175,17 @@ export function Footer() {
                 Sede Copacabana
               </p>
               <address className="not-italic leading-relaxed">
-                Rua Xavier da Silveira 45/1009, Copacabana
+                Rua Xavier da Silveira, 45/1009 - Copacabana
                 <br />
                 Rio de Janeiro-RJ, CEP 22061-010
               </address>
             </div>
           </div>
 
-          {/* Coluna 4: Portal SIN & Atendimento */}
+          {/* Coluna 4: Syndic CRM */}
           <div className="flex flex-col gap-3">
             <h3 className="text-[15px] font-bold text-[#0b1c30] uppercase tracking-wide">
-              Portal &amp; Atendimento
+              Syndic CRM
             </h3>
             <div className="p-4 bg-[#eff4ff] rounded-xl border border-[#dbe1ff]">
               <div className="flex items-center gap-2 mb-1.5">
@@ -203,54 +193,34 @@ export function Footer() {
                   className="material-symbols-outlined text-[#0051d5] text-[20px]"
                   aria-hidden="true"
                 >
-                  lock
+                  devices
                 </span>
                 <span className="text-[14px] font-semibold text-[#0b1c30]">
-                  Acesso Digital ao SIN
+                  Acesso Syndic CRM
                 </span>
               </div>
               <p className="text-[12px] text-[#45464d] mb-3 leading-relaxed">
-                Portal exclusivo do condômino para segunda via de boletos,
-                prestação de contas e atas em tempo real.
+                Plataforma de gestão condominial para condôminos, conselho e administração.
               </p>
-              <a
-                href={SITE_CONFIG.portal.sinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-2.5 rounded-lg bg-[#0051d5] text-white font-semibold text-[13px] hover:bg-[#316bf3] transition-colors shadow-xs"
-              >
-                Entrar no SIN
-              </a>
-              <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-[#dbe1ff]">
+              <div className="flex flex-col gap-2">
                 <a
-                  href={SITE_CONFIG.portal.appStoreUrl}
+                  href="https://app.crm-syndic.com.br/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Baixar aplicativo SIN na App Store (iOS)"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
+                  className="inline-flex items-center justify-center w-full py-2.5 rounded-lg bg-[#0051d5] text-white font-semibold text-[13px] hover:bg-[#316bf3] transition-colors shadow-xs"
                 >
-                  <Image
-                    src={SITE_CONFIG.sinPortal.appStoreBadgeUrl}
-                    alt="Disponível na App Store"
-                    width={110}
-                    height={32}
-                    className="h-8 w-auto object-contain"
-                  />
+                  <span className="material-symbols-outlined text-[18px] mr-1" aria-hidden="true">
+                    login
+                  </span>
+                  Acessar App Syndic
                 </a>
                 <a
-                  href={SITE_CONFIG.portal.playStoreUrl}
+                  href="https://crm-syndic.com.br/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Baixar aplicativo SIN no Google Play (Android)"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
+                  className="inline-flex items-center justify-center w-full py-2 rounded-lg bg-white text-[#0b1c30] border border-[#dbe1ff] font-semibold text-[12px] hover:bg-[#dce9ff] transition-colors"
                 >
-                  <Image
-                    src={SITE_CONFIG.sinPortal.googlePlayBadgeUrl}
-                    alt="Disponível no Google Play"
-                    width={110}
-                    height={32}
-                    className="h-8 w-auto object-contain"
-                  />
+                  Visitar Site Syndic CRM →
                 </a>
               </div>
             </div>
@@ -291,7 +261,7 @@ export function Footer() {
               Síndico Né! · Uma empresa Grupo Ícone-Rio
             </p>
             <p>
-              Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010
+              Rua Xavier da Silveira, 45/1009 - Copacabana, Rio de Janeiro-RJ, CEP 22061-010
             </p>
             <p>
               <a

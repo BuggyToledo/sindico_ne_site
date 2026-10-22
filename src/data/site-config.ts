@@ -16,7 +16,7 @@ export const SITE_CONFIG = {
   url: "https://www.sindicone.com.br",
   locale: "pt_BR",
   gaMeasurementId: "G-5JKJHM2SFL",
-  logoUrl: "/wp-content/uploads/2025/07/logo-sindicone-verde-roxo.svg",
+  logoUrl: "/logo-sindicone-roxo-verde.svg",
   defaultOgImage: "/wp-content/uploads/2026/06/147.jpg",
   phoneDisplay: "+55 (21) 97878-8211",
   phoneCompact: "+55(21) 97878-8211",
@@ -126,7 +126,10 @@ export const SITE_CONFIG = {
     href: "https://www.instagram.com/sindico_ne/",
   },
   portal: {
-    sinUrl: "https://sin.icondev.com.br/#/login",
+    name: "Syndic CRM",
+    siteUrl: "https://crm-syndic.com.br/",
+    appUrl: "https://app.crm-syndic.com.br/",
+    sinUrl: "https://app.crm-syndic.com.br/",
     appStoreUrl: "https://apps.apple.com/br/app/sin/id6448078375",
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.icondev.sinplus",
@@ -135,7 +138,9 @@ export const SITE_CONFIG = {
     ga4MeasurementId: "G-5JKJHM2SFL",
   },
   sinPortal: {
-    webLoginUrl: "https://sin.icondev.com.br/#/login",
+    name: "Syndic CRM",
+    siteUrl: "https://crm-syndic.com.br/",
+    webLoginUrl: "https://app.crm-syndic.com.br/",
     appStoreUrl: "https://apps.apple.com/br/app/sin/id6448078375",
     googlePlayUrl:
       "https://play.google.com/store/apps/details?id=com.icondev.sinplus",
@@ -146,7 +151,7 @@ export const SITE_CONFIG = {
       "/wp-content/uploads/2026/07/googleplay-e1785252567698.png",
   },
   logos: {
-    headerSvg: "/wp-content/uploads/2025/07/logo-sindicone-verde-roxo.svg",
+    headerSvg: "/logo-sindicone-roxo-verde.svg",
     schemaSvg: "/wp-content/uploads/2025/07/Ativo-14.svg",
     faviconPng: "/wp-content/uploads/2025/07/Ativo-10.png",
   },
@@ -155,16 +160,13 @@ export const SITE_CONFIG = {
     { label: "SÍNDICO", href: "/sindico-profissional-na-zona-sul-do-rj/" },
     { label: "SERVIÇOS", href: "/servicos-sindico-profissional/" },
     { label: "NOTÍCIAS & EVENTOS", href: "/noticias-e-eventos/" },
-    { label: "BLOG", href: "/blog/" },
-    { label: "POLÍTICA DE PRIVACIDADE", href: "/politica-de-privacidade/" },
-    { label: "CONTATO", href: "/contato/" },
   ],
   shortcutCards: [
     {
-      id: "blog",
-      title: "BLOG, NOTÍCIAS & EVENTOS",
+      id: "noticias-e-eventos",
+      title: "NOTÍCIAS & EVENTOS",
       subtitle: "Artigos técnicos, novidades legislativas e guias condominiais",
-      lines: ["BLOG", "NOTÍCIAS &", "EVENTOS"],
+      lines: ["NOTÍCIAS &", "EVENTOS"],
       href: "/noticias-e-eventos/",
       bgColor: "#ffffff",
       textColor: "#2e2821",

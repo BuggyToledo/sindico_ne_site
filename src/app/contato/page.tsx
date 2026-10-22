@@ -128,7 +128,7 @@ export default function ContatoPage() {
                         Endereço da Sede (Grupo Ícone-Rio)
                       </p>
                       <address className="not-italic text-[#0b1c30] leading-relaxed font-medium">
-                        Rua Xavier da Silveira 45/1009, Copacabana
+                        Rua Xavier da Silveira, 45/1009 - Copacabana
                         <br />
                         Rio de Janeiro-RJ, CEP 22061-010
                         <br />
@@ -201,7 +201,7 @@ export default function ContatoPage() {
           <div className="mt-12 bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden shadow-xs">
             <div className="p-4 sm:px-6 bg-[#eff4ff] border-b border-[#dbe1ff] text-[#0b1c30] flex flex-wrap items-center justify-between gap-2">
               <span className="text-xs sm:text-sm font-semibold">
-                Localização: Rua Xavier da Silveira 45/1009, Copacabana, Rio de Janeiro-RJ, CEP 22061-010
+                Localização: Rua Xavier da Silveira, 45/1009 - Copacabana, Rio de Janeiro-RJ, CEP 22061-010
               </span>
               <a
                 href={SITE_CONFIG.geo.googleMapsUrl}

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
@@ -54,12 +55,6 @@ export function Header() {
                 </span>
                 {SITE_CONFIG.contact.phoneDisplay}
               </a>
-              <Link
-                href="/admin/"
-                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-[#dce9ff] text-[#0b1c30] hover:bg-[#0051d5] hover:text-white transition-colors uppercase text-[10px] font-bold tracking-wider"
-              >
-                Painel Editorial
-              </Link>
             </div>
           </div>
         </div>
@@ -69,22 +64,17 @@ export function Header() {
           {/* Brand Lockup */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0051d5] rounded-lg"
+            className="flex items-center shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0051d5] rounded-lg py-1"
             aria-label="Síndico Né! - Página Inicial"
           >
-            <div className="w-10 h-10 rounded-lg bg-[#131b2e] flex items-center justify-center shadow-xs group-hover:bg-[#0051d5] transition-colors">
-              <span className="material-symbols-outlined text-[#d0f121] text-[24px]" aria-hidden="true">
-                apartment
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[18px] font-bold uppercase tracking-tight text-[#0b1c30] group-hover:text-[#0051d5] transition-colors leading-none">
-                SÍNDICO NÉ!
-              </span>
-              <span className="text-[10px] font-bold text-[#45464d] tracking-[0.08em] uppercase mt-1">
-                Gestão Condominial RJ
-              </span>
-            </div>
+            <Image
+              src="/logo-sindicone-roxo-verde.svg"
+              alt="Logo Síndico Né!"
+              width={240}
+              height={30}
+              priority
+              className="h-8 sm:h-9 w-auto object-contain transition-opacity group-hover:opacity-90"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -135,17 +125,6 @@ export function Header() {
               <span>Falar com Síndico</span>
             </Link>
 
-            <Link
-              href="/author/adriano/"
-              aria-label="Perfil do Síndico Profissional Adriano Toledo"
-              title="Adriano Toledo — Síndico Profissional"
-              className="hidden sm:flex w-9 h-9 rounded-full bg-[#0b1c30] hover:bg-[#0051d5] text-white items-center justify-center ml-0.5 transition-colors"
-            >
-              <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
-                person
-              </span>
-            </Link>
-
             {/* Mobile Hamburger Trigger */}
             <button
               type="button"
@@ -173,21 +152,20 @@ export function Header() {
           <div className="w-80 max-w-[88vw] bg-white text-[#0b1c30] h-full flex flex-col justify-between p-6 shadow-2xl border-l border-[#e2e8f0] overflow-y-auto">
             <div>
               <div className="flex items-center justify-between pb-5 border-b border-[#e2e8f0]">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#131b2e] flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#d0f121] text-[20px]" aria-hidden="true">
-                      apartment
-                    </span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-base font-bold uppercase tracking-tight text-[#0b1c30] leading-none">
-                      SÍNDICO NÉ!
-                    </span>
-                    <span className="text-[10px] font-bold text-[#45464d] uppercase tracking-wider mt-0.5">
-                      Gestão Condominial RJ
-                    </span>
-                  </div>
-                </div>
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center py-1"
+                  aria-label="Síndico Né! - Página Inicial"
+                >
+                  <Image
+                    src="/logo-sindicone-roxo-verde.svg"
+                    alt="Logo Síndico Né!"
+                    width={180}
+                    height={23}
+                    className="h-7 w-auto object-contain"
+                  />
+                </Link>
                 <button
                   type="button"
                   onClick={() => setMobileOpen(false)}
@@ -218,7 +196,7 @@ export function Header() {
                   <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
                     send
                   </span>
-                  <span>Contato</span>
+                  <span>Falar com Síndico</span>
                 </Link>
               </div>
 
@@ -240,13 +218,6 @@ export function Header() {
                     </Link>
                   );
                 })}
-                <Link
-                  href="/admin/"
-                  onClick={() => setMobileOpen(false)}
-                  className="px-3.5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#0051d5] bg-[#eff4ff] mt-2"
-                >
-                  Painel Editorial (CMS)
-                </Link>
               </nav>
             </div>
 
@@ -254,7 +225,7 @@ export function Header() {
               <p className="font-bold text-[#0b1c30]">
                 Síndico Né! · Uma empresa Grupo Ícone-Rio
               </p>
-              <p>Rua Xavier da Silveira 45/1009, Copacabana</p>
+              <p>Rua Xavier da Silveira, 45/1009 - Copacabana</p>
               <p>Rio de Janeiro-RJ, CEP 22061-010</p>
               <p>(21) 97878-8211 · {SITE_CONFIG.contact.email}</p>
               <p>CNPJ 02.634.709/0001-74</p>
