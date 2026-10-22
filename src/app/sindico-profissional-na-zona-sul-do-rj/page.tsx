@@ -75,12 +75,12 @@ export default function SobreNosPage() {
               <div className="bg-[#f4f6f8] border-l-4 border-[#171c24] p-5 rounded-r-xl space-y-2">
                 <div className="flex items-center gap-2 font-heading text-lg font-bold text-[#171c24]">
                   <ShieldCheck className="w-5 h-5 text-[#171c24]" aria-hidden="true" />
-                  <span>Garantia Patrimonial de até R$ 2.000.000,00</span>
+                  <span>Seguros de Responsabilidade Civil Profissional (PJ e PF)</span>
                 </div>
                 <p className="text-sm text-[#4a525d] leading-relaxed">
-                  Contamos com seguros de Responsabilidade Civil Profissional contratados junto à{" "}
-                  <strong>Tokio Marine</strong> e à <strong>Akad Seguros</strong> com cobertura de até{" "}
-                  <strong>R$ 2.000.000,00</strong> para eventuais prejuízos em que o síndico seja responsabilizado civilmente, trazendo segurança real para o patrimônio coletivo.
+                  Contamos com dois seguros de Responsabilidade Civil Profissional: <strong>PJ na Tokio Marine</strong> (segurada Síndico Né!, CNPJ 02.634.709/0001-74, vigência 2026/2027), com cobertura de{" "}
+                  <strong>R$ 1.000.000,00</strong>, e <strong>PF na Akad Seguros</strong> (segurado Adriano T. P. Toledo, Síndico Profissional), com cobertura de{" "}
+                  <strong>R$ 1.000.000,00</strong>, para eventuais prejuízos em que o síndico seja responsabilizado civilmente, trazendo segurança real para o patrimônio coletivo.
                 </p>
               </div>
             </div>

@@ -165,7 +165,7 @@ export default function ContatoPage() {
                     CRA-RJ nº {SITE_CONFIG.credentials.craRj}
                   </p>
                   <p>
-                    Seguro de Responsabilidade Civil Síndico de até R$ 2.000.000,00 (Tokio Marine / Akad)
+                    Seguro RCP PJ Tokio Marine (R$ 1.000.000,00) · RCP PF Akad Seguros (R$ 1.000.000,00)
                   </p>
                 </div>
               </div>
