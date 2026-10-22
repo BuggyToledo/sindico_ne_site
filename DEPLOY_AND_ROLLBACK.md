@@ -12,33 +12,34 @@
 
 ## 2. Pré-Requisitos de Infraestrutura e Variáveis de Ambiente
 
-### 2.1. Requisitos do Servidor / Plataforma de Hospedagem
-- **Runtime**: Node.js `>= 20.x` (testado e validado em Node `v24.19.0`).
-- **Opções Recomendadas de Hospedagem**:
-  1. **Vercel Pro / Hobby** (implantação nativa Next.js App Router com CDN global e SSL automático) + banco PostgreSQL/Payload ou armazenamento persistente.
-  2. **VPS / Cloud Server (cPanel Node.js, Railway, Render, DigitalOcean ou AWS Lightsail)** com volume persistente montado para o diretório `content/`.
-- **Certificado SSL/TLS**: Emitido automaticamente via Let's Encrypt / Cloudflare Universal SSL antes da troca de tráfego.
+### 2.1. Plataforma de Hospedagem: Cloudflare Pages (export estático)
+- **Build command**: `npm run build` · **Output directory**: `out` · **Node**: `22` (variável `NODE_VERSION=22`).
+- O site é 100% estático (`output: "export"`). Redirects e cabeçalhos ficam em `public/_redirects` e `public/_headers`.
+- Rotas dinâmicas são Pages Functions em `functions/`: `/api/contato` (formulário), `/api/auth` e `/api/callback` (login GitHub do Decap CMS).
+- **Certificado SSL/TLS**: automático pela Cloudflare.
 
-### 2.2. Variáveis de Ambiente Obrigatórias (`.env.production`)
+### 2.2. Variáveis de Ambiente (painel Cloudflare Pages > Settings > Variables and Secrets)
 
-Copie o arquivo [`.env.example`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/.env.example) para `.env.production` no servidor e defina senhas fortes exclusivas:
+Veja `.env.example` e `docs/CMS-DECAP.md`. Nenhum segredo vai no código.
 
 ```ini
-NEXT_PUBLIC_SITE_URL=https://www.sindicone.com.br
-NEXT_PUBLIC_GA4_ID=G-5JKJHM2SFL
+SITE_URL=https://www.sindicone.com.br
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-5JKJHM2SFL
+NODE_VERSION=22
 
-# Segredos exclusivos de servidor (NUNCA usar prefixo NEXT_PUBLIC_)
-CMS_PROVIDER=local
-CMS_SESSION_SECRET=<gerar-hash-aleatorio-64-bytes>
-CMS_PREVIEW_SECRET=<gerar-hash-aleatorio-32-bytes>
+# Formulário (/api/contato)
+FORM_ENDPOINT=            # URL do serviço que recebe o lead (a definir)
+FORM_ENDPOINT_TOKEN=      # opcional, secret
+ALLOWED_ORIGINS=https://www.sindicone.com.br
+WHATSAPP_NUMBER=5521978788211
 
-CMS_ADMIN_EMAIL=admin@sindicone.com.br
-CMS_ADMIN_PASSWORD=<senha-forte-administrador>
-CMS_EDITOR_EMAIL=editor@sindicone.com.br
-CMS_EDITOR_PASSWORD=<senha-forte-editor>
-CMS_AUTHOR_EMAIL=autor@sindicone.com.br
-CMS_AUTHOR_PASSWORD=<senha-forte-autor>
+# Login do Decap CMS (OAuth App do GitHub)
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=     # secret
+OAUTH_SCOPE=repo
 ```
+
+> ⚠️ O painel antigo (Next `/admin` com senhas em variáveis `CMS_*`) foi removido. As senhas antigas continuam no histórico do Git e devem ser tratadas como vazadas: não reutilize em nenhum lugar.
 
 ---
 
@@ -58,7 +59,7 @@ CMS_AUTHOR_PASSWORD=<senha-forte-autor>
    ```bash
    npm run typecheck
    npm run build
-   node scripts/validate-project.mjs
+   npm run test:validate
    ```
 3. Conferir visualmente:
    - Página Inicial (`/`), Sobre Nós (`/sindico-profissional-na-zona-sul-do-rj/`), Serviços (`/servicos-sindico-profissional/`), Blog (`/blog/`), Notícias e Eventos (`/noticias-e-eventos/`) e Contato (`/contato/`).
@@ -66,7 +67,7 @@ CMS_AUTHOR_PASSWORD=<senha-forte-autor>
    - Envio real de teste no formulário de contato (`/contato/`) e clique no botão de WhatsApp.
 
 ### Etapa 3 — Virada de DNS (Janela Recomendada: Terça ou Quarta-feira, 22h00 BRT)
-1. Apontar o registro `A` (`sindicone.com.br`) e `CNAME` (`www.sindicone.com.br`) para o novo servidor Next.js (mantendo o WordPress legado intacto no servidor de origem por no mínimo 30 dias).
+1. Apontar o registro `A` (`sindicone.com.br`) e `CNAME` (`www.sindicone.com.br`) para o projeto Cloudflare Pages (mantendo o WordPress legado intacto no servidor de origem por no mínimo 30 dias).
 2. Verificar propagação SSL/HTTPS e redirecionamento `http://` → `https://www.sindicone.com.br/`.
 
 ---
@@ -80,7 +81,7 @@ CMS_AUTHOR_PASSWORD=<senha-forte-autor>
 2. **Google Analytics 4 (`G-5JKJHM2SFL`)**:
    - Verificar no **Relatório em Tempo Real** o disparo de `page_view`, `whatsapp_click` e `generate_lead`.
 3. **Verificação de Cabeçalhos de Segurança e Indexação**:
-   - Confirmar que `/admin/` e `/blog/preview/*` retornam `X-Robots-Tag: noindex, nofollow`.
+   - Confirmar que `/admin/` (Decap CMS) retorna `X-Robots-Tag: noindex, nofollow`.
 
 ---
 
@@ -88,8 +89,8 @@ CMS_AUTHOR_PASSWORD=<senha-forte-autor>
 
 Caso seja detectada qualquer anomalia crítica após a virada:
 
-1. **Opção A — Rollback de Versão na Plataforma Next.js (Tempo estimado: 30 segundos)**:
-   - Reverter imediatamente para o build anterior estável no painel da plataforma (ou `git revert` + `npm run build && npm run start`).
+1. **Opção A — Rollback de Versão no Cloudflare Pages (Tempo estimado: 30 segundos)**:
+   - Reverter imediatamente para o build anterior estável no painel do Cloudflare Pages (Deployments > Rollback) ou via `git revert`.
 2. **Opção B — Rollback Completo para o WordPress Original (Tempo estimado: 5 minutos)**:
    - Como o servidor WordPress original permanece intacto e congelado durante os primeiros 30 dias, basta restaurar os registros `A` (`@`) e `CNAME` (`www`) no painel de DNS para o IP original da hospedagem WordPress.
    - Graças ao TTL reduzido para 300 segundos, o tráfego retorna integralmente ao WordPress antigo em até 5 minutos, sem perda de nenhum URL (pois todas as URLs originais foram preservadas na mesma estrutura `trailingSlash: true`).

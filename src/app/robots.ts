@@ -1,13 +1,15 @@
 import type { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/data/site-config";
 
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin/", "/api/", "/admin/preview/"],
+        disallow: ["/admin/", "/api/"],
       },
     ],
     sitemap: [

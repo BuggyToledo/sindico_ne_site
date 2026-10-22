@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import matter from "gray-matter";
+import { marked } from "marked";
 import type {
   Article,
   ArticleCategory,
@@ -8,16 +10,11 @@ import type {
   ArticleTag,
   Author,
 } from "@/types/editorial";
-import { INITIAL_ARTICLES } from "@/data/articles-seed";
 import {
   AUTHORS,
   EDITORIAL_CATEGORIES,
   EDITORIAL_TAGS,
 } from "@/data/site-config";
-import { fetchFromWordPressHeadless } from "./wp-headless-adapter";
-
-const CONTENT_DIR = path.join(process.cwd(), "content");
-const ARTICLES_FILE = path.join(CONTENT_DIR, "articles.json");
 
 export interface ArticleFilterOptions {
   status?: ArticleStatus | "all";
@@ -134,102 +131,113 @@ export function normalizeArticle(raw: Article): Article {
   };
 }
 
-/**
- * Ensures the persistent JSON store exists and returns all articles.
- * Implements automatic fallback to INITIAL_ARTICLES if filesystem or external CMS fails
- * (Rule 10: Temporary CMS failure must never take down institutional or public pages).
- */
-export function loadAllArticlesSync(): Article[] {
-  try {
-    if (!fs.existsSync(CONTENT_DIR)) {
-      fs.mkdirSync(CONTENT_DIR, { recursive: true });
-    }
-    const normalizedSeed = INITIAL_ARTICLES.map(normalizeArticle);
-    if (!fs.existsSync(ARTICLES_FILE)) {
-      fs.writeFileSync(
-        ARTICLES_FILE,
-        JSON.stringify(normalizedSeed, null, 2),
-        "utf-8"
-      );
-      return normalizedSeed;
-    }
-    const raw = fs.readFileSync(ARTICLES_FILE, "utf-8");
-    const parsed = JSON.parse(raw) as Article[];
-    if (!Array.isArray(parsed) || parsed.length === 0) {
-      return normalizedSeed;
-    }
-    return parsed.map(normalizeArticle);
-  } catch (err) {
-    console.error(
-      "[CMS Store] Fallback ativado — erro ao ler content/articles.json, usando INITIAL_ARTICLES em memória:",
-      err
-    );
-    return INITIAL_ARTICLES.map(normalizeArticle);
+/** Pasta com os posts editados pelo Decap CMS (um arquivo .md por post). */
+export const POSTS_DIR = path.join(process.cwd(), "content", "posts");
+
+function toIso(value: unknown, fallback: string): string {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString();
   }
+  if (typeof value === "string" && value.trim()) return value.trim();
+  return fallback;
 }
 
-export function saveAllArticlesSync(articles: Article[]): boolean {
-  try {
-    if (!fs.existsSync(CONTENT_DIR)) {
-      fs.mkdirSync(CONTENT_DIR, { recursive: true });
-    }
-    fs.writeFileSync(
-      ARTICLES_FILE,
-      JSON.stringify(articles.map(normalizeArticle), null, 2),
-      "utf-8"
-    );
-    return true;
-  } catch (err) {
-    console.error("[CMS Store] Erro ao persistir content/articles.json:", err);
-    return false;
-  }
+function asStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((v) => (typeof v === "string" ? v : (v as { value?: string })?.value))
+    .filter((v): v is string => typeof v === "string" && v.trim().length > 0)
+    .map((v) => v.trim());
+}
+
+/**
+ * Converte um arquivo .md (frontmatter + corpo) em Article.
+ * - bodyFormat "html": corpo HTML original (posts migrados do WordPress), usado sem alteração.
+ * - caso contrário: corpo em Markdown, convertido para HTML no build.
+ */
+export function parsePostFile(fileName: string, source: string): Article {
+  const { data, content } = matter(source);
+  const fm = data as Record<string, unknown> & Partial<Article>;
+  const slug = String(fm.slug || fileName.replace(/\.md$/, "")).trim();
+  const bodyFormat = fm.bodyFormat === "html" ? "html" : "markdown";
+  const contentHtml =
+    bodyFormat === "html"
+      ? content.replace(/\n$/, "")
+      : (marked.parse(content, { async: false }) as string);
+  const nowIso = new Date().toISOString();
+  const publishedAt = toIso(fm.publishedAt, nowIso);
+  const isDraft = fm.draft === true;
+  const title = String(fm.title || slug);
+  const image = (fm.featuredImage ?? {}) as Partial<Article["featuredImage"]>;
+
+  return normalizeArticle({
+    ...(fm as Article),
+    id: String(fm.id || `post-${slug}`),
+    title,
+    slug,
+    LegacyRootUrl: Boolean(fm.legacyRootUrl ?? fm.LegacyRootUrl ?? fm.wpId),
+    excerpt: String(fm.excerpt || title),
+    directAnswer: String(fm.directAnswer || fm.excerpt || title),
+    contentHtml,
+    featuredImage: {
+      ...image,
+      url: image.url || "/wp-content/uploads/2026/06/147.jpg",
+      alt: image.alt || title,
+      width: Number(image.width) || 1200,
+      height: Number(image.height) || 675,
+    },
+    authorId: String(fm.authorId || "adriano"),
+    categorySlug: String(fm.categorySlug || "sindico-profissional"),
+    legacyCategorySlugs: fm.legacyCategorySlugs ?? ["noticias"],
+    tags: asStringList(fm.tags),
+    publishedAt,
+    updatedAt: toIso(fm.updatedAt, publishedAt),
+    status: isDraft ? "draft" : "published",
+    readingTimeMinutes:
+      Number(fm.readingTimeMinutes) || calculateReadingTimeMinutes(contentHtml),
+    noIndex: Boolean(fm.noIndex),
+    references: fm.references ?? [],
+    relatedLinks: fm.relatedLinks ?? [],
+    faq: (fm.faq ?? []).filter((f) => f && f.question && f.answer),
+    cta: fm.cta ?? {
+      heading: "Precisa de apoio profissional na gestão do seu condomínio?",
+      description:
+        "Converse com a equipe do Síndico Né! e solicite um diagnóstico técnico e financeiro sem compromisso.",
+      buttonText: "Solicitar Diagnóstico Condominial",
+      buttonHref: "/contato/",
+      whatsappMessage: `Olá! Li o artigo "${title}" e gostaria de conversar sobre meu condomínio.`,
+    },
+  });
+}
+
+/** Lê todos os posts de content/posts/*.md (no build). */
+export function loadAllArticlesSync(): Article[] {
+  if (!fs.existsSync(POSTS_DIR)) return [];
+  return fs
+    .readdirSync(POSTS_DIR)
+    .filter((f) => f.endsWith(".md"))
+    .sort()
+    .map((f) => parsePostFile(f, fs.readFileSync(path.join(POSTS_DIR, f), "utf-8")));
+}
+
+/**
+ * Publicado = não é rascunho E a data de publicação já passou no momento do build.
+ * Post com data futura só aparece depois de um novo build (rebuild agendado).
+ */
+export function isPubliclyVisible(article: Article, now = Date.now()): boolean {
+  return (
+    article.status === "published" &&
+    new Date(article.publishedAt).getTime() <= now
+  );
 }
 
 export async function getAllArticles(
   options: { includeUnpublished?: boolean } = {}
 ): Promise<Article[]> {
   let articles = loadAllArticlesSync();
-
-  if (process.env.CMS_PROVIDER === "wp-headless") {
-    try {
-      const wpArticles = await fetchFromWordPressHeadless();
-      if (wpArticles && wpArticles.length > 0) {
-        const bySlug = new Map(articles.map((a) => [a.slug, a]));
-        for (const wpArt of wpArticles) {
-          if (wpArt.contentHtml && wpArt.contentHtml.trim().length > 80) {
-            bySlug.set(wpArt.slug, normalizeArticle(wpArt));
-          }
-        }
-        articles = Array.from(bySlug.values());
-      }
-    } catch {
-      // Circuit breaker fallback: keep local articles seamlessly
-    }
-  }
-
-  // Promote scheduled articles whose scheduledFor timestamp has passed
-  const now = Date.now();
-  let updated = false;
-  for (const article of articles) {
-    if (
-      article.status === "scheduled" &&
-      article.scheduledFor &&
-      new Date(article.scheduledFor).getTime() <= now
-    ) {
-      article.status = "published";
-      article.noIndex = false;
-      article.seo.noindex = false;
-      updated = true;
-    }
-  }
-  if (updated) {
-    saveAllArticlesSync(articles);
-  }
-
   if (!options.includeUnpublished) {
-    articles = articles.filter((a) => a.status === "published");
+    articles = articles.filter((a) => isPubliclyVisible(a));
   }
-
   return articles.sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
@@ -393,205 +401,4 @@ export function calculateReadingTimeMinutes(html: string): number {
   const plainText = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   const words = plainText ? plainText.split(" ").length : 0;
   return Math.max(1, Math.ceil(words / 180));
-}
-
-export async function createOrUpdateArticle(
-  input: Partial<Article> & { title: string; slug: string },
-  actorEmail: string,
-  summaryNote = "Atualização editorial"
-): Promise<Article> {
-  const articles = loadAllArticlesSync();
-  const nowIso = new Date().toISOString();
-  const existingIndex = articles.findIndex(
-    (a) => (input.id && a.id === input.id) || a.slug === input.slug
-  );
-
-  const sanitizedSlug = input.slug
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
-  if (existingIndex >= 0) {
-    const prev = articles[existingIndex];
-    const revId = `rev-${Date.now()}`;
-    const newRevision: ArticleRevision = {
-      revisionId: revId,
-      id: revId,
-      timestamp: nowIso,
-      editorName: actorEmail,
-      authorEmail: actorEmail,
-      editorRole: "admin",
-      summary: summaryNote,
-      previousTitle: prev.title,
-      previousStatus: prev.status,
-      snapshot: {
-        title: prev.title,
-        excerpt: prev.excerpt,
-        contentHtml: prev.contentHtml,
-        status: prev.status,
-        seoTitle: prev.seoTitle || prev.seo.title,
-        seoDescription: prev.seoDescription || prev.seo.description,
-      },
-    };
-
-    const status = input.status ?? prev.status;
-    const isDraftOrPrivate = status !== "published";
-    const seoTitle = input.seoTitle ?? prev.seoTitle ?? prev.seo.title;
-    const seoDescription =
-      input.seoDescription ?? prev.seoDescription ?? prev.seo.description;
-    const canonicalUrl =
-      input.canonicalUrl ?? prev.canonicalUrl ?? prev.seo.canonicalUrl;
-    const noIndex = isDraftOrPrivate
-      ? true
-      : Boolean(input.noIndex ?? prev.noIndex);
-
-    const updated = normalizeArticle({
-      ...prev,
-      ...input,
-      slug: sanitizedSlug || prev.slug,
-      updatedAt: nowIso,
-      readingTimeMinutes: calculateReadingTimeMinutes(
-        input.contentHtml ?? prev.contentHtml
-      ),
-      seoTitle,
-      seoDescription,
-      canonicalUrl,
-      noIndex,
-      seo: {
-        ...prev.seo,
-        title: seoTitle,
-        description: seoDescription,
-        canonicalUrl,
-        noindex: noIndex,
-      },
-      revisions: [newRevision, ...(prev.revisions ?? []).slice(0, 19)],
-    });
-
-    articles[existingIndex] = updated;
-    saveAllArticlesSync(articles);
-    return updated;
-  }
-
-  const status: ArticleStatus = input.status ?? "draft";
-  const canonicalUrl =
-    input.canonicalUrl || `https://www.sindicone.com.br/${sanitizedSlug}/`;
-  const contentHtml = input.contentHtml ?? "<p>Rascunho em elaboração.</p>";
-  const seoTitle = input.seoTitle ?? `${input.title} | Síndico Né!`;
-  const seoDescription = input.seoDescription ?? input.excerpt ?? input.title;
-  const noIndex = status !== "published" ? true : Boolean(input.noIndex);
-  const revId = `rev-${Date.now()}`;
-
-  const created = normalizeArticle({
-    id: input.id ?? `post-${Date.now()}`,
-    title: input.title,
-    slug: sanitizedSlug,
-    LegacyRootUrl: input.LegacyRootUrl ?? false,
-    excerpt: input.excerpt ?? input.title,
-    directAnswer: input.directAnswer ?? input.excerpt ?? input.title,
-    contentHtml,
-    featuredImage: input.featuredImage ?? {
-      url: "/wp-content/uploads/2026/06/147.jpg",
-      alt: input.title,
-      width: 1200,
-      height: 675,
-    },
-    authorId: input.authorId ?? "adriano",
-    reviewerId: input.reviewerId ?? "adriano",
-    categorySlug: input.categorySlug ?? "sindico-profissional",
-    legacyCategorySlugs: ["noticias"],
-    tags: input.tags ?? ["sindico-profissional"],
-    publishedAt: input.publishedAt ?? nowIso,
-    updatedAt: nowIso,
-    scheduledFor: input.scheduledFor,
-    status,
-    readingTimeMinutes: calculateReadingTimeMinutes(contentHtml),
-    seoTitle,
-    seoDescription,
-    canonicalUrl,
-    noIndex,
-    seo: {
-      title: seoTitle,
-      description: seoDescription,
-      canonicalUrl,
-      noindex: noIndex,
-    },
-    references: input.references ?? [],
-    relatedLinks: input.relatedLinks ?? [],
-    relatedArticleSlugs: input.relatedArticleSlugs ?? [],
-    relatedServiceSlugs: input.relatedServiceSlugs ?? [],
-    faq: input.faq ?? [],
-    cta: input.cta ?? {
-      heading: "Precisa de apoio profissional na gestão do seu condomínio?",
-      description:
-        "Converse com a equipe do Síndico Né! e solicite um diagnóstico técnico e financeiro sem compromisso.",
-      buttonText: "Solicitar Diagnóstico Condominial",
-      buttonLabel: "Solicitar Diagnóstico Condominial",
-      buttonHref: "/contato/",
-      whatsappMessage: `Olá! Li o artigo "${input.title}" e gostaria de conversar sobre meu condomínio.`,
-    },
-    revisions: [
-      {
-        revisionId: revId,
-        id: revId,
-        timestamp: nowIso,
-        editorName: actorEmail,
-        authorEmail: actorEmail,
-        editorRole: "admin",
-        summary: "Criação inicial do artigo",
-        previousTitle: input.title,
-        previousStatus: status,
-        snapshot: {
-          title: input.title,
-          excerpt: input.excerpt ?? input.title,
-          contentHtml,
-          status,
-          seoTitle,
-          seoDescription,
-        },
-      },
-    ],
-  });
-
-  articles.unshift(created);
-  saveAllArticlesSync(articles);
-  return created;
-}
-
-export async function deleteArticleById(id: string): Promise<boolean> {
-  const articles = loadAllArticlesSync();
-  const filtered = articles.filter((a) => a.id !== id);
-  if (filtered.length === articles.length) return false;
-  saveAllArticlesSync(filtered);
-  return true;
-}
-
-export async function restoreArticleRevision(
-  articleId: string,
-  revisionId: string,
-  actorEmail: string
-): Promise<Article | null> {
-  const articles = loadAllArticlesSync();
-  const idx = articles.findIndex((a) => a.id === articleId);
-  if (idx < 0) return null;
-
-  const article = articles[idx];
-  const rev = (article.revisions ?? []).find(
-    (r) => r.id === revisionId || r.revisionId === revisionId
-  );
-  if (!rev || !rev.snapshot) return null;
-
-  return createOrUpdateArticle(
-    {
-      ...article,
-      title: rev.snapshot.title,
-      excerpt: rev.snapshot.excerpt,
-      contentHtml: rev.snapshot.contentHtml,
-      status: rev.snapshot.status,
-      seoTitle: rev.snapshot.seoTitle,
-      seoDescription: rev.snapshot.seoDescription,
-    },
-    actorEmail,
-    `Restauração da revisão ${revisionId} (${rev.timestamp})`
-  );
 }

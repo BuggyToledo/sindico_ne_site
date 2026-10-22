@@ -1,3 +1,5 @@
+> ⚠️ **Documento histórico.** O painel editorial próprio (Next `/admin`, `/api/cms/*`, `content/articles.json`, `/blog/preview/`, login por senha) foi **removido** e substituído pelo **Decap CMS** com posts em `content/posts/*.md` e hospedagem no Cloudflare Pages. Veja [`docs/CMS-DECAP.md`](./docs/CMS-DECAP.md). As senhas antigas continuam no histórico do Git e devem ser tratadas como vazadas.
+
 # Guia Editorial e Manual de Publicação — Síndico Né! (`EDITORIAL_GUIDE.md`)
 
 > **Regra do grupo:** o CRECI J 12.974 é da **Direct Houses** e **não se usa** no site da Síndico Né!. Adriano atua aqui como **síndico profissional** (CRA-RJ 03-06783), não como corretor de imóveis.

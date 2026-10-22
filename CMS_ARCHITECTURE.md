@@ -1,3 +1,5 @@
+> ⚠️ **Documento histórico.** O painel editorial próprio (Next `/admin`, `/api/cms/*`, `content/articles.json`, `/blog/preview/`, login por senha) foi **removido** e substituído pelo **Decap CMS** com posts em `content/posts/*.md` e hospedagem no Cloudflare Pages. Veja [`docs/CMS-DECAP.md`](./docs/CMS-DECAP.md). As senhas antigas continuam no histórico do Git e devem ser tratadas como vazadas.
+
 # DECISÃO ARQUITETURAL DE CMS E SISTEMA EDITORIAL (`CMS_ARCHITECTURE.md`)
 
 **Projeto:** Reconstrução e Modernização do Site e Blog — Síndico Né! (`sindicone.com.br`)  

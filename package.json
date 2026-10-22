@@ -6,13 +6,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
-    "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test:validate": "node scripts/validate-project.mjs"
+    "test:validate": "node scripts/validate-project.mjs",
+    "preview": "npx -y serve out",
+    "cms:local": "npx -y decap-server",
+    "test:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.511.0",
+    "marked": "^15.0.12",
     "next": "^15.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
