@@ -66,7 +66,7 @@ Todas as rotas públicas originais e as novas rotas do blog foram compiladas e i
    - As 27 tags secundárias de tópico único foram preservadas para não quebrar links antigos (`/tag/[slug]/`), mas recebem `noindex, follow` e são omitidas do `sitemap.xml`, eliminando o desperdício de *crawl budget* identificado na auditoria inicial.
 3. **Correção do `locations.kml` e Implementação de `llms.txt` (GEO)**:
    - O arquivo [`public/locations.kml`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/public/locations.kml) foi reconstruído com as coordenadas reais da sede em Copacabana (`-43.1906181,-22.9765877,0`), corrigindo o erro `0,0` do plugin legado.
-   - O arquivo [`public/llms.txt`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/public/llms.txt) sintetiza credenciais verificáveis (CRA-RJ `03-06783`, Seguro RC R$ 2 milhões), áreas atendidas na Zona Sul do RJ e links canônicos para motores de busca baseados em IA.
+   - O arquivo [`public/llms.txt`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/public/llms.txt) sintetiza credenciais verificáveis (CRA-RJ `03-06783`, Seguros RCP PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00), áreas atendidas na Zona Sul do RJ e links canônicos para motores de busca baseados em IA.
 
 ---
 

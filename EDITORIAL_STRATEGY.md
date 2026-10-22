@@ -15,7 +15,7 @@ O blog do Síndico Né! atende quatro perfis reais de leitores na jornada de dec
 
 1. **Membros do Conselho Fiscal e Consultivo (Decisores Diretos):**
    - **Dores:** Sobrecarga com problemas operacionais, desconfiança na prestação de contas da gestão anterior, contratos defasados sem reajuste ou sem escopo técnico, receio de responsabilidade civil em obras de fachada e falta de tempo para assumir a sindicância.
-   - **Objetivo:** Encontrar um síndico profissional técnico, imparcial, com registro no CRA-RJ e seguro de responsabilidade civil (R$ 2 milhões) capaz de organizar o prédio sem conflitos.
+   - **Objetivo:** Encontrar um síndico profissional técnico, imparcial, com registro no CRA-RJ e seguros de responsabilidade civil profissional (PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00) capaz de organizar o prédio sem conflitos.
 2. **Síndicos Moradores Sobrecarregados (Influenciadores de Transição):**
    - **Dores:** Desgaste pessoal com vizinhos e zeladoria, dúvidas jurídicas trabalhistas (ex.: escala 6x1, horas extras) e risco patrimonial pessoal por falhas técnicas em obras e manutenção.
    - **Objetivo:** Entender como funciona a transição segura para um síndico profissional ou contratar consultoria técnica pontual.

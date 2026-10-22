@@ -458,14 +458,14 @@ A análise técnica do HTML, árvore de recursos e cabeçalhos de rede revelou *
     - **Telefone:** `+55-21-97878-8211` | **E-mail:** `contato@sindicone.com.br`.
     - **Horário de Funcionamento (`OpeningHoursSpecification`):** Segunda a Sexta `09:00-18:00`, Sábado `09:00-14:00`.
     - **Área de Cobertura (`areaServed`):** Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico, Leme, Leblon, Humaitá, Laranjeiras, Catete, Glória, Gávea (Zona Sul do Rio de Janeiro).
-    - **Credenciais e Seguros (`hasCredential` / `makesOffer`):** Seguro Responsabilidade Civil PJ Tokio Marine (R$ 1 milhão) + PF Akad Seguro (R$ 1 milhão) = R$ 2 milhões de cobertura total.
+    - **Credenciais e Seguros (`hasCredential` / `makesOffer`):** Seguros de Responsabilidade Civil Profissional PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00 (citar separados; não somar).
   - Corrigir o endpoint `/locations.kml` para retornar o XML KML válido com as coordenadas e endereço completos de Copacabana.
 
 ### 5.3. Estratégia de GEO (Generative Engine Optimization — Busca com IA)
 Para posicionar a **Síndico Né!** como a principal fonte citada por **Google AI Overviews (SGE), ChatGPT Search, Perplexity, Claude e Gemini** quando usuários pesquisarem por *"síndico profissional Zona Sul RJ"*, *"quanto custa síndico profissional no Rio de Janeiro"*, *"síndico profissional Copacabana"* ou *"quem paga condomínio inquilino ou proprietário"*:
 
 1. **Implementação de `/llms.txt` e `/llms-full.txt`:**
-   - Criar na raiz do projeto o padrão aberto `/llms.txt` contendo o resumo estruturado em Markdown da empresa, credenciais verificáveis (CRA-RJ `03-06783`, apólices Tokio Marine e Akad de R$ 2 milhões), endereço em Copacabana, serviços oferecidos, estudos de caso com métricas reais (ex.: *redução de 20% nas despesas fixas em Copacabana*, *redução de 80% nas reclamações internas em 1 trimestre*, *remuneração média no RJ entre R$ 2.000 e R$ 8.000/mês e carga horária de 12h a 32h mensais*) e links canônicos para todas as páginas.
+   - Criar na raiz do projeto o padrão aberto `/llms.txt` contendo o resumo estruturado em Markdown da empresa, credenciais verificáveis (CRA-RJ `03-06783`, apólices PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00), endereço em Copacabana, serviços oferecidos, estudos de caso com métricas reais (ex.: *redução de 20% nas despesas fixas em Copacabana*, *redução de 80% nas reclamações internas em 1 trimestre*, *remuneração média no RJ entre R$ 2.000 e R$ 8.000/mês e carga horária de 12h a 32h mensais*) e links canônicos para todas as páginas.
 2. **Dados Estruturados Semânticos Avançados (Schema.org JSON-LD por Página):**
    - **Home e Página Síndico:** `ProfessionalService` + `LocalBusiness` + `Person` (Adriano Toledo com `hasCredential` CRA-RJ) + `FAQPage` + `BreadcrumbList`.
    - **Páginas de Serviços (`/servico-item/*`):** `Service` + `Article` (Case Study) + `BreadcrumbList`.
