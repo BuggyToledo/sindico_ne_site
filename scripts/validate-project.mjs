@@ -223,25 +223,23 @@ async function runValidation() {
     "Verified in src/data/site-config.ts"
   );
 
-  // 8. Validate Preview Page has noindex, nofollow
-  const previewHtml =
-    (await getRouteHtml(
-      "/admin/preview/rascunho-demo-checklist-autovistoria-predial-rj/",
-      "admin/preview/rascunho-demo-checklist-autovistoria-predial-rj.html"
-    )) || "";
-  if (previewHtml) {
-    check(
-      "Draft Preview Route (/admin/preview/[slug]/) enforces noindex",
-      previewHtml.includes("noindex"),
-      "robots noindex verified on preview HTML"
-    );
-  } else {
-    check(
-      "Draft Preview Route (/admin/preview/[slug]/) enforces noindex",
-      true,
-      "Protected route configured"
-    );
-  }
+  // 8. Validate Preview Page is auth-gated (force-dynamic) and declares noindex
+  const previewPageSource = fs.existsSync(
+    path.join(ROOT, "src/app/admin/preview/[slug]/page.tsx")
+  )
+    ? fs.readFileSync(
+        path.join(ROOT, "src/app/admin/preview/[slug]/page.tsx"),
+        "utf-8"
+      )
+    : "";
+  check(
+    "Draft Preview Route (/admin/preview/[slug]/) enforces noindex + auth gate",
+    previewPageSource.includes("index: false") &&
+      previewPageSource.includes("force-dynamic") &&
+      previewPageSource.includes("verifyPreviewToken") &&
+      previewPageSource.includes("verifySessionToken"),
+    "Preview requires CMS session or signed token; robots noindex configured"
+  );
 
   // 9. Validate Thin Tag has noindex, follow
   const thinTagHtml = (await getRouteHtml("/tag/proposta/", "tag/proposta.html")) || "";

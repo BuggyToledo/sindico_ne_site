@@ -1,19 +1,19 @@
 import React from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import { notFound, redirect } from "next/navigation";
 import {
-  getAllArticles,
   getArticleBySlug,
   getAuthor,
   getRelatedArticles,
 } from "@/lib/cms/store";
+import { verifyPreviewToken, verifySessionToken } from "@/lib/cms/auth";
 import { SERVICE_CASES } from "@/data/services";
 import { ArticleView } from "@/components/blog/ArticleView";
 
-export async function generateStaticParams() {
-  const articles = await getAllArticles({ includeUnpublished: true });
-  return articles.map((a) => ({ slug: a.slug }));
-}
+export const dynamic = "force-dynamic";
+
+const COOKIE_NAME = "sindicone_cms_session";
 
 export const metadata: Metadata = {
   title: "Pré-visualização Editorial (Rascunho) | Síndico Né!",
@@ -25,10 +25,22 @@ export const metadata: Metadata = {
 
 export default async function AdminPreviewPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ token?: string }>;
 }) {
   const { slug } = await params;
+  const { token } = await searchParams;
+
+  const cookieStore = await cookies();
+  const sessionUser = verifySessionToken(cookieStore.get(COOKIE_NAME)?.value);
+  const hasPreviewToken = verifyPreviewToken(slug, token);
+
+  if (!sessionUser && !hasPreviewToken) {
+    redirect(`/admin/?preview=${encodeURIComponent(slug)}`);
+  }
+
   const article = await getArticleBySlug(slug, { allowUnpublished: true });
   if (!article) notFound();
 

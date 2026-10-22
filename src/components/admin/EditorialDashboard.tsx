@@ -651,16 +651,43 @@ export function EditorialDashboard() {
                     </button>
                   )}
 
-                  {selected.slug && (
-                    <Link
-                      href={`/admin/preview/${selected.slug}/`}
-                      target="_blank"
-                      className="inline-flex items-center gap-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs uppercase tracking-wider px-3.5 py-2.5 rounded-md"
+                  {selected.slug ? (
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        const slug = selected.slug;
+                        if (!slug) return;
+                        try {
+                          const res = await fetch(
+                            `/api/cms/preview-token/?slug=${encodeURIComponent(slug)}`,
+                            {
+                              headers: getAuthHeaders(),
+                              credentials: "include",
+                            }
+                          );
+                          const data = (await res.json()) as {
+                            ok?: boolean;
+                            previewPath?: string;
+                          };
+                          const path =
+                            data.ok && data.previewPath
+                              ? data.previewPath
+                              : `/admin/preview/${slug}/`;
+                          window.open(path, "_blank", "noopener,noreferrer");
+                        } catch {
+                          window.open(
+                            `/admin/preview/${slug}/`,
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
+                        }
+                      }}
+                      className="inline-flex items-center gap-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs uppercase tracking-wider px-3.5 py-2.5 rounded-md cursor-pointer"
                     >
                       <Eye className="w-3.5 h-3.5" aria-hidden="true" />
                       <span>Pré-visualizar</span>
-                    </Link>
-                  )}
+                    </button>
+                  ) : null}
                 </div>
 
                 {selected.id && user.role === "admin" && (
