@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { HOME_SERVICES_GRID, TRUST_BADGES } from "@/data/site-config";
 
@@ -13,37 +14,28 @@ const SERVICE_ICONS = [
   "policy",
 ];
 
-const BADGE_META: Record<
-  string,
-  { icon: string; tag: string; tagClass: string }
-> = {
+const BADGE_META: Record<string, { tag: string; tagClass: string }> = {
   "tokio-marine": {
-    icon: "security",
     tag: "PJ",
     tagClass: "bg-emerald-100 text-emerald-800",
   },
   "akad-seguro": {
-    icon: "health_and_safety",
     tag: "PF",
     tagClass: "bg-emerald-100 text-emerald-800",
   },
   "cra-rj": {
-    icon: "badge",
     tag: "OFICIAL",
     tagClass: "bg-blue-100 text-[#0051d5]",
   },
   "creci-juridico": {
-    icon: "real_estate_agent",
     tag: "HOMOLOGADO",
     tagClass: "bg-blue-100 text-[#0051d5]",
   },
-  "sin-icondev": {
-    icon: "cloud_sync",
+  "syndic-crm": {
     tag: "PROPTECH",
     tagClass: "bg-purple-100 text-purple-800",
   },
   townsq: {
-    icon: "school",
     tag: "CERTIFICADO",
     tagClass: "bg-yellow-100 text-yellow-900",
   },
@@ -145,11 +137,10 @@ export function TrustBadges() {
           </p>
         </div>
 
-        {/* Grid de 6 cards de credenciais/garantias com design moderno e clean */}
+        {/* Grid de 6 cards de credenciais/garantias com logos oficiais */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TRUST_BADGES.map((badge) => {
             const meta = BADGE_META[badge.id] || {
-              icon: "verified",
               tag: "OFICIAL",
               tagClass: "bg-blue-100 text-[#0051d5]",
             };
@@ -158,16 +149,17 @@ export function TrustBadges() {
                 key={badge.id}
                 className="bg-white rounded-2xl p-6 border border-[#e2e8f0] shadow-xs hover:shadow-md transition-shadow flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#e5eeff] flex items-center justify-center shrink-0 text-[#0051d5]">
-                  <span
-                    className="material-symbols-outlined text-[26px]"
-                    aria-hidden="true"
-                  >
-                    {meta.icon}
-                  </span>
+                <div className="w-16 h-16 rounded-xl bg-white border border-[#e2e8f0] flex items-center justify-center shrink-0 overflow-hidden p-1.5">
+                  <Image
+                    src={badge.imageUrl}
+                    alt={badge.alt}
+                    width={badge.width}
+                    height={badge.height}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2 mb-1">
+                <div className="flex flex-col min-w-0">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <h3 className="text-[18px] font-bold text-[#0b1c30]">
                       {badge.title}
                     </h3>

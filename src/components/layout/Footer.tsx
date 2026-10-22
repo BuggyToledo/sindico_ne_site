@@ -239,25 +239,6 @@ export function Footer() {
             <p className="font-bold text-[#0b1c30] text-[14px]">
               Síndico Né! · Uma empresa Grupo Ícone-Rio
             </p>
-            <p>
-              Rua Xavier da Silveira, 45/1009 - Copacabana, Rio de Janeiro-RJ, CEP 22061-010
-            </p>
-            <p>
-              <a
-                href={`tel:${SITE_CONFIG.contact.phoneRaw}`}
-                className="hover:text-[#0051d5] transition-colors font-medium text-[#0b1c30]"
-              >
-                (21) 97878-8211
-              </a>{" "}
-              ·{" "}
-              <a
-                href={`mailto:${SITE_CONFIG.contact.email}`}
-                className="hover:text-[#0051d5] transition-colors font-medium text-[#0b1c30]"
-              >
-                contato@sindicone.com.br
-              </a>
-            </p>
-            <p>CNPJ 02.634.709/0001-74</p>
             <p className="text-[#64748b] pt-0.5">
               © 2026 Grupo Ícone-Rio. Todos os direitos reservados.
             </p>
