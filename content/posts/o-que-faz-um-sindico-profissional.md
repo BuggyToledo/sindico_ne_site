@@ -67,13 +67,13 @@ cta:
     Está considerando migrar para uma gestão mais profissional no seu
     condomínio?
   description: >-
-    Fale com a Síndico Né! e receba uma proposta personalizada e sem compromisso
+    Fale com a Síndico Né! e receba uma proposta personalizada
     para o seu edifício na Zona Sul do Rio.
-  buttonText: Solicitar Proposta Gratuita
+  buttonText: Solicitar proposta
   buttonHref: /contato/
   secondaryButtonText: Falar no WhatsApp
   secondaryButtonHref: 'https://wa.me/5521978788211'
-  buttonLabel: Solicitar Proposta Gratuita
+  buttonLabel: Solicitar proposta
 likeCount: 21
 legacyRootUrl: true
 draft: false

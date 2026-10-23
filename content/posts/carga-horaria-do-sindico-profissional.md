@@ -62,11 +62,11 @@ cta:
     Quer saber qual modelo de carga horária faz mais sentido para o seu
     condomínio? Fale com a Síndico Né! e receba uma proposta adaptada à sua
     rotina, necessidades e orçamento.
-  buttonText: Solicitar Proposta Gratuita
+  buttonText: Solicitar proposta
   buttonHref: /contato/
   secondaryButtonText: Falar no WhatsApp
   secondaryButtonHref: 'https://wa.me/5521978788211'
-  buttonLabel: Solicitar Proposta Gratuita
+  buttonLabel: Solicitar proposta
 likeCount: 64
 legacyRootUrl: true
 draft: false

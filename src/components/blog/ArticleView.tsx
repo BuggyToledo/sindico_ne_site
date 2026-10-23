@@ -414,7 +414,7 @@ export function ArticleView({
                 Sindicância Profissional RJ
               </span>
               <h2 className="font-heading text-xl font-bold text-white mt-1">
-                Por que condomínios na Zona Sul, Barra e Tijuca escolhem o Síndico Né!?
+                Por que condomínios na Zona Sul do Rio escolhem o Síndico Né!?
               </h2>
               <ul className="mt-4 space-y-3 text-xs sm:text-sm text-[#d0d6df]">
                 <li className="flex items-start gap-2">
@@ -442,7 +442,7 @@ export function ArticleView({
                     aria-hidden="true"
                   />
                   <span>
-                    Sede própria em <strong>Copacabana</strong> e atendimento de emergências 24h
+                    Sede própria em <strong>Copacabana</strong>
                   </span>
                 </li>
               </ul>

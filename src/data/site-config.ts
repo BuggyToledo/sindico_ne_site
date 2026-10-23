@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   tagline: "Valorização do Patrimônio, Síndico Profissional",
   defaultTitle: "Síndico Profissional no Rio de Janeiro - Síndico Né! | (21) 97878-8211",
   description:
-    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783 e seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
+    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico). Também atendemos Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783 e seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
   siteTitleSuffix: "Síndico Né! | (21) 97878-8211",
   url: "https://www.sindicone.com.br",
   locale: "pt_BR",
@@ -66,22 +66,6 @@ export const SITE_CONFIG = {
       "https://www.google.com/maps/search/?api=1&query=-22.9765877,-43.1906181",
     googleMapsEmbedUrl:
       "https://maps.google.com/maps?q=-22.9765877,-43.1906181&hl=pt-BR&z=16&output=embed",
-  },
-  openingHours: {
-    weekdays: "Segunda - Sexta: 09:00 - 18:00",
-    saturday: "Sábado: 09:00 - 14:00",
-    schemaSpec: [
-      {
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        dayOfWeek: ["Saturday"],
-        opens: "09:00",
-        closes: "14:00",
-      },
-    ],
   },
   areaServed: [
     "Copacabana",

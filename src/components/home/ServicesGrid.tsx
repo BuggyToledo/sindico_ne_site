@@ -129,7 +129,7 @@ export function TrustBadges() {
           </h2>
           <p className="text-[16px] sm:text-[18px] text-[#45464d] leading-relaxed">
             Segurança jurídica, qualificação técnica comprovada e atendimento
-            rápido em toda a Zona Sul, Barra da Tijuca e Grande Tijuca.
+            rápido na Zona Sul do Rio. Também atendemos Barra da Tijuca e Tijuca.
           </p>
         </div>
 

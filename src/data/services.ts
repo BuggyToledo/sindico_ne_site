@@ -34,7 +34,7 @@ export const SERVICE_CASES: ServiceCaseStudy[] = [
       height: 1000,
     },
     seo: {
-      title: "Síndico Né! | (21) 97878-8211 - Diagnóstico p/ o condomínio",
+      title: "Diagnóstico de contratos e contas do condomínio | Síndico Né!",
       description:
         "Realizamos diagnóstico contábil e contratual completo para identificar falhas e melhorar a governança do condomínio.",
       canonicalUrl:

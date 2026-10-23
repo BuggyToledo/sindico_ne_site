@@ -45,8 +45,6 @@ const BLOCKS: Block[] = [
     title: "Como contratar",
     text: "A escolha do síndico profissional é feita em assembleia. Eu ajudo a preparar a pauta, apresento a proposta aos moradores e, depois de eleito, faço a transição com a gestão anterior.",
     items: [
-      "Diagnóstico gratuito do condomínio",
-      "Retorno em até 24 horas úteis",
       `WhatsApp ${SITE_CONFIG.contact.whatsappDisplay}`,
     ],
     cta: {

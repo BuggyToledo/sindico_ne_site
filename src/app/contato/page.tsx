@@ -18,7 +18,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 export const metadata: Metadata = {
   title: "Contato - Solicite uma Proposta de Síndico Profissional | Síndico Né!",
   description:
-    "Entre em contato com o Síndico Né! em Copacabana, Rio de Janeiro. Solicite uma proposta de sindicância profissional para seu condomínio na Zona Sul, Barra da Tijuca ou Tijuca. Tel/WhatsApp: (21) 97878-8211.",
+    "Entre em contato com o Síndico Né! em Copacabana, Rio de Janeiro. Solicite uma proposta de sindicância profissional para seu condomínio na Zona Sul do Rio (também atendemos Barra da Tijuca e Tijuca). Tel/WhatsApp: (21) 97878-8211.",
   alternates: {
     canonical: "https://www.sindicone.com.br/contato/",
   },
@@ -144,13 +144,10 @@ export default function ContatoPage() {
                     />
                     <div>
                       <p className="text-xs uppercase tracking-wider text-[#45464d] font-semibold">
-                        Horário de Funcionamento
+                        Atendimento
                       </p>
                       <p className="text-[#0b1c30] font-medium">
-                        De Segunda à Sexta, das 09h00 às 18h00 | Sábado 09h00 às 14h00
-                      </p>
-                      <p className="text-xs text-[#45464d]">
-                        Plantão 24h para emergências nos condomínios administrados
+                        Agende pelo WhatsApp ou e-mail
                       </p>
                     </div>
                   </div>

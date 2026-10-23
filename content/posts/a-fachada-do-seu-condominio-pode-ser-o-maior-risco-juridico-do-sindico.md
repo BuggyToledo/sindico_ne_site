@@ -94,8 +94,8 @@ faq:
 cta:
   heading: Como está o planejamento de manutenção de fachada no seu condomínio?
   description: >-
-    Fale com a Síndico Né! e faça um diagnóstico gratuito da gestão e manutenção
-    preventiva do seu edifício na Zona Sul do Rio.
+    Fale com a Síndico Né! sobre a gestão e a manutenção preventiva do seu
+    edifício na Zona Sul do Rio.
   buttonText: Entre em contato
   buttonHref: /contato/
   secondaryButtonText: Falar pelo WhatsApp

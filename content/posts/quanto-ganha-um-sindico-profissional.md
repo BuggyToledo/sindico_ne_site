@@ -62,7 +62,7 @@ relatedServiceSlugs:
   - reducao-de-custos
 cta:
   heading: "\U0001F4DE Quer saber quanto custaria ter um síndico profissional no seu condomínio da Zona Sul?"
-  description: 'Solicite uma proposta sob medida — é rápida, gratuita e sem compromisso.'
+  description: 'Solicite uma proposta sob medida para o seu condomínio.'
   buttonText: Solicitar Proposta
   buttonHref: /contato/
   secondaryButtonText: Falar no WhatsApp

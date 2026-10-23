@@ -8,6 +8,7 @@ import { Subheader } from "@/components/layout/Subheader";
 import { ShortcutStrip } from "@/components/layout/ShortcutStrip";
 import { TrustBadges } from "@/components/home/ServicesGrid";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
+import { BAIRROS, RESPOSTAS_DIRETAS, faqJsonLd } from "@/data/bairros";
 
 export const metadata: Metadata = {
   title: "Síndico Profissional na Zona Sul do RJ - Síndico Né!",
@@ -37,7 +38,7 @@ export default function SobreNosPage() {
       <Subheader
         badge="Quem Somos"
         title="Síndico Profissional na Zona Sul do Rio de Janeiro"
-        subtitle="Excelência técnica, transparência na prestação de contas e presença constante na Zona Sul do RJ, com atendimento também na Barra da Tijuca e Tijuca."
+        subtitle="Excelência técnica, transparência na prestação de contas e presença constante na Zona Sul do RJ, Também atendemos Barra da Tijuca e Tijuca."
         breadcrumbs={[
           { label: "Sobre Nós: Síndico Profissional na Zona Sul do RJ" },
         ]}
@@ -153,7 +154,7 @@ export default function SobreNosPage() {
                   <span>Regiões de Atendimento</span>
                 </div>
                 <p className="text-sm text-[#45464d] leading-relaxed">
-                  Nossa atuação principal concentra-se na <strong>Zona Sul do Rio de Janeiro</strong> (Copacabana, Leme, Ipanema, Leblon, Botafogo, Flamengo, Jardim Botânico, Laranjeiras, Catete, Glória, Humaitá e Gávea), atendendo também condomínios na <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>.
+                  Nossa atuação principal concentra-se na <strong>Zona Sul do Rio de Janeiro</strong> (Copacabana, Leme, Ipanema, Leblon, Botafogo, Flamengo, Jardim Botânico, Laranjeiras, Catete, Glória, Humaitá e Gávea), e também atendemos <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>, fora do foco principal.
                 </p>
                 <Link
                   href="/contato/"
@@ -165,6 +166,40 @@ export default function SobreNosPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            faqJsonLd(RESPOSTAS_DIRETAS, "https://www.sindicone.com.br/sindico-profissional-na-zona-sul-do-rj/")
+          ),
+        }}
+      />
+      <section className="py-12 sm:py-16 bg-white" aria-labelledby="respostas-diretas">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 id="respostas-diretas" className="font-heading text-2xl sm:text-3xl font-bold text-[#171c24] mb-6">
+            Respostas rápidas sobre síndico profissional
+          </h2>
+          <div className="space-y-6">
+            {RESPOSTAS_DIRETAS.map((f) => (
+              <div key={f.q}>
+                <h3 className="font-bold text-[#171c24] text-[18px] mb-2">{f.q}</h3>
+                <p className="text-[15px] text-[#3b424d] leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
+          <h2 className="font-heading text-xl font-bold text-[#171c24] mt-10 mb-4">Síndico profissional por bairro</h2>
+          <ul className="flex flex-wrap gap-2" role="list">
+            {BAIRROS.map((b) => (
+              <li key={b.slug}>
+                <Link href={`/${b.slug}/`} className="inline-flex min-h-11 items-center px-4 py-2 rounded-lg border border-gray-200 hover:bg-[#eff4ff]">
+                  {b.h1}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

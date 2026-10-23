@@ -139,20 +139,6 @@ export default async function HomePage() {
                     Acompanhamento em tempo real pelo Syndic CRM
                   </span>
                 </div>
-
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-[#e2e8f0] shadow-xs">
-                  <div className="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                    <span
-                      className="material-symbols-outlined text-[20px]"
-                      aria-hidden="true"
-                    >
-                      emergency
-                    </span>
-                  </div>
-                  <span className="text-[14px] font-semibold text-[#0b1c30]">
-                    Atendimento 24h para emergências
-                  </span>
-                </div>
               </div>
 
               {/* CTAs */}
@@ -203,7 +189,7 @@ export default async function HomePage() {
                 </h3>
                 <p className="text-[15px] text-[#45464d] mb-5 leading-relaxed">
                   Visitas operacionais periódicas, vistorias prediais e reuniões
-                  com conselhos na <strong>Zona Sul do Rio de Janeiro</strong>, com disponibilidade de atendimento também na <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>:
+                  com conselhos na <strong>Zona Sul do Rio de Janeiro</strong>, e também atendemos <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>:
                 </p>
 
                 {/* Bairros Tag Cloud */}
@@ -225,7 +211,7 @@ export default async function HomePage() {
                   </div>
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#45464d] block mb-1.5">
-                      Atendimento Adicional:
+                      Também atendemos:
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {BAIRROS_EXPANSAO.map((bairro) => (
@@ -351,7 +337,7 @@ export default async function HomePage() {
 
             <p className="text-[16px] sm:text-[18px] text-[#45464d] max-w-xl mx-auto mb-8 leading-relaxed">
               Agende uma apresentação para o Conselho Consultivo ou solicite uma
-              proposta personalizada sem compromisso.
+              proposta personalizada.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -391,24 +377,6 @@ export default async function HomePage() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-[#e2e8f0] flex flex-wrap items-center justify-center gap-6 text-[12px] font-medium text-[#45464d]">
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[#0051d5] text-[16px]"
-                  aria-hidden="true"
-                >
-                  check_circle
-                </span>
-                Diagnóstico Gratuito
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[#0051d5] text-[16px]"
-                  aria-hidden="true"
-                >
-                  schedule
-                </span>
-                Retorno em até 24 horas úteis
-              </span>
               <span className="flex items-center gap-1.5">
                 <span
                   className="material-symbols-outlined text-[#0051d5] text-[16px]"

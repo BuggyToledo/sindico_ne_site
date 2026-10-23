@@ -81,7 +81,7 @@ cta:
   description: >-
     Quer saber como seria contratar um síndico profissional para o seu
     condomínio na Zona Sul do Rio? Nossa equipe está pronta para analisar sua
-    estrutura e apresentar uma proposta sem compromisso.
+    estrutura e apresentar uma proposta.
   buttonText: Solicitar Proposta
   buttonHref: /contato/
   secondaryButtonText: Falar no WhatsApp

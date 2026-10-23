@@ -48,12 +48,8 @@ export function Footer() {
             </div>
 
             <div className="text-[12px] text-[#45464d] pt-2 border-t border-[#e2e8f0] space-y-0.5">
-              <p className="font-semibold text-[#0b1c30]">Horário de Atendimento</p>
-              <p>{SITE_CONFIG.openingHours.weekdays}</p>
-              <p>{SITE_CONFIG.openingHours.saturday}</p>
-              <p className="text-[11px] text-[#0051d5] font-semibold">
-                Plantão 24h para emergências condominiais
-              </p>
+              <p className="font-semibold text-[#0b1c30]">Atendimento</p>
+              <p>Fale com a Síndico Né! pelo WhatsApp ou e-mail.</p>
             </div>
           </div>
 
@@ -133,7 +129,7 @@ export function Footer() {
                 >
                   pin_drop
                 </span>
-                Atendimento Adicional:
+                Também atendemos:
               </li>
               <li className="pl-5 text-[12px]">
                 Barra da Tijuca &amp; Tijuca
