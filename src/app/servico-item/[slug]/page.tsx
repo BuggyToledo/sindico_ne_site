@@ -134,7 +134,7 @@ export default async function ServicoItemPage({
                   <span>Padrão de Qualidade Síndico Né!</span>
                 </h3>
                 <p className="text-sm text-[#4a525d] leading-relaxed">
-                  Todos os nossos serviços contam com acompanhamento direto de Adriano Toledo (CRA-RJ {SITE_CONFIG.credentials.craRj} | CRECI-J {SITE_CONFIG.credentials.creciJ}), apólice de responsabilidade civil de até R$ 2.000.000,00 e acesso transparente pelo Syndic CRM.
+                  Todos os nossos serviços contam com acompanhamento direto de Adriano Toledo (CRA-RJ {SITE_CONFIG.credentials.craRj}), seguros RCP PJ Tokio Marine (R$ 1.000.000,00) e RCP PF Akad Seguros (R$ 1.000.000,00) e acesso transparente pelo Syndic CRM.
                 </p>
               </div>
 

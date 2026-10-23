@@ -1,5 +1,8 @@
 # Relatório de Performance, Validação Funcional, SEO e Segurança (`PERFORMANCE_AND_TEST_REPORT.md`)
 
+> **Regra do grupo:** o CRECI J 12.974 é da **Direct Houses** e **não se usa** no site da Síndico Né!. Adriano atua aqui como **síndico profissional** (CRA-RJ 03-06783), não como corretor de imóveis.
+
+
 > Documento de auditoria final e resultados reais dos testes executados sobre a nova aplicação Next.js 15 + React 19 + TypeScript do **Síndico Né!** (`https://www.sindicone.com.br/`), atendendo integralmente à **REGRA 12** e à **REGRA 15**.
 
 ---
@@ -34,7 +37,7 @@
 
 ### 3.1. Testes de Rotas Institucionais e Preservação de URLs
 Todas as rotas públicas originais e as novas rotas do blog foram compiladas e inspecionadas no artefato de produção (`.next/server/app/`):
-- `/` (Home): `200 OK` — Hero Carousel, 4 atalhos sobrepostos, apresentação institucional, grid de 8 serviços, 6 selos de confiança (CRA-RJ `03-06783`, CRECI-J `12.974`, Tokio Marine, Akad, SIN Icondev, TownSq) e últimos artigos.
+- `/` (Home): `200 OK` — Hero Carousel, 4 atalhos sobrepostos, apresentação institucional, grid de 8 serviços, 5 selos de confiança (CRA-RJ `03-06783`, Tokio Marine, Akad, SIN Icondev, TownSq) e últimos artigos.
 - `/sindico-profissional-na-zona-sul-do-rj/`: `200 OK` — História, credenciais e atuação na Zona Sul.
 - `/servicos-sindico-profissional/` e `/servicos-sindico-profissional/page/[page]/`: `200 OK` — Grid de serviços + portfólio paginado de estudos de caso.
 - `/servico-item/[slug]/` (8 rotas) e `/servico-tipo/[slug]/` (8 rotas): `200 OK` — Estudos de caso detalhados com resultados alcançados e JSON-LD `Service`.
@@ -63,7 +66,7 @@ Todas as rotas públicas originais e as novas rotas do blog foram compiladas e i
    - As 27 tags secundárias de tópico único foram preservadas para não quebrar links antigos (`/tag/[slug]/`), mas recebem `noindex, follow` e são omitidas do `sitemap.xml`, eliminando o desperdício de *crawl budget* identificado na auditoria inicial.
 3. **Correção do `locations.kml` e Implementação de `llms.txt` (GEO)**:
    - O arquivo [`public/locations.kml`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/public/locations.kml) foi reconstruído com as coordenadas reais da sede em Copacabana (`-43.1906181,-22.9765877,0`), corrigindo o erro `0,0` do plugin legado.
-   - O arquivo [`public/llms.txt`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/public/llms.txt) sintetiza credenciais verificáveis (CRA-RJ `03-06783`, CRECI-J `12.974`, Seguro RC R$ 2 milhões), áreas atendidas na Zona Sul do RJ e links canônicos para motores de busca baseados em IA.
+   - O arquivo [`public/llms.txt`](file:///Users/adrianotoledo/Downloads/novo%20site%20sindico%20ne/public/llms.txt) sintetiza credenciais verificáveis (CRA-RJ `03-06783`, Seguros RCP PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00), áreas atendidas na Zona Sul do RJ e links canônicos para motores de busca baseados em IA.
 
 ---
 

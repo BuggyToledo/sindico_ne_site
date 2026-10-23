@@ -29,7 +29,7 @@ const HERO_SLIDES = [
     badge: "SÍNDICO PROFISSIONAL NO RIO DE JANEIRO",
     title: "Administração Condominial Profissional, Transparente e Segura",
     subtitle:
-      "Atuação técnica registrada no CRA-RJ (03-06783) e CRECI-J (12.974), com apólice de responsabilidade civil de até R$ 2.000.000,00 para tranquilidade total dos condôminos.",
+      "Atuação técnica registrada no CRA-RJ (03-06783), com seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
     primaryCta: {
       label: "Solicitar Diagnóstico",
       href: "/contato/",
@@ -138,12 +138,8 @@ export function HeroCarousel() {
                   CRA-RJ {SITE_CONFIG.credentials.craRj} Ativo
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#0051d5]" />
-                  CRECI-J {SITE_CONFIG.credentials.creciJ} Homologado
-                </span>
-                <span className="inline-flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#b5d300]" />
-                  RC Tokio Marine &amp; Akad
+                  RCP PJ Tokio Marine &amp; PF Akad
                 </span>
               </div>
 
@@ -279,10 +275,10 @@ export function HeroCarousel() {
                     </span>
                   </div>
                   <div className="text-[22px] font-bold text-[#0b1c30] leading-tight">
-                    R$ 2,0 Mi
+                    PJ R$ 1 Mi · PF R$ 1 Mi
                   </div>
                   <div className="text-[12px] text-[#45464d] mt-0.5">
-                    Tokio Marine &amp; Akad
+                    PJ Tokio Marine · PF Akad
                   </div>
                 </div>
               </div>

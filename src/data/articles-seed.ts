@@ -57,7 +57,7 @@ export const INITIAL_ARTICLES: EditorialArticle[] = [
         Cada projeto passa por planejamento com engenharia preventiva, controle rigoroso de compliance e fiscalização em todas as etapas. Eliminamos os riscos operacionais antes que eles apareçam — não depois.
       </p>
       <p class="mb-4">
-        Como garantia concreta de seriedade, toda a nossa operação é respaldada por <strong>seguro de responsabilidade civil profissional de R$ 2 milhões</strong> (somando coberturas Pessoa Jurídica Tokio Marine de R$ 1 milhão e Pessoa Física Akad Seguro de R$ 1 milhão).
+        Como garantia concreta de seriedade, toda a nossa operação é respaldada por <strong>seguros de Responsabilidade Civil Profissional</strong>: PJ na Tokio Marine (R$ 1.000.000,00) e PF na Akad Seguros (R$ 1.000.000,00).
       </p>
       <p class="mb-6">
         A valorização do patrimônio começa na seriedade de quem toma as decisões difíceis antes que o problema apareça.
@@ -148,7 +148,7 @@ export const INITIAL_ARTICLES: EditorialArticle[] = [
       {
         question: "Como a Síndico Né! protege o condomínio em obras de fachada na Zona Sul?",
         answer:
-          "Por meio de planejamento com engenharia preventiva, exigência rigorosa de laudos técnicos e ART, compliance contratual de fornecedores e cobertura de seguro de responsabilidade civil profissional que soma R$ 2 milhões.",
+          "Por meio de planejamento com engenharia preventiva, exigência rigorosa de laudos técnicos e ART, compliance contratual de fornecedores e seguros de Responsabilidade Civil Profissional PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
       },
     ],
     cta: {

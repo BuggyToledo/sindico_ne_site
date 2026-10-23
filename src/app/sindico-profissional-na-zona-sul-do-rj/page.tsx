@@ -12,7 +12,7 @@ import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 export const metadata: Metadata = {
   title: "Síndico Profissional na Zona Sul do RJ - Síndico Né!",
   description:
-    "Conheça a história, credenciais (CRA-RJ 03-06783 e CRECI-J 12.974) e metodologia do Síndico Né! para administração condominial profissional na Zona Sul, Barra da Tijuca e Tijuca.",
+    "Conheça a história, credenciais (CRA-RJ 03-06783) e metodologia do Síndico Né! para administração condominial profissional na Zona Sul, Barra da Tijuca e Tijuca.",
   alternates: {
     canonical: "https://www.sindicone.com.br/sindico-profissional-na-zona-sul-do-rj/",
   },
@@ -64,24 +64,23 @@ export default function SobreNosPage() {
 
               <p className="text-[#3b424d] text-base leading-relaxed">
                 Para oferecer o mais alto padrão técnico ao mercado condominial carioca, Adriano Toledo graduou-se e especializou-se, obtendo certificação de{" "}
-                <strong>Síndico Profissional aprovado com louvor pela Gábor RH</strong>, além de manter registros profissionais ativos como Administrador e Corretor de Imóveis.
+                <strong>Síndico Profissional aprovado com louvor pela Gábor RH</strong>, além de manter registro profissional ativo como Administrador no CRA-RJ.
               </p>
 
               <p className="text-[#3b424d] text-base leading-relaxed">
-                Diferente de atuações informais, o <strong>Síndico Né!</strong> opera como pessoa jurídica regularmente inscrita nos órgãos fiscalizadores:{" "}
-                <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong> e{" "}
-                <strong>CRECI-J ({SITE_CONFIG.credentials.creciJ})</strong>, garantindo respaldo institucional completo aos condomínios contratantes.
+                Diferente de atuações informais, o <strong>Síndico Né!</strong> opera como pessoa jurídica regularmente inscrita no órgão fiscalizador:{" "}
+                <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong>, garantindo respaldo institucional completo aos condomínios contratantes.
               </p>
 
               <div className="bg-[#f4f6f8] border-l-4 border-[#171c24] p-5 rounded-r-xl space-y-2">
                 <div className="flex items-center gap-2 font-heading text-lg font-bold text-[#171c24]">
                   <ShieldCheck className="w-5 h-5 text-[#171c24]" aria-hidden="true" />
-                  <span>Garantia Patrimonial de até R$ 2.000.000,00</span>
+                  <span>Seguros de Responsabilidade Civil Profissional (PJ e PF)</span>
                 </div>
                 <p className="text-sm text-[#4a525d] leading-relaxed">
-                  Contamos com seguros de Responsabilidade Civil Profissional contratados junto à{" "}
-                  <strong>Tokio Marine</strong> e à <strong>Akad Seguros</strong> com cobertura de até{" "}
-                  <strong>R$ 2.000.000,00</strong> para eventuais prejuízos em que o síndico seja responsabilizado civilmente, trazendo segurança real para o patrimônio coletivo.
+                  Contamos com dois seguros de Responsabilidade Civil Profissional: <strong>PJ na Tokio Marine</strong> (segurada Síndico Né!, CNPJ 02.634.709/0001-74, vigência 2026/2027), com cobertura de{" "}
+                  <strong>R$ 1.000.000,00</strong>, e <strong>PF na Akad Seguros</strong> (segurado Adriano T. P. Toledo, Síndico Profissional), com cobertura de{" "}
+                  <strong>R$ 1.000.000,00</strong>, para eventuais prejuízos em que o síndico seja responsabilizado civilmente, trazendo segurança real para o patrimônio coletivo.
                 </p>
               </div>
             </div>
@@ -112,12 +111,6 @@ export default function SobreNosPage() {
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
                     <span>
-                      <strong>Conselho Regional de Corretores de Imóveis:</strong> Registro PJ CRECI-J nº {SITE_CONFIG.credentials.creciJ}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#0051d5] shrink-0 mt-1" aria-hidden="true" />
-                    <span>
                       <strong>Certificação Especializada:</strong> Síndico Profissional aprovado com louvor pela Gábor RH
                     </span>
                   </li>
@@ -133,13 +126,6 @@ export default function SobreNosPage() {
                   <Image
                     src="/wp-content/uploads/2025/07/CRA.jpg"
                     alt="Registro CRA-RJ"
-                    width={64}
-                    height={64}
-                    className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"
-                  />
-                  <Image
-                    src="/wp-content/uploads/2025/07/CRECI.jpg"
-                    alt="Registro CRECI-RJ"
                     width={64}
                     height={64}
                     className="w-14 h-14 object-contain bg-white rounded-lg p-1.5 border border-[#e2e8f0]"

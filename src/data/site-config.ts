@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   tagline: "Valorização do Patrimônio, Síndico Profissional",
   defaultTitle: "Síndico Profissional no Rio de Janeiro - Síndico Né! | (21) 97878-8211",
   description:
-    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783, CRECI-J nº 12.974 e Seguro de Responsabilidade Civil de até R$ 2 milhões.",
+    "Síndico Profissional na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), Barra da Tijuca e Tijuca. Gestão condominial profissional com registro no CRA-RJ nº 03-06783 e seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
   siteTitleSuffix: "Síndico Né! | (21) 97878-8211",
   url: "https://www.sindicone.com.br",
   locale: "pt_BR",
@@ -37,10 +37,9 @@ export const SITE_CONFIG = {
   },
   credentials: {
     craRj: "03-06783",
-    creciJ: "12.974",
     founder: "Adriano Toledo",
     founderRole: "Síndico Profissional e Administrador (CRA-RJ 03-06783)",
-    insuranceCoverage: "R$ 2.000.000,00 (Tokio Marine PJ + Akad PF)",
+    insuranceCoverage: "RCP PJ Tokio Marine (Síndico Né!, CNPJ 02.634.709/0001-74, vigência 2026/2027): R$ 1.000.000,00 · RCP PF Akad Seguros (Adriano T. P. Toledo, Síndico Profissional): R$ 1.000.000,00",
   },
   address: {
     street: "Rua Xavier da Silveira, 45",
@@ -214,7 +213,7 @@ export const SITE_CONFIG = {
     {
       id: "tokio-marine",
       title: "TOKIO MARINE",
-      description: "Cobertura pessoa jurídica até 1 MILHÃO de Reais",
+      description: "RCP Pessoa Jurídica (Síndico Né!), vigência 2026/2027: R$ 1.000.000,00",
       image: "/wp-content/uploads/2026/07/tokio.jpg",
       imageUrl: "/wp-content/uploads/2026/07/tokio.jpg",
       alt: "Seguro Responsabilidade Civil Tokio Marine - Cobertura Pessoa Jurídica até R$ 1 milhão",
@@ -224,7 +223,7 @@ export const SITE_CONFIG = {
     {
       id: "akad-seguro",
       title: "AKAD SEGURO",
-      description: "Cobertura pessoa física até 1 MILHÃO de Reais",
+      description: "RCP Pessoa Física (Adriano T. P. Toledo, Síndico Profissional): R$ 1.000.000,00",
       image: "/wp-content/uploads/2025/07/AKAD.jpg",
       imageUrl: "/wp-content/uploads/2025/07/AKAD.jpg",
       alt: "Akad Seguro Responsabilidade Civil - Cobertura Pessoa Física até R$ 1 milhão",
@@ -238,16 +237,6 @@ export const SITE_CONFIG = {
       image: "/wp-content/uploads/2025/07/CRA.jpg",
       imageUrl: "/wp-content/uploads/2025/07/CRA.jpg",
       alt: "Conselho Regional de Administração do Rio de Janeiro - CRA-RJ nº 03-06783",
-      width: 300,
-      height: 300,
-    },
-    {
-      id: "creci-juridico",
-      title: "CRECI-Jurídico",
-      description: "Experiência em gestão imobiliária CRECI J - nº 12.974",
-      image: "/wp-content/uploads/2025/07/CRECI.jpg",
-      imageUrl: "/wp-content/uploads/2025/07/CRECI.jpg",
-      alt: "Conselho Regional de Corretores de Imóveis - CRECI Jurídico nº 12.974",
       width: 300,
       height: 300,
     },
@@ -386,9 +375,8 @@ const ADRIANO_AUTHOR: EditorialAuthor = {
   role: "Síndico Profissional e Gestor da Síndico Né!",
   credentials: [
     "Administrador registrado no CRA-RJ nº 03-06783",
-    "Gestão Imobiliária CRECI-J nº 12.974",
     "Certificação em Gestão Condominial TownSq",
-    "Seguro RC Profissional Tokio Marine + Akad (R$ 2 milhões)",
+    "Seguro RCP PJ Tokio Marine (R$ 1.000.000,00) e RCP PF Akad Seguros (R$ 1.000.000,00)",
   ],
   bio: "Síndico profissional e administrador registrado no CRA-RJ (03-06783), com atuação principal em condomínios residenciais e comerciais na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), atendendo também Barra da Tijuca e Tijuca. Focado em eficiência operacional, transparência financeira, segurança jurídica e valorização patrimonial.",
   avatarUrl: "/logo-sindicone-roxo-verde.svg",

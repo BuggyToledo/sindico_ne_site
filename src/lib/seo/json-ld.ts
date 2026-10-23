@@ -3,14 +3,14 @@ import { SITE_CONFIG } from "@/data/site-config";
 
 /**
  * Generates Organization + LocalBusiness + ProfessionalService JSON-LD
- * with verified CRA-RJ, CRECI-J, Copacabana coordinates, and Areas Served.
+ * with verified CRA-RJ, Copacabana coordinates, and Areas Served.
  */
 export function buildLocalBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["ProfessionalService", "LocalBusiness", "RealEstateAgent"],
+        "@type": ["ProfessionalService", "LocalBusiness"],
         "@id": `${SITE_CONFIG.url}/#organization`,
         name: SITE_CONFIG.legalName,
         alternateName: SITE_CONFIG.name,
@@ -69,11 +69,6 @@ export function buildLocalBusinessJsonLd() {
             "@type": "PropertyValue",
             name: "CRA-RJ",
             value: SITE_CONFIG.credentials.craRj,
-          },
-          {
-            "@type": "PropertyValue",
-            name: "CRECI-J",
-            value: SITE_CONFIG.credentials.creciJ,
           },
         ],
         taxID: "02.634.709/0001-74",

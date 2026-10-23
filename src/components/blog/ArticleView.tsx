@@ -423,8 +423,7 @@ export function ArticleView({
                     aria-hidden="true"
                   />
                   <span>
-                    Registro ativo no <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong> e{" "}
-                    <strong>CRECI-J ({SITE_CONFIG.credentials.creciJ})</strong>
+                    Registro ativo no <strong>CRA-RJ ({SITE_CONFIG.credentials.craRj})</strong>
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -433,8 +432,8 @@ export function ArticleView({
                     aria-hidden="true"
                   />
                   <span>
-                    Seguro de Responsabilidade Civil Síndico de até{" "}
-                    <strong>R$ 2.000.000,00</strong> (Tokio Marine / Akad)
+                    Seguro RCP PJ Tokio Marine (<strong>R$ 1.000.000,00</strong>) e
+                    RCP PF Akad Seguros (<strong>R$ 1.000.000,00</strong>)
                   </span>
                 </li>
                 <li className="flex items-start gap-2">

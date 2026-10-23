@@ -1,5 +1,8 @@
 # Guia Editorial e Manual de Publicação — Síndico Né! (`EDITORIAL_GUIDE.md`)
 
+> **Regra do grupo:** o CRECI J 12.974 é da **Direct Houses** e **não se usa** no site da Síndico Né!. Adriano atua aqui como **síndico profissional** (CRA-RJ 03-06783), não como corretor de imóveis.
+
+
 > Manual operacional voltado ao proprietário (**Adriano Toledo**) e à equipe editorial do **Síndico Né!** para administrar o blog, criar e revisar artigos, otimizar SEO e publicar com segurança sem precisar programar.
 
 ---
@@ -24,7 +27,7 @@
    - **Título do Artigo (H1)**: Deve ser claro, informativo e focado na dúvida real do síndico, conselheiro ou morador (ex.: *"Autovistoria Predial no Rio de Janeiro: Prazos e Obrigações da Lei 6.400/2013"*).
    - **Slug (Caminho da URL)**: Gerado automaticamente a partir do título, sem acentos ou caracteres especiais. Novos artigos são publicados em `/blog/seu-slug/`, enquanto os 11 artigos históricos preservam seus endereços originais na raiz (`/[slug]/`).
    - **Categoria Editorial**: Escolha entre *Gestão Condominial*, *Finanças e Orçamento*, *Legislação e Assembleias*, *Segurança e Manutenção Predial* ou *Convivência e Implantação*.
-   - **Autor e Revisor Técnico**: Por padrão, atribui **Adriano Toledo (CRA-RJ 03-06783 | CRECI-J 12.974)**, reforçando os sinais de autoridade e confiabilidade (E-E-A-T).
+   - **Autor e Revisor Técnico**: Por padrão, atribui **Adriano Toledo (Síndico Profissional, CRA-RJ 03-06783)**, reforçando os sinais de autoridade e confiabilidade (E-E-A-T).
    - **Resumo Editorial (Excerpt)**: Parágrafo curto (2 a 3 linhas) exibido nos cards de listagem do blog e compartilhamentos.
    - **Síntese Direta (GEO / Resposta Rápida IA)**: Resposta direta e objetiva (40 a 65 palavras) posicionada no topo do artigo para facilitar citações em motores de busca com Inteligência Artificial (Google AI Overviews, Perplexity, ChatGPT Search).
 

@@ -29,13 +29,6 @@ export function Header() {
                 </span>
                 CRA-RJ {SITE_CONFIG.credentials.craRj}
               </span>
-              <span className="text-[#c6c6cd]">|</span>
-              <span className="inline-flex items-center gap-1 text-[#0b1c30]">
-                <span className="material-symbols-outlined text-[14px] text-[#0051d5]" aria-hidden="true">
-                  real_estate_agent
-                </span>
-                CRECI-J {SITE_CONFIG.credentials.creciJ}
-              </span>
               <span className="text-[#c6c6cd] hidden md:inline">|</span>
               <span className="hidden md:inline-flex items-center gap-1 text-[#0b1c30] font-semibold">
                 <span className="material-symbols-outlined text-[14px] text-[#0051d5]" aria-hidden="true">

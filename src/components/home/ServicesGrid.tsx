@@ -27,10 +27,6 @@ const BADGE_META: Record<string, { tag: string; tagClass: string }> = {
     tag: "OFICIAL",
     tagClass: "bg-blue-100 text-[#0051d5]",
   },
-  "creci-juridico": {
-    tag: "HOMOLOGADO",
-    tagClass: "bg-blue-100 text-[#0051d5]",
-  },
   "syndic-crm": {
     tag: "PROPTECH",
     tagClass: "bg-purple-100 text-purple-800",
