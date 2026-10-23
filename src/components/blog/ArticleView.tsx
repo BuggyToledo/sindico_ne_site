@@ -442,7 +442,7 @@ export function ArticleView({
                     aria-hidden="true"
                   />
                   <span>
-                    Sede própria em <strong>Copacabana</strong> e atendimento de emergências 24h
+                    Sede própria em <strong>Copacabana</strong> e atendimento presencial na Zona Sul
                   </span>
                 </li>
               </ul>

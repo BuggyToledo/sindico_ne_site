@@ -145,7 +145,7 @@ export default async function ServicoTipoPage({
                 Precisa de apoio em {serviceType.name} no seu condomínio?
               </h2>
               <p className="text-sm text-[#c2c7ce] mt-1">
-                Converse com a equipe do Síndico Né! e solicite um diagnóstico técnico sem compromisso.
+                Converse com a equipe do Síndico Né! e solicite uma proposta para o seu condomínio.
               </p>
             </div>
             <Link

@@ -146,11 +146,11 @@ export default async function HomePage() {
                       className="material-symbols-outlined text-[20px]"
                       aria-hidden="true"
                     >
-                      emergency
+                      location_on
                     </span>
                   </div>
                   <span className="text-[14px] font-semibold text-[#0b1c30]">
-                    Atendimento 24h para emergências
+                    Atendimento presencial na Zona Sul
                   </span>
                 </div>
               </div>
@@ -351,7 +351,7 @@ export default async function HomePage() {
 
             <p className="text-[16px] sm:text-[18px] text-[#45464d] max-w-xl mx-auto mb-8 leading-relaxed">
               Agende uma apresentação para o Conselho Consultivo ou solicite uma
-              proposta personalizada sem compromisso.
+              proposta personalizada.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

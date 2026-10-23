@@ -49,9 +49,7 @@ export function Footer() {
 
             <div className="text-[12px] text-[#45464d] pt-2 border-t border-[#e2e8f0] space-y-0.5">
               <p className="font-semibold text-[#0b1c30]">Atendimento</p>
-              <p className="text-[11px] text-[#0051d5] font-semibold">
-                Plantão 24h para emergências condominiais
-              </p>
+              <p>Fale com a Síndico Né! pelo WhatsApp ou e-mail.</p>
             </div>
           </div>
 

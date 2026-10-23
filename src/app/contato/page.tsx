@@ -149,9 +149,6 @@ export default function ContatoPage() {
                       <p className="text-[#0b1c30] font-medium">
                         Agende pelo WhatsApp ou e-mail
                       </p>
-                      <p className="text-xs text-[#45464d]">
-                        Plantão 24h para emergências nos condomínios administrados
-                      </p>
                     </div>
                   </div>
                 </div>

@@ -62,11 +62,11 @@ cta:
   description: >-
     Converse com a Síndico Né! e receba uma proposta personalizada para sua
     realidade na Zona Sul do Rio.
-  buttonText: Solicitar Proposta Gratuita
+  buttonText: Solicitar proposta
   buttonHref: /contato/
   secondaryButtonText: Falar no WhatsApp
   secondaryButtonHref: 'https://wa.me/5521978788211'
-  buttonLabel: Solicitar Proposta Gratuita
+  buttonLabel: Solicitar proposta
 likeCount: 85
 legacyRootUrl: true
 draft: false

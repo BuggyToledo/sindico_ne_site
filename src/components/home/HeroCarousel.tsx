@@ -41,7 +41,7 @@ const HERO_SLIDES = [
   {
     id: "slide-3",
     icon: "support_agent",
-    badge: "ATENDIMENTO PRESENCIAL E EMERGÊNCIAS 24H",
+    badge: "ATENDIMENTO PRESENCIAL NA ZONA SUL",
     title: "Presença Ativa no Condomínio e Mediação Imparcial de Conflitos",
     subtitle:
       "Sede própria em Copacabana e equipe preparada para atender síndicos, conselheiros e moradores com agilidade, ética e cumprimento rigoroso do Código Civil.",

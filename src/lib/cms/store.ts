@@ -202,7 +202,7 @@ export function parsePostFile(fileName: string, source: string): Article {
     cta: fm.cta ?? {
       heading: "Precisa de apoio profissional na gestão do seu condomínio?",
       description:
-        "Converse com a equipe do Síndico Né! e solicite um diagnóstico técnico e financeiro sem compromisso.",
+        "Converse com a equipe do Síndico Né! e solicite uma proposta para o seu condomínio.",
       buttonText: "Solicitar Diagnóstico Condominial",
       buttonHref: "/contato/",
       whatsappMessage: `Olá! Li o artigo "${title}" e gostaria de conversar sobre meu condomínio.`,
