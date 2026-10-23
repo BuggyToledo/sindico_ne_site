@@ -38,23 +38,6 @@ const HERO_SLIDES = [
       icon: "domain",
     },
   },
-  {
-    id: "slide-3",
-    icon: "support_agent",
-    badge: "ATENDIMENTO PRESENCIAL NA ZONA SUL",
-    title: "Presença Ativa no Condomínio e Mediação Imparcial de Conflitos",
-    subtitle:
-      "Sede própria em Copacabana e equipe preparada para atender síndicos, conselheiros e moradores com agilidade, ética e cumprimento rigoroso do Código Civil.",
-    primaryCta: {
-      label: "Falar com Especialista",
-      href: "/contato/",
-    },
-    secondaryCta: {
-      label: "Artigos e Jurisprudência",
-      href: "/noticias-e-eventos/",
-      icon: "gavel",
-    },
-  },
 ];
 
 export function HeroCarousel() {

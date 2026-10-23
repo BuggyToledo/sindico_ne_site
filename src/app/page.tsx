@@ -139,20 +139,6 @@ export default async function HomePage() {
                     Acompanhamento em tempo real pelo Syndic CRM
                   </span>
                 </div>
-
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-[#e2e8f0] shadow-xs">
-                  <div className="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                    <span
-                      className="material-symbols-outlined text-[20px]"
-                      aria-hidden="true"
-                    >
-                      location_on
-                    </span>
-                  </div>
-                  <span className="text-[14px] font-semibold text-[#0b1c30]">
-                    Atendimento presencial na Zona Sul
-                  </span>
-                </div>
               </div>
 
               {/* CTAs */}
