@@ -203,7 +203,7 @@ export default async function HomePage() {
                 </h3>
                 <p className="text-[15px] text-[#45464d] mb-5 leading-relaxed">
                   Visitas operacionais periódicas, vistorias prediais e reuniões
-                  com conselhos na <strong>Zona Sul do Rio de Janeiro</strong>, com disponibilidade de atendimento também na <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>:
+                  com conselhos na <strong>Zona Sul do Rio de Janeiro</strong>, e também atendemos <strong>Barra da Tijuca</strong> e <strong>Tijuca</strong>:
                 </p>
 
                 {/* Bairros Tag Cloud */}
@@ -225,7 +225,7 @@ export default async function HomePage() {
                   </div>
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#45464d] block mb-1.5">
-                      Atendimento Adicional:
+                      Também atendemos:
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {BAIRROS_EXPANSAO.map((bairro) => (

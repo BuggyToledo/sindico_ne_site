@@ -1,6 +1,6 @@
 # Síndico Né! — Administração Condominial Profissional (Rio de Janeiro, RJ)
 
-> Síndico Profissional e Gestão Condominial na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon, Jardim Botânico e Leme), atendendo também Barra da Tijuca e Tijuca. Empresa registrada no CRA-RJ (nº 03-06783), com seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).
+> Síndico Profissional e Gestão Condominial na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon, Jardim Botânico e Leme), e também atende Barra da Tijuca e Tijuca, fora do foco principal. Empresa registrada no CRA-RJ (nº 03-06783), com seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).
 
 ## Identificação Institucional e Credenciais (E-E-A-T)
 - **Nome Comercial**: Síndico Né! · Uma empresa Grupo Ícone-Rio
@@ -14,11 +14,10 @@
 - **Telefone / WhatsApp**: (21) 97878-8211 · +55 (21) 97878-8211 (https://wa.me/5521978788211).
 - **E-mail**: contato@sindicone.com.br.
 - **Direitos Autorais**: © 2026 Grupo Ícone-Rio. Todos os direitos reservados.
-- **Horário de Atendimento**: Segunda a Sexta das 09:00 às 18:00 | Sábado das 09:00 às 14:00.
 
 ## Áreas Geográficas Atendidas no Rio de Janeiro
 - **Foco Principal — Zona Sul do Rio de Janeiro**: Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico, Leme, Leblon, Humaitá, Laranjeiras, Catete, Glória e Gávea.
-- **Atendimento Adicional**: Barra da Tijuca e Tijuca.
+- **Também atendemos (fora do foco principal)**: Barra da Tijuca e Tijuca, sob consulta.
 
 ## Páginas por Bairro
 - [Síndico profissional em Copacabana](https://www.sindicone.com.br/sindico-profissional-copacabana/)

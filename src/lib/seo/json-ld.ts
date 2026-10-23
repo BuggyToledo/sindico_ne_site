@@ -40,14 +40,6 @@ export function buildLocalBusinessJsonLd() {
           longitude: SITE_CONFIG.geo.longitude,
         },
         hasMap: SITE_CONFIG.geo.googleMapsUrl,
-        openingHoursSpecification: SITE_CONFIG.openingHours.schemaSpec.map(
-          (spec) => ({
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: spec.dayOfWeek,
-            opens: spec.opens,
-            closes: spec.closes,
-          })
-        ),
         sameAs: [
           SITE_CONFIG.social.instagram,
           SITE_CONFIG.social.facebook,
