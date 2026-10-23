@@ -378,7 +378,7 @@ const ADRIANO_AUTHOR: EditorialAuthor = {
     "Certificação em Gestão Condominial TownSq",
     "Seguro RCP PJ Tokio Marine (R$ 1.000.000,00) e RCP PF Akad Seguros (R$ 1.000.000,00)",
   ],
-  bio: "Síndico profissional e administrador registrado no CRA-RJ (03-06783), com atuação principal em condomínios residenciais e comerciais na Zona Sul do Rio de Janeiro (Copacabana, Botafogo, Ipanema, Flamengo, Leblon e Jardim Botânico), atendendo também Barra da Tijuca e Tijuca. Focado em eficiência operacional, transparência financeira, segurança jurídica e valorização patrimonial.",
+  bio: "Sou Adriano Teixeira Pereira Toledo, síndico profissional e fundador da Síndico Né!, que cuida de condomínios na Zona Sul do Rio de Janeiro. Sou administrador registrado no CRA-RJ 03-06783 e trabalho a partir de Copacabana, onde fica o escritório. A Síndico Né! faz parte do Grupo Ícone-Rio, que atua no Rio desde 1998. No meu trabalho, eu gosto de decisão registrada, conta explicada e prédio bem mantido. Aqui no site escrevo sobre gestão de condomínio, leis que afetam o dia a dia dos moradores e o que considerar na hora de contratar um síndico.",
   avatarUrl: "/logo-sindicone-roxo-verde.svg",
   socialLinks: {
     facebook: "https://www.facebook.com/toledo.adriano/",

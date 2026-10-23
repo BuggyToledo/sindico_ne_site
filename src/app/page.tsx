@@ -11,9 +11,9 @@ import { ArticleCard } from "@/components/blog/ArticleCard";
 import { getAllArticles } from "@/lib/cms/store";
 
 export const metadata: Metadata = {
-  title: "Síndico Profissional no Rio de Janeiro - Síndico Né!",
+  title: "Síndico profissional na Zona Sul RJ | Síndico Né!",
   description:
-    "Síndico Profissional no Rio de Janeiro (Copacabana, Zona Sul, Barra da Tijuca e Tijuca). Gestão condominial com registro no CRA-RJ (03-06783) e seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
+    "Síndico profissional em Copacabana, Ipanema, Leblon, Botafogo e Flamengo. Gestão clara, presença no prédio e seguro RCP. Fale no WhatsApp.",
   alternates: {
     canonical: "https://www.sindicone.com.br/",
   },

@@ -16,7 +16,7 @@ const BLOCKS: Block[] = [
     id: "vantagens",
     icon: "verified_user",
     title: "Vantagens do síndico profissional",
-    text: "Gestão técnica e imparcial para condomínios em Copacabana e na Zona Sul do RJ, com registro no CRA-RJ e seguros de Responsabilidade Civil Profissional PJ (Tokio Marine) e PF (Akad).",
+    text: "Você tira dos moradores o peso de administrar o prédio. As decisões passam a ter registro e as contas ficam abertas para consulta. A Síndico Né! tem seguro de responsabilidade civil na Tokio Marine (PJ), e o Adriano, como síndico, tem o dele na Akad (PF).",
     items: [
       "Rigor financeiro e prestação de contas transparente",
       "Mediação imparcial de conflitos",
@@ -31,7 +31,7 @@ const BLOCKS: Block[] = [
     id: "funcoes",
     icon: "assignment",
     title: "Funções do síndico profissional",
-    text: "Administração do condomínio conforme o Código Civil (Art. 1.348): finanças, manutenção, pessoas e comunicação com conselho e moradores.",
+    text: "Cuido da manutenção, dos fornecedores, dos funcionários, do orçamento e da cobrança. Também convoco e conduzo as assembleias e respondo pelo condomínio perante os órgãos públicos, como manda o Código Civil.",
     items: [
       "Planejamento orçamentário e combate à inadimplência",
       "Manutenção preventiva e vistorias prediais",
@@ -43,7 +43,7 @@ const BLOCKS: Block[] = [
     id: "contratacao",
     icon: "handshake",
     title: "Como contratar",
-    text: "Agende uma apresentação para o Conselho Consultivo ou peça uma proposta personalizada, sem compromisso.",
+    text: "A escolha do síndico profissional é feita em assembleia. Eu ajudo a preparar a pauta, apresento a proposta aos moradores e, depois de eleito, faço a transição com a gestão anterior.",
     items: [
       "Diagnóstico gratuito do condomínio",
       "Retorno em até 24 horas úteis",

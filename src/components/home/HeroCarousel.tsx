@@ -25,12 +25,12 @@ const HERO_SLIDES = [
     id: "slide-2",
     icon: "verified_user",
     badge: "SÍNDICO PROFISSIONAL NO RIO DE JANEIRO",
-    title: "Administração Condominial Profissional, Transparente e Segura",
+    title: "Síndico profissional na Zona Sul do Rio, perto do seu prédio",
     subtitle:
-      "Atuação técnica registrada no CRA-RJ (03-06783), com seguros de Responsabilidade Civil Profissional: PJ Tokio Marine (R$ 1.000.000,00) e PF Akad Seguros (R$ 1.000.000,00).",
+      "Eu cuido do dia a dia do condomínio, das contas, da manutenção e das assembleias, com prestação de contas clara para todos os moradores. Atendo Copacabana, Ipanema, Leblon, Botafogo e Flamengo.",
     primaryCta: {
-      label: "Solicitar Diagnóstico",
-      href: "/contato/",
+      label: "Fale comigo no WhatsApp",
+      href: "https://wa.me/5521978788211?text=SINDICO",
     },
     secondaryCta: {
       label: "Conheça Nossa História",
@@ -131,13 +131,8 @@ export function HeroCarousel() {
             {/* Micro indicators */}
             <div className="mt-8 pt-6 border-t border-[#e2e8f0]/80 w-full flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-5 text-[#45464d] text-[11px] font-bold uppercase tracking-[0.06em]">
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  CRA-RJ {SITE_CONFIG.credentials.craRj} Ativo
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#b5d300]" />
-                  RCP PJ Tokio Marine &amp; PF Akad
+                <span>
+                  Administrador registrado no CRA-RJ {SITE_CONFIG.credentials.craRj}. Seguros de responsabilidade civil de R$ 1.000.000,00 cada: o da empresa na Tokio Marine (PJ) e o do Adriano na Akad (PF).
                 </span>
               </div>
 
