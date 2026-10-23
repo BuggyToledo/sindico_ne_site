@@ -172,93 +172,22 @@ export function HeroCarousel() {
                 </span>
               </div>
 
-              {/* SVG Inadimplência & Economia Data Visualization */}
-              <div className="bg-[#eff4ff] rounded-xl p-4 mb-4 border border-[#dbe1ff]/60">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.06em] text-[#45464d]">
-                    Taxa de Inadimplência Condominial
-                  </span>
-                  <span className="text-[15px] text-emerald-600 font-bold">
-                    -64% no 1º semestre
-                  </span>
-                </div>
-                <svg
-                  className="w-full h-24 text-[#0051d5]"
-                  fill="none"
-                  viewBox="0 0 320 80"
-                  xmlns="http://www.w3.org/2000/svg"
-                  role="img"
-                  aria-label="Gráfico de redução da taxa de inadimplência condominial em 64% no primeiro semestre"
-                >
-                  <path
-                    d="M0,65 Q40,55 80,48 T160,32 T240,24 T320,12"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeWidth="3"
-                  />
-                  <path
-                    d="M0,65 Q40,55 80,48 T160,32 T240,24 T320,12 L320,80 L0,80 Z"
-                    fill="currentColor"
-                    fillOpacity="0.08"
-                  />
-                  <circle cx="240" cy="24" fill="currentColor" r="4" />
-                  <circle
-                    className="fill-[#d0f121] stroke-[#0b1c30]"
-                    cx="320"
-                    cy="12"
-                    r="5"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <div className="flex justify-between text-[11px] text-[#45464d] font-bold uppercase tracking-[0.05em] mt-2">
-                  <span>Mês 01 (Entrada)</span>
-                  <span>Mês 03 (Auditoria)</span>
-                  <span>Mês 06 (Equilíbrio)</span>
-                </div>
-              </div>
-
-              {/* Key Metrics Grid */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#f8f9ff] rounded-xl p-3.5 border border-[#e2e8f0]">
-                  <div className="flex items-center justify-between text-[#0051d5] mb-1">
-                    <span
-                      className="material-symbols-outlined text-[20px]"
-                      aria-hidden="true"
-                    >
-                      savings
+              {/* Credenciais verificáveis (sem números de resultado) */}
+              <ul className="space-y-3 mb-4" role="list">
+                {[
+                  { icon: "verified_user", t: `Registro ativo no CRA-RJ (${SITE_CONFIG.credentials.craRj})` },
+                  { icon: "shield", t: "Seguro RCP PJ: Tokio Marine (R$ 1.000.000,00)" },
+                  { icon: "shield_with_heart", t: "Seguro RCP PF: Akad Seguros (R$ 1.000.000,00)" },
+                  { icon: "chat", t: `Atendimento pelo WhatsApp ${SITE_CONFIG.contact.whatsappDisplay}` },
+                ].map((i) => (
+                  <li key={i.t} className="flex items-center gap-3 bg-[#f8f9ff] rounded-xl p-3.5 border border-[#e2e8f0]">
+                    <span className="material-symbols-outlined text-[#0051d5] text-[20px] shrink-0" aria-hidden="true">
+                      {i.icon}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.06em] text-[#45464d]">
-                      Economia Média
-                    </span>
-                  </div>
-                  <div className="text-[22px] font-bold text-[#0b1c30] leading-tight">
-                    Até 20%
-                  </div>
-                  <div className="text-[12px] text-[#45464d] mt-0.5">
-                    Revisão de contratos fixos
-                  </div>
-                </div>
-
-                <div className="bg-[#f8f9ff] rounded-xl p-3.5 border border-[#e2e8f0]">
-                  <div className="flex items-center justify-between text-[#0051d5] mb-1">
-                    <span
-                      className="material-symbols-outlined text-[20px]"
-                      aria-hidden="true"
-                    >
-                      shield_with_heart
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.06em] text-[#45464d]">
-                      Seguro Garantido
-                    </span>
-                  </div>
-                  <div className="text-[22px] font-bold text-[#0b1c30] leading-tight">
-                    PJ R$ 1 Mi · PF R$ 1 Mi
-                  </div>
-                  <div className="text-[12px] text-[#45464d] mt-0.5">
-                    PJ Tokio Marine · PF Akad
-                  </div>
-                </div>
-              </div>
+                    <span className="text-[14px] font-semibold text-[#0b1c30]">{i.t}</span>
+                  </li>
+                ))}
+              </ul>
 
               {/* Integrated Image Preview */}
               <div className="relative rounded-xl overflow-hidden shadow-xs h-36 bg-[#131b2e]">

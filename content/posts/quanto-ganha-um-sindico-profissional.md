@@ -46,7 +46,7 @@ references:
   - title: Secovi Rio — Indicadores Condominiais no Rio de Janeiro
     type: institution
 relatedLinks:
-  - label: 'Estudo de Caso: Redução de 20% nas despesas mensais em Copacabana'
+  - label: 'Estudo de Caso: Redução de despesas mensais em Copacabana'
     href: /servico-item/reducao-de-custos/
     context: service
   - label: 'Artigo: Carga Horária do Síndico Profissional: O Que Esperar?'

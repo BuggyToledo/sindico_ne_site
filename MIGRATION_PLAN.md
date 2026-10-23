@@ -297,7 +297,7 @@ Todo o conteúdo textual das 35 páginas foi extraído e arquivado sem abreviaç
 5. **Banner Amarelo Inferior (Fundo `#ffce60`):**
    - `H6`: `SÍNDICO NÉ!`
    - `H2`: `Redução de custos em condomínio | Síndico Né!` (com link para `/servico-item/reducao-de-custos/`)
-   - Texto: *"Reduzimos até 20% das despesas fixas com renegociação contratual e gestão profissional em condomínio na Zona Sul."*
+   - Texto: *"Revisão de contratos e renegociação com prestadores para reduzir despesas fixas."* (percentual removido a pedido do Adriano — não publicar números sem comprovação)
 
 #### G. Conteúdo Integral dos 8 Estudos de Caso (`/servico-item/*`) e 11 Artigos do Blog
 Todos os textos completos dos 8 estudos de caso e dos 11 artigos do blog foram integralmente extraídos no arquivo de auditoria bruta (`all_pages_content_dump.md`) e serão migrados **palavra por palavra** para a camada de conteúdo tipada do projeto Next.js, preservando títulos, subtítulos, tabelas comparativas (`Síndico Morador vs. Síndico Profissional`, `O Que Impacta no Valor`), listas de verificação, comentários do autor (*Adriano Toledo*) e referências legais (*Código Civil Lei nº 10.406/2002*, *Lei do Inquilinato Lei nº 8.245/1991*, *Lei nº 4.591/1964*, *CLT Art. 67 Decreto-Lei nº 5.452/1943*, *Lei nº 605/1949*, *ABRASSP*, *Secovi Rio*).
@@ -465,7 +465,7 @@ A análise técnica do HTML, árvore de recursos e cabeçalhos de rede revelou *
 Para posicionar a **Síndico Né!** como a principal fonte citada por **Google AI Overviews (SGE), ChatGPT Search, Perplexity, Claude e Gemini** quando usuários pesquisarem por *"síndico profissional Zona Sul RJ"*, *"quanto custa síndico profissional no Rio de Janeiro"*, *"síndico profissional Copacabana"* ou *"quem paga condomínio inquilino ou proprietário"*:
 
 1. **Implementação de `/llms.txt` e `/llms-full.txt`:**
-   - Criar na raiz do projeto o padrão aberto `/llms.txt` contendo o resumo estruturado em Markdown da empresa, credenciais verificáveis (CRA-RJ `03-06783`, apólices PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00), endereço em Copacabana, serviços oferecidos, estudos de caso com métricas reais (ex.: *redução de 20% nas despesas fixas em Copacabana*, *redução de 80% nas reclamações internas em 1 trimestre*, *remuneração média no RJ entre R$ 2.000 e R$ 8.000/mês e carga horária de 12h a 32h mensais*) e links canônicos para todas as páginas.
+   - Criar na raiz do projeto o padrão aberto `/llms.txt` contendo o resumo estruturado em Markdown da empresa, credenciais verificáveis (CRA-RJ `03-06783`, apólices PJ Tokio Marine R$ 1.000.000,00 / PF Akad R$ 1.000.000,00), endereço em Copacabana, serviços oferecidos, estudos de caso (sem percentuais de economia não comprovados; ex.: *redução de 80% nas reclamações internas em 1 trimestre*, *remuneração média no RJ entre R$ 2.000 e R$ 8.000/mês e carga horária de 12h a 32h mensais*) e links canônicos para todas as páginas.
 2. **Dados Estruturados Semânticos Avançados (Schema.org JSON-LD por Página):**
    - **Home e Página Síndico:** `ProfessionalService` + `LocalBusiness` + `Person` (Adriano Toledo com `hasCredential` CRA-RJ) + `FAQPage` + `BreadcrumbList`.
    - **Páginas de Serviços (`/servico-item/*`):** `Service` + `Article` (Case Study) + `BreadcrumbList`.

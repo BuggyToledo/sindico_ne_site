@@ -289,7 +289,7 @@ export const SITE_CONFIG = {
       eyebrow: "GESTÃO COMPLETA",
       title: "Gestão condominial profissional",
       description:
-        "Reduzimos até 20% das despesas fixas com renegociação contratual e gestão profissional na Zona Sul.",
+        "Revisão de contratos e renegociação com prestadores para reduzir despesas fixas em condomínios da Zona Sul.",
       href: "/servico-item/reducao-de-custos/",
       taxonomyHref: "/servico-tipo/gestao-condominial/",
       icon: "/wp-content/uploads/2019/10/cityhall-shortcuts-icon1.png",
@@ -415,7 +415,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
     seoDescription:
       "Entenda despesas ordinárias, extraordinárias, fundo de reserva, previsão orçamentária e como reduzir custos fixos no seu condomínio.",
     commercialTargetHref: "/servico-item/reducao-de-custos/",
-    commercialTargetLabel: "Veja nosso estudo de caso de redução de 20% nos custos",
+    commercialTargetLabel: "Veja nosso estudo de caso de redução de custos",
   },
   {
     slug: "manutencao-e-obras",

@@ -108,7 +108,7 @@ export default async function HomePage() {
                     </span>
                   </div>
                   <span className="text-[14px] font-semibold text-[#0b1c30]">
-                    Redução comprovada de custos e contratos
+                    Revisão de contratos e redução de custos
                   </span>
                 </div>
 

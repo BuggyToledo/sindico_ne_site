@@ -55,7 +55,7 @@ relatedLinks:
   - label: 'Estudo de Caso: Planejamento orçamentário condominial em Botafogo'
     href: /servico-item/planejamento-orcamentario/
     context: service
-  - label: 'Estudo de Caso: Redução de 20% nos custos fixos em Copacabana'
+  - label: 'Estudo de Caso: Redução de custos fixos em Copacabana'
     href: /servico-item/reducao-de-custos/
     context: service
   - label: 'Artigo: O que é um condomínio e como ele funciona na prática?'

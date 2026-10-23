@@ -21,7 +21,7 @@
 - **Atendimento Adicional**: Barra da Tijuca e Tijuca.
 
 ## Principais Serviços e Estudos de Caso Reais (`/servicos-sindico-profissional/`)
-1. **Gestão Condominial e Redução de Custos**: Redução comprovada de até 20% nas despesas fixas mensais por meio de renegociação contratual (`/servico-item/reducao-de-custos/`).
+1. **Gestão Condominial e Redução de Custos**: Redução de despesas fixas mensais por meio de renegociação contratual (`/servico-item/reducao-de-custos/`).
 2. **Planejamento Orçamentário e Financeiro**: Reestruturação da previsão orçamentária anual e controle da inadimplência (`/servico-item/planejamento-orcamentario/`).
 3. **Auditoria de Gestão e Contratos**: Diagnóstico contábil e contratual de gestões anteriores (`/servico-item/auditoria-de-contratos/`).
 4. **Consultoria Condominial ao Conselho Fiscal**: Pareceres técnico-financeiros para obras e tomada de decisão (`/servico-item/apoio-tecnico-ao-conselho-fiscal/`).

@@ -260,19 +260,19 @@ export const SERVICE_CASES: ServiceCaseStudy[] = [
     slug: "reducao-de-custos",
     title: "Redução de custos em condomínio | Síndico Né!",
     subtitle:
-      "Gestão estratégica resultou em economia de 20% nas despesas mensais",
+      "Gestão estratégica para reduzir despesas mensais",
     neighborhood: "Copacabana",
     serviceTypeSlug: "gestao-condominial",
     serviceTypeName: "Gestão Condominial",
     excerpt:
-      "Reduzimos até 20% das despesas fixas com renegociação contratual e gestão profissional em condomínio na Zona Sul.",
+      "Revisão de contratos e renegociação com prestadores para reduzir despesas fixas em condomínios da Zona Sul.",
     paragraphs: [
       "Um condomínio residencial localizado em Copacabana enfrentava dificuldades para equilibrar seu orçamento devido a contratos desatualizados e despesas operacionais elevadas.",
-      "A Síndico Né! assumiu a gestão condominial e realizou um diagnóstico completo das finanças e dos contratos vigentes. Por meio da renegociação com prestadores de serviços e reestruturação dos processos de manutenção, foi possível reduzir os custos fixos mensais em aproximadamente 20%.",
+      "A Síndico Né! assumiu a gestão condominial e realizou um diagnóstico completo das finanças e dos contratos vigentes. Por meio da renegociação com prestadores de serviços e reestruturação dos processos de manutenção, foi possível reduzir os custos fixos mensais.",
       "Além disso, implementamos um novo modelo de prestação de contas digital, facilitando o acesso às informações por parte dos condôminos e aumentando a transparência da gestão.",
     ],
     results: [
-      "Redução de 20% nas despesas mensais fixas",
+      "Redução das despesas mensais fixas",
       "Melhoria na satisfação dos condôminos",
       "Prestação de contas com acesso remoto em tempo real",
       "Contratos padronizados e dentro da legalidade",
@@ -290,7 +290,7 @@ export const SERVICE_CASES: ServiceCaseStudy[] = [
     seo: {
       title: "Redução de custos em condomínio | Síndico Né!",
       description:
-        "Reduzimos até 20% das despesas fixas com renegociação contratual e gestão profissional em condomínio na Zona Sul.",
+        "Revisão de contratos e renegociação com prestadores para reduzir despesas fixas em condomínios da Zona Sul.",
       canonicalUrl:
         "https://www.sindicone.com.br/servico-item/reducao-de-custos/",
     },
