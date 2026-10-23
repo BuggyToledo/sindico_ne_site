@@ -80,7 +80,7 @@ authorCommentary:
     Muitos conflitos surgem justamente porque as pessoas não entendem essa
     estrutura básica. Em todos os condomínios onde atuo, antes de implementar
     qualquer tecnologia ou processo complexo, garantimos que todos entendam o
-    que é condomínio e como ele deve funcionar. Essa clareza inicial evita 80%
+    que é condomínio e como ele deve funcionar. Essa clareza inicial evita grande parte
     dos problemas futuros. Se seu condomínio vive apagando incêndios, talvez o
     problema não seja falta de boa vontade, mas sim falta de entendimento sobre
     o que é condomínio e como ele deve ser gerido.

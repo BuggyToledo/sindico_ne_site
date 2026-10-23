@@ -65,43 +65,43 @@ export function Footer() {
             <nav aria-label="Links do Rodapé" className="flex flex-col gap-2 text-[13px]">
               <Link
                 href="/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Home
               </Link>
               <Link
                 href="/sindico-profissional-na-zona-sul-do-rj/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 O Síndico Profissional
               </Link>
               <Link
                 href="/servicos-sindico-profissional/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Serviços e Soluções
               </Link>
               <Link
                 href="/noticias-e-eventos/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Notícias &amp; Eventos
               </Link>
               <Link
                 href="/author/adriano/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Adriano Toledo (Autor)
               </Link>
               <Link
                 href="/politica-de-privacidade/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Política de Privacidade
               </Link>
               <Link
                 href="/contato/"
-                className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+                className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
               >
                 Atendimento &amp; Propostas
               </Link>
@@ -238,6 +238,7 @@ export function Footer() {
                 Uma empresa Grupo Ícone-Rio
               </a>
             </p>
+            <p>CNPJ {SITE_CONFIG.cnpj}</p>
             <p className="text-[#64748b] pt-0.5">
               © 2026 Grupo Ícone-Rio. Todos os direitos reservados.
             </p>
@@ -248,7 +249,7 @@ export function Footer() {
               href={SITE_CONFIG.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+              className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
             >
               Instagram
             </a>
@@ -256,19 +257,19 @@ export function Footer() {
               href={SITE_CONFIG.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+              className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
             >
               Facebook
             </a>
             <Link
               href="/politica-de-privacidade/"
-              className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+              className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
             >
               Privacidade &amp; LGPD
             </Link>
             <Link
               href="/admin/"
-              className="text-[#45464d] hover:text-[#0051d5] transition-colors"
+              className="inline-flex items-center min-h-12 md:min-h-0 text-[#45464d] hover:text-[#0051d5] transition-colors"
             >
               Painel Editorial
             </Link>

@@ -125,7 +125,7 @@ export function Header() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-side-slide"
               aria-label="Abrir menu de navegação"
-              className="xl:hidden inline-flex items-center justify-center p-2.5 rounded-lg text-[#0b1c30] bg-[#eff4ff] hover:bg-[#dce9ff] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0051d5]"
+              className="xl:hidden inline-flex items-center justify-center w-12 h-12 rounded-lg text-[#0b1c30] bg-[#eff4ff] hover:bg-[#dce9ff] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0051d5]"
             >
               <Menu className="w-6 h-6" aria-hidden="true" />
             </button>

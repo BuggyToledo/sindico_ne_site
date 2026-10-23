@@ -5,6 +5,7 @@ import Image from "next/image";
 import { SITE_CONFIG } from "@/data/site-config";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { ServicesGrid, TrustBadges } from "@/components/home/ServicesGrid";
+import { SindicoProfissionalBlocks } from "@/components/home/SindicoProfissionalBlocks";
 import { ShortcutStrip } from "@/components/layout/ShortcutStrip";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import { getAllArticles } from "@/lib/cms/store";
@@ -45,6 +46,9 @@ export default async function HomePage() {
         <HeroCarousel />
         <ShortcutStrip overlap={true} />
       </div>
+
+      {/* 3 BLOCOS: VANTAGENS, FUNÇÕES E CONTRATAÇÃO (sem carrossel) */}
+      <SindicoProfissionalBlocks />
 
       {/* SECTION 2: SOBRE / CREDENCIAIS E ATUAÇÃO PRESENCIAL */}
       <section className="w-full py-20 lg:py-24 bg-[#eff4ff] border-y border-[#dbe1ff]/60">
@@ -104,7 +108,7 @@ export default async function HomePage() {
                     </span>
                   </div>
                   <span className="text-[14px] font-semibold text-[#0b1c30]">
-                    Redução comprovada de custos e contratos
+                    Revisão de contratos e redução de custos
                   </span>
                 </div>
 
