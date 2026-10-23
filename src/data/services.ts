@@ -62,7 +62,7 @@ export const SERVICE_CASES: ServiceCaseStudy[] = [
       "Conflito resolvido sem necessidade de advertências formais",
       "Implantação de novo protocolo de atendimento e comunicação",
       "Retomada do ambiente colaborativo entre funcionários e moradores",
-      "Redução de reclamações internas em mais de 80% no trimestre seguinte",
+      "Redução de reclamações internas no trimestre seguinte",
     ],
     ctaQuestion:
       "Conflitos estão atrapalhando a rotina do seu condomínio? A Síndico Né! atua com mediação profissional para restaurar o bom convívio e a eficiência interna.",
