@@ -1,0 +1,15 @@
+# EXEMPLO — NÃO ATIVO. Para ativar, copie para .github/workflows/rebuild-agendado.yml
+# e cadastre o secret CLOUDFLARE_DEPLOY_HOOK_URL no GitHub (Settings > Secrets and variables > Actions).
+# Faz um novo build no Cloudflare Pages todo dia às 06:00 (horário de Brasília = 09:00 UTC),
+# para que posts com data futura apareçam quando chegar a data.
+name: Rebuild agendado (posts com data futura)
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispara o deploy hook do Cloudflare Pages
+        run: curl -fsS -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}"

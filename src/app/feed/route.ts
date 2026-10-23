@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { SITE_CONFIG } from "@/data/site-config";
 import { getAllArticles } from "@/lib/cms/store";
 
+export const dynamic = "force-static";
+
 function escapeXml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -12,7 +14,9 @@ function escapeXml(str: string): string {
 }
 
 export async function GET() {
-  const articles = await getAllArticles({ includeUnpublished: false });
+  const articles = (await getAllArticles({ includeUnpublished: false })).filter(
+    (a) => !a.noIndex
+  );
 
   const itemsXml = articles
     .map((art) => {

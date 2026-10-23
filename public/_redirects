@@ -1,0 +1,25 @@
+# Cloudflare Pages — redirecionamentos (antes em next.config.ts > redirects())
+# Formato: origem destino status
+/wp-admin /admin/ 302
+/blog/ /noticias-e-eventos/ 301
+/blog /noticias-e-eventos/ 301
+/blog/page/:page/ /noticias-e-eventos/page/:page/ 301
+/blog/categoria/:slug/ /category/:slug/ 301
+/blog/tag/:slug/ /tag/:slug/ 301
+/blog/:slug/ /:slug/ 301
+/news/ /noticias-e-eventos/ 301
+/news /noticias-e-eventos/ 301
+/sindico-profissional-ou-morador-o-que-vale-mais-a-pena/ /sindico-profissional-ou-morador/ 301
+/sindico-profissional-ou-morador-o-que-vale-mais-a-pena /sindico-profissional-ou-morador/ 301
+/sample-page/ / 301
+/comments/feed/ /feed/ 301
+/tag/beneficios-exclusivos-e-convivencia-mais-leve-nos-condominios-da-zona-sul-do-rio/ /parceria-sindico-ne-e-forneria-carioca/ 301
+/tag/conheca-a-parceria-sindico-ne-e-forneria-carioca-uma-acao-que-une-pizza/ /parceria-sindico-ne-e-forneria-carioca/ 301
+/tag/o-que-e-condominio-como-funciona-um-condominio-quem-e-condomino-quem-manda-no-condominio-taxa-de-condominio-sindico-profissional-gestao-de-condominio/ /o-que-e-um-condominio/ 301
+/tag/reforma-de-fachada-condominio-manutencao-predial-com-engenharia-responsabilidade-civil-sindico-obras-com-art-e-laudo-tecnico-gestao-condominial-profissional/ /a-fachada-do-seu-condominio-pode-ser-o-maior-risco-juridico-do-sindico/ 301
+/tag/veja-passo-a-passo-como-contratar-um-sindico-profissional-avaliacao/ /contratacao-de-um-sindico-profissional/ 301
+/wp-login.php /admin/ 302
+/wp-admin/ /admin/ 302
+
+# Feed RSS: o export gera o arquivo "feed" sem extensão
+/feed/ /feed 200

@@ -24,6 +24,7 @@ async function runValidation() {
     "EDITORIAL_GUIDE.md",
     "DEPLOY_AND_ROLLBACK.md",
     "PERFORMANCE_AND_TEST_REPORT.md",
+    "docs/CMS-DECAP.md",
   ];
   for (const doc of requiredDocs) {
     const p = path.join(ROOT, doc);
@@ -47,14 +48,14 @@ async function runValidation() {
     "Coordinates -43.1906181,-22.9765877 verified"
   );
 
-  const llmsPath = path.join(ROOT, "public/llms.txt");
-  const llmsContent = fs.existsSync(llmsPath)
-    ? fs.readFileSync(llmsPath, "utf-8")
+  const llmsBasePath = path.join(ROOT, "content/llms-base.md");
+  const llmsBase = fs.existsSync(llmsBasePath)
+    ? fs.readFileSync(llmsBasePath, "utf-8")
     : "";
   check(
-    "GEO Structured File (public/llms.txt) with CRA-RJ credential and no CRECI",
-    llmsContent.includes("03-06783") && !/creci|12\.974/i.test(llmsContent),
-    `${llmsContent.length} bytes`
+    "GEO base text (content/llms-base.md) with CRA-RJ credential and no CRECI",
+    llmsBase.includes("03-06783") && !/creci|12\.974/i.test(llmsBase),
+    `${llmsBase.length} bytes`
   );
 
   // 3. Validate Downloaded Media Library
@@ -76,45 +77,21 @@ async function runValidation() {
     `${mediaCount} files verified on disk`
   );
 
-  // 4. Validate Next.js Production Build Artifacts (.next) or Active Server
-  let serverIsAlive = false;
-  try {
-    const ping = await fetch("http://localhost:3000/");
-    serverIsAlive = ping.ok;
-  } catch {
-    serverIsAlive = false;
-  }
-
-  const nextBuildIdPath = path.join(ROOT, ".next/BUILD_ID");
-  const buildSucceeded = fs.existsSync(nextBuildIdPath) || serverIsAlive;
+  // 4. Static export (Cloudflare Pages): pasta out/ gerada por "npm run build"
+  const OUT = path.join(ROOT, "out");
   check(
-    "Next.js Runtime / Production Build (.next/BUILD_ID or Active Server)",
-    buildSucceeded,
-    fs.existsSync(nextBuildIdPath)
-      ? `Build ID: ${fs.readFileSync(nextBuildIdPath, "utf-8").trim()}`
-      : serverIsAlive
-      ? "Dev Server Active on :3000"
-      : "Missing"
+    "Static export for Cloudflare Pages (out/index.html)",
+    fs.existsSync(path.join(OUT, "index.html")),
+    fs.existsSync(OUT) ? "out/ ok" : "Rode npm run build antes"
   );
 
-  // 5. Inspect Pre-rendered HTML & SEO Metadata in .next/server/app or via live fetch
-  const appServerDir = path.join(ROOT, ".next/server/app");
-  async function getRouteHtml(urlPath, fileName) {
-    const htmlPath = path.join(appServerDir, fileName);
-    if (fs.existsSync(htmlPath)) {
-      return fs.readFileSync(htmlPath, "utf-8");
-    }
-    if (serverIsAlive) {
-      try {
-        const res = await fetch(`http://localhost:3000${urlPath}`);
-        if (res.ok) {
-          return await res.text();
-        }
-      } catch {
-        // ignore
-      }
-    }
-    return null;
+  // 5. Inspect pre-rendered HTML & SEO metadata in out/
+  async function getRouteHtml(urlPath) {
+    const clean = urlPath.replace(/^\/+|\/+$/g, "");
+    const htmlPath = clean
+      ? path.join(OUT, clean, "index.html")
+      : path.join(OUT, "index.html");
+    return fs.existsSync(htmlPath) ? fs.readFileSync(htmlPath, "utf-8") : null;
   }
   const keyHtmlRoutes = [
     { label: "Home (/)", url: "/", file: "index.html" },
@@ -183,7 +160,7 @@ async function runValidation() {
   ];
 
   for (const route of keyHtmlRoutes) {
-    const html = await getRouteHtml(route.url, route.file);
+    const html = await getRouteHtml(route.url);
     if (!html) {
       check(
         `Pre-rendered HTML & SEO: ${route.label}`,
@@ -204,11 +181,16 @@ async function runValidation() {
   }
 
   // 6. Validate Draft Exclusion from Public Noticias e Eventos
-  const noticiasHtml = (await getRouteHtml("/noticias-e-eventos/", "noticias-e-eventos.html")) || "";
+  const noticiasHtml = (await getRouteHtml("/noticias-e-eventos/")) || "";
   check(
     "Draft Protection: Demo draft excluded from public /noticias-e-eventos/ listing",
-    !noticiasHtml.includes("rascunho-demo-checklist-autovistoria-predial-rj"),
-    "Draft slug absent from public /noticias-e-eventos/ HTML"
+    !noticiasHtml.includes("rascunho-demo-checklist-autovistoria-predial-rj") &&
+      !fs.existsSync(path.join(OUT, "rascunho-demo-checklist-autovistoria-predial-rj")) &&
+      !["sitemap.xml", "feed", "llms.txt"].some((f) =>
+        fs.existsSync(path.join(OUT, f)) &&
+        fs.readFileSync(path.join(OUT, f), "utf-8").includes("rascunho-demo")
+      ),
+    "Draft absent from listing, out/, sitemap, feed and llms.txt"
   );
 
   // 7. Validate Google Review URL
@@ -223,26 +205,76 @@ async function runValidation() {
     "Verified in src/data/site-config.ts"
   );
 
-  // 8. Validate Preview Page is auth-gated (force-dynamic) and declares noindex
-  const previewPageSource = fs.existsSync(
-    path.join(ROOT, "src/app/admin/preview/[slug]/page.tsx")
-  )
-    ? fs.readFileSync(
-        path.join(ROOT, "src/app/admin/preview/[slug]/page.tsx"),
-        "utf-8"
-      )
+  // 8. Decap CMS (public/admin) configurado para GitHub + editorial_workflow
+  const decapIndex = fs.existsSync(path.join(ROOT, "public/admin/index.html"))
+    ? fs.readFileSync(path.join(ROOT, "public/admin/index.html"), "utf-8")
+    : "";
+  const decapConfig = fs.existsSync(path.join(ROOT, "public/admin/config.yml"))
+    ? fs.readFileSync(path.join(ROOT, "public/admin/config.yml"), "utf-8")
     : "";
   check(
-    "Draft Preview Route (/admin/preview/[slug]/) enforces noindex + auth gate",
-    previewPageSource.includes("index: false") &&
-      previewPageSource.includes("force-dynamic") &&
-      previewPageSource.includes("verifyPreviewToken") &&
-      previewPageSource.includes("verifySessionToken"),
-    "Preview requires CMS session or signed token; robots noindex configured"
+    "Decap CMS: /admin/ (noindex) + config.yml (github, editorial_workflow, media_folder, content/posts)",
+    decapIndex.includes("decap-cms") &&
+      decapIndex.includes("noindex") &&
+      /name:\s*github/.test(decapConfig) &&
+      decapConfig.includes("repo: BuggyToledo/sindico_ne_site") &&
+      decapConfig.includes("publish_mode: editorial_workflow") &&
+      decapConfig.includes("media_folder: public/uploads/blog") &&
+      decapConfig.includes("folder: content/posts"),
+    "public/admin/index.html + public/admin/config.yml"
+  );
+
+  // 8b. Categorias e tags do painel batem com src/data/site-config.ts
+  const slugsIn = (text) =>
+    [...text.matchAll(/slug: "([^"]+)",\s*name:/g)].map((m) => m[1]);
+  const catStart = siteConfigContent.indexOf("EDITORIAL_CATEGORIES");
+  const tagStart = siteConfigContent.indexOf("EDITORIAL_TAGS");
+  const configCats = slugsIn(siteConfigContent.slice(catStart, tagStart));
+  const configTags = slugsIn(siteConfigContent.slice(tagStart));
+  const missingInCms = [...configCats, ...configTags].filter(
+    (slug) => !decapConfig.includes(`value: "${slug}"`)
+  );
+  check(
+    "Decap CMS: category/tag options match site-config.ts",
+    configCats.length > 0 && missingInCms.length === 0,
+    missingInCms.length ? `faltando: ${missingInCms.join(", ")}` : `${configCats.length} categorias, ${configTags.length} tags`
+  );
+
+  // 8c. Painel antigo removido e sem credenciais padrão no repositório
+  const legacyPaths = [
+    "src/app/admin",
+    "src/app/api",
+    "src/lib/cms/auth.ts",
+    "src/components/admin",
+    "content/articles.json",
+  ].filter((p) => fs.existsSync(path.join(ROOT, p)));
+  const envExample = fs.existsSync(path.join(ROOT, ".env.example"))
+    ? fs.readFileSync(path.join(ROOT, ".env.example"), "utf-8")
+    : "";
+  check(
+    "Security: legacy Next admin/API removed and .env.example without CMS passwords",
+    legacyPaths.length === 0 && !/CMS_(ADMIN|EDITOR|AUTHOR)_PASSWORD|CMS_SESSION_SECRET|CMS_PREVIEW_SECRET/.test(envExample),
+    legacyPaths.length ? `ainda existe: ${legacyPaths.join(", ")}` : "ok"
+  );
+
+  // 8d. Pages Functions: contato com honeypot e OAuth lendo segredos de env
+  const fnDir = path.join(ROOT, "functions/api");
+  const readFn = (f) =>
+    fs.existsSync(path.join(fnDir, f)) ? fs.readFileSync(path.join(fnDir, f), "utf-8") : "";
+  const contato = readFn("contato.ts");
+  const oauth = readFn("auth.ts") + readFn("callback.ts");
+  check(
+    "Cloudflare Pages Functions: /api/contato (honeypot + FORM_ENDPOINT) and OAuth proxy (env secrets)",
+    contato.includes("websiteHoneypot") &&
+      contato.includes("env.FORM_ENDPOINT") &&
+      oauth.includes("env.GITHUB_CLIENT_ID") &&
+      oauth.includes("env.GITHUB_CLIENT_SECRET") &&
+      !/client_secret:\s*["'`]/.test(oauth),
+    "functions/api/contato.ts, auth.ts, callback.ts"
   );
 
   // 9. Validate Thin Tag has noindex, follow
-  const thinTagHtml = (await getRouteHtml("/tag/proposta/", "tag/proposta.html")) || "";
+  const thinTagHtml = (await getRouteHtml("/tag/proposta/")) || "";
   if (thinTagHtml) {
     check(
       "Editorial SEO: Thin tag (/tag/proposta/) enforces noindex, follow",
@@ -257,42 +289,46 @@ async function runValidation() {
     );
   }
 
-  // 10. Validate Admin Page has noindex, nofollow & zero exposed secrets
-  const adminHtml = (await getRouteHtml("/admin/", "admin.html")) || "";
-  if (adminHtml) {
-    const noSecretsLeaked =
-      !adminHtml.includes("SindicoNe@2026!") &&
-      !adminHtml.includes("sindicone-editorial-hmac-secret");
-    check(
-      "Security: /admin/ enforces noindex and exposes zero server credentials",
-      adminHtml.includes("noindex") && noSecretsLeaked,
-      "noindex=true, leakedSecrets=0"
-    );
-  } else {
-    check(
-      "Security: /admin/ enforces noindex and exposes zero server credentials",
-      true,
-      "noindex=true, credentials isolated server-side"
-    );
-  }
+  // 10. /admin/ no build final: Decap, noindex
+  const adminHtml = (await getRouteHtml("/admin/")) || "";
+  check(
+    "Security: out/admin/ is Decap CMS with noindex",
+    adminHtml.includes("noindex") && adminHtml.includes("decap-cms"),
+    adminHtml ? "ok" : "out/admin/index.html ausente"
+  );
 
-  // 10. Validate Persistent CMS Store (`content/articles.json`) reconciliation
-  const articlesJsonPath = path.join(ROOT, "content/articles.json");
-  if (fs.existsSync(articlesJsonPath)) {
-    const storedArticles = JSON.parse(fs.readFileSync(articlesJsonPath, "utf-8"));
-    const publishedCount = storedArticles.filter(
-      (a) => a.status === "published"
-    ).length;
-    const draftCount = storedArticles.filter((a) => a.status === "draft").length;
-    const allHaveAlt = storedArticles.every(
-      (a) => a.featuredImage && a.featuredImage.alt && a.featuredImage.alt.length > 2
-    );
-    check(
-      "CMS Store Reconciliation (11 published original posts + 1 draft demo + 100% alt text)",
-      publishedCount === 11 && draftCount >= 1 && allHaveAlt,
-      `published=${publishedCount}, drafts=${draftCount}, allHaveAlt=${allHaveAlt}`
-    );
-  }
+  // 11. Posts em Markdown (content/posts/*.md)
+  const postsDir = path.join(ROOT, "content/posts");
+  const postFiles = fs.existsSync(postsDir)
+    ? fs.readdirSync(postsDir).filter((f) => f.endsWith(".md"))
+    : [];
+  const { default: matter } = await import("gray-matter");
+  const posts = postFiles.map((f) => ({
+    file: f,
+    ...matter(fs.readFileSync(path.join(postsDir, f), "utf-8")),
+  }));
+  const publishedCount = posts.filter((p) => p.data.draft !== true).length;
+  const draftCount = posts.filter((p) => p.data.draft === true).length;
+  const allHaveAlt = posts.every(
+    (p) => p.data.featuredImage && String(p.data.featuredImage.alt || "").length > 2
+  );
+  const slugMatchesFile = posts.every((p) => `${p.data.slug}.md` === p.file);
+  check(
+    "Markdown posts (content/posts): >=11 published + drafts flagged + 100% alt + slug = file name",
+    publishedCount >= 11 && draftCount >= 1 && allHaveAlt && slugMatchesFile,
+    `published=${publishedCount}, drafts=${draftCount}, allHaveAlt=${allHaveAlt}, slugMatchesFile=${slugMatchesFile}`
+  );
+
+  // 12. Links internos do build (out/) apontam para páginas existentes ou para _redirects
+  const { checkInternalLinks } = await import("./check-links.mjs");
+  const linkReport = checkInternalLinks(ROOT);
+  check(
+    "Internal links in out/ resolve (page, file or _redirects rule)",
+    linkReport.broken.length === 0 && linkReport.checked > 0,
+    linkReport.broken.length
+      ? `quebrados: ${linkReport.broken.slice(0, 10).join(" | ")}`
+      : `${linkReport.checked} links únicos verificados`
+  );
 
   const passedCount = results.filter((r) => r.passed).length;
   console.log(`\n============================================================`);

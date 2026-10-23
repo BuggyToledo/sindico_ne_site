@@ -29,16 +29,3 @@
 6. **Assembleias e Prestação de Contas**: Convocação, pauta legal e condução profissional (`/servico-item/assembleia-condominial/`).
 7. **Administração e Mediação de Conflitos**: Intervenção neutra e protocolos de comunicação (`/servico-item/mediacao-moradores-e-zeladoria/`).
 8. **Transição e Substituição de Síndico**: Condução jurídica e operacional segura (`/servico-item/transicao-de-sindico/`).
-
-## Artigos e Guias Técnicos Publicados (`/noticias-e-eventos/`)
-- [A fachada do seu condomínio pode ser o maior risco jurídico do síndico](https://www.sindicone.com.br/a-fachada-do-seu-condominio-pode-ser-o-maior-risco-juridico-do-sindico/)
-- [O Fim da Escala 6x1 Foi Aprovado? Entenda o Que Realmente Está Acontecendo na Lei](https://www.sindicone.com.br/o-fim-da-escala-6x1-foi-aprovado-entenda-o-que-realmente-esta-acontecendo-na-lei/)
-- [Como Contratar um Síndico Profissional para o Seu Condomínio](https://www.sindicone.com.br/como-contratar-um-sindico-profissional-para-o-seu-condominio/)
-- [Quem paga o condomínio: inquilino ou proprietário?](https://www.sindicone.com.br/quem-paga-o-condominio-inquilino-ou-proprietario/)
-- [Cota Condominial: o que é, como é calculada e como reduzir o valor](https://www.sindicone.com.br/cota-condominial/)
-- [Quanto ganha um síndico profissional em 2025?](https://www.sindicone.com.br/quanto-ganha-um-sindico-profissional-em-2025/)
-- [Qual a carga horária do síndico profissional?](https://www.sindicone.com.br/qual-a-carga-horaria-do-sindico-profissional/)
-- [Como contratar um síndico profissional?](https://www.sindicone.com.br/como-contratar-um-sindico-profissional/)
-- [O que é um condomínio edilício?](https://www.sindicone.com.br/o-que-e-um-condominio-edilicio/)
-- [Síndico Profissional ou Morador?](https://www.sindicone.com.br/sindico-profissional-ou-morador/)
-- [Parceria entre Síndico Né! e Escola de Idiomas Wizard](https://www.sindicone.com.br/parceria-entre-sindico-ne-e-escola-de-idiomas-wizard/)

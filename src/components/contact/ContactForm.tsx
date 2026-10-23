@@ -5,16 +5,19 @@ import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 /**
  * Replaces the legacy Contact Form 7 (`form id="70"`) with native accessible validation,
- * anti-spam honeypot field, server-side Zod validation via `/api/contact`, and GA4 event tracking.
+ * anti-spam honeypot field, validação no servidor via Cloudflare Pages Function `/api/contato`
+ * (functions/api/contato.ts) e GA4. Se o envio não estiver configurado, oferece o WhatsApp.
  */
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
     setFeedback("");
+    setWhatsappUrl("");
 
     const formData = new FormData(e.currentTarget);
     const payload = {
@@ -29,15 +32,21 @@ export function ContactForm() {
     };
 
     try {
-      const res = await fetch("/api/contact/", {
+      const res = await fetch("/api/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      const data = (await res.json()) as { ok?: boolean; message?: string; error?: string };
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        message?: string;
+        error?: string;
+        whatsappUrl?: string;
+      };
       if (!res.ok || !data.ok) {
         setStatus("error");
+        if (data.whatsappUrl) setWhatsappUrl(data.whatsappUrl);
         setFeedback(
           data.error ||
             "Não foi possível enviar sua mensagem. Por favor, tente novamente ou fale conosco pelo WhatsApp (21) 97878-8211."
@@ -251,7 +260,22 @@ export function ContactForm() {
           className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-900 text-sm flex items-start gap-2.5"
         >
           <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" aria-hidden="true" />
-          <span>{feedback}</span>
+          <span>
+            {feedback}
+            {whatsappUrl && (
+              <>
+                {" "}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline"
+                >
+                  Enviar pelo WhatsApp
+                </a>
+              </>
+            )}
+          </span>
         </div>
       )}
 

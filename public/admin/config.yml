@@ -1,0 +1,149 @@
+# Decap CMS — Síndico Né! (painel em /admin/)
+# Documentação: docs/CMS-DECAP.md
+#
+# Fluxo: o Decap grava os posts como Markdown no GitHub. Com publish_mode
+# editorial_workflow, cada post vira um Pull Request (Rascunho -> Em revisão -> Pronto).
+# Ao "Publicar", o PR entra na main e o Cloudflare Pages faz um novo build.
+
+backend:
+  name: github
+  repo: BuggyToledo/sindico_ne_site
+  branch: main
+  # Login via proxy OAuth próprio (Cloudflare Pages Functions em functions/api/auth.ts e callback.ts)
+  base_url: https://www.sindicone.com.br
+  auth_endpoint: api/auth
+  commit_messages:
+    create: "CMS: cria post {{slug}}"
+    update: "CMS: atualiza post {{slug}}"
+    delete: "CMS: remove post {{slug}}"
+    uploadMedia: "CMS: envia imagem {{path}}"
+    deleteMedia: "CMS: remove imagem {{path}}"
+
+# Teste local sem GitHub: rode "npx decap-server" e abra http://localhost:3000/admin/
+local_backend: true
+
+publish_mode: editorial_workflow
+locale: pt
+site_url: https://www.sindicone.com.br
+display_url: https://www.sindicone.com.br
+logo_url: /logo-sindicone.svg
+
+# Capas e imagens enviadas pelo painel
+media_folder: public/uploads/blog
+public_folder: /uploads/blog
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: posts
+    label: Posts do blog
+    label_singular: Post
+    folder: content/posts
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{fields.slug}}"
+    summary: "{{title}} — {{publishedAt}}"
+    sortable_fields: ["publishedAt", "title"]
+    view_filters:
+      - { label: "Rascunhos", field: draft, pattern: true }
+    fields:
+      - { label: "Título", name: title, widget: string }
+      - label: "Slug (endereço do post)"
+        name: slug
+        widget: string
+        hint: "Só letras minúsculas, números e hífen. Vira www.sindicone.com.br/SLUG/. Não mude o slug de post já publicado."
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use só letras minúsculas sem acento, números e hífen"]
+      - { label: "Resumo", name: excerpt, widget: text, hint: "1 a 2 frases. Aparece nas listas e no Google." }
+      - { label: "Resposta direta (opcional)", name: directAnswer, widget: text, required: false, hint: "Resposta curta à pergunta principal do post." }
+      - label: "Capa"
+        name: featuredImage
+        widget: object
+        fields:
+          - { label: "Imagem", name: url, widget: image, choose_url: false }
+          - { label: "Texto alternativo (alt)", name: alt, widget: string, hint: "Descreva a imagem para quem não enxerga." }
+          - { label: "Largura (px)", name: width, widget: number, value_type: int, default: 1200, required: false }
+          - { label: "Altura (px)", name: height, widget: number, value_type: int, default: 675, required: false }
+      - label: "Categoria"
+        name: categorySlug
+        widget: select
+        default: sindico-profissional
+        options:
+          - { label: "Síndico Profissional, Contratação e Gestão", value: "sindico-profissional" }
+          - { label: "Finanças, Orçamento e Redução de Despesas Condominiais", value: "financas-e-orcamento" }
+          - { label: "Manutenção Predial, Obras e Prevenção de Riscos", value: "manutencao-e-obras" }
+          - { label: "Legislação, Assembleias e Governança", value: "legislacao-e-governanca" }
+          - { label: "Gestão Condominial no Rio de Janeiro e Particularidades Locais", value: "condominios-no-rio" }
+          - { label: "Notícias e Eventos", value: "noticias" }
+      - label: "Tags"
+        name: tags
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: "síndico profissional", value: "sindico-profissional" }
+          - { label: "gestão condominial", value: "gestao-condominial" }
+          - { label: "gestão condominial RJ", value: "gestao-condominial-rj" }
+          - { label: "condomínio Zona Sul RJ", value: "condominio-zona-sul-rj" }
+          - { label: "contratação de síndico", value: "contratacao-de-sindico" }
+          - { label: "como contratar síndico profissional", value: "como-contratar-sindico-profissional" }
+          - { label: "remuneração síndico", value: "remuneracao-sindico" }
+          - { label: "quem paga o condomínio inquilino ou proprietário", value: "quem-paga-o-condominio-inquilino-ou-proprietario" }
+          - { label: "despesas condomínio inquilino", value: "despesas-condominio-inquilino" }
+          - { label: "quem paga condomínio inquilino", value: "quem-paga-condominio-inquilino" }
+          - { label: "quem paga taxa de condomínio", value: "quem-paga-taxa-de-condominio" }
+          - { label: "despesas condomínio proprietário", value: "despesas-condominio-proprietario" }
+          - { label: "convivência em condomínio", value: "convivencia-em-condominio" }
+          - { label: "proposta", value: "proposta" }
+          - { label: "assembleia", value: "assembleia" }
+          - { label: "contrato e início da gestão", value: "contrato-e-inicio-da-gestao" }
+          - { label: "síndico para construtora", value: "sindico-para-construtora" }
+          - { label: "escala 6x1", value: "escala-6x1" }
+          - { label: "jornada de trabalho", value: "jornada-de-trabalho" }
+          - { label: "descanso semanal remunerado", value: "descanso-semanal-remunerado" }
+          - { label: "CLT artigo 67", value: "clt-artigo-67" }
+          - { label: "reforma trabalhista 2026", value: "reforma-trabalhista-2026" }
+          - { label: "direito do trabalho", value: "direito-do-trabalho" }
+          - { label: "legislação trabalhista", value: "legislacao-trabalhista" }
+          - { label: "descanso do trabalhador", value: "descanso-do-trabalhador" }
+          - { label: "jornada 6x1 Brasil", value: "jornada-6x1-brasil" }
+          - { label: "mudanças na CLT", value: "mudancas-na-clt" }
+          - { label: "redução de custos", value: "reducao-de-custos" }
+          - { label: "assembleia de condomínio", value: "assembleia-de-condominio" }
+          - { label: "Código Civil condomínio", value: "codigo-civil-condominio" }
+          - { label: "contrato síndico profissional", value: "contrato-sindico-profissional" }
+          - { label: "eleição de síndico", value: "eleicao-de-sindico" }
+          - { label: "proposta síndico profissional", value: "proposta-sindico-profissional" }
+          - { label: "síndico no Rio de Janeiro", value: "sindico-no-rio-de-janeiro" }
+      - label: "Perguntas frequentes (FAQ)"
+        name: faq
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Pergunta", name: question, widget: string }
+          - { label: "Resposta", name: answer, widget: text }
+      - { label: "Rascunho (não publicar)", name: draft, widget: boolean, default: true, hint: "Desmarque para o post aparecer no site." }
+      - label: "Data de publicação"
+        name: publishedAt
+        widget: datetime
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+        hint: "Data futura = agendado. O post só aparece no site no primeiro build depois dessa data (ver docs/CMS-DECAP.md)."
+      - { label: "Esconder do Google (noindex)", name: noIndex, widget: boolean, default: false, required: false }
+      - { label: "Título SEO (opcional)", name: seoTitle, widget: string, required: false }
+      - { label: "Descrição SEO (opcional)", name: seoDescription, widget: text, required: false }
+      - { label: "Autor", name: authorId, widget: hidden, default: adriano }
+      - label: "Formato do corpo"
+        name: bodyFormat
+        widget: hidden
+        default: markdown
+      - label: "Texto do post"
+        name: body
+        widget: markdown
+        hint: "Posts antigos (migrados do WordPress) têm o corpo em HTML: edite no modo Markdown (botão no topo do editor), não no modo visual, para não perder a formatação."

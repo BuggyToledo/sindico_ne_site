@@ -3,6 +3,8 @@ import { SITE_CONFIG, EDITORIAL_CATEGORIES, EDITORIAL_TAGS } from "@/data/site-c
 import { SERVICE_CASES, SERVICE_TYPES } from "@/data/services";
 import { getAllArticles } from "@/lib/cms/store";
 
+export const dynamic = "force-static";
+
 /**
  * Generates clean, canonical XML Sitemap (`/sitemap.xml`).
  * Explicitly excludes drafts, scheduled posts, noIndex pages, and thin non-indexable tags.
