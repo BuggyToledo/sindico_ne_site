@@ -319,6 +319,21 @@ async function runValidation() {
     `published=${publishedCount}, drafts=${draftCount}, allHaveAlt=${allHaveAlt}, slugMatchesFile=${slugMatchesFile}`
   );
 
+  // 11b. Páginas por bairro: existem no build, têm FAQPage + BreadcrumbList, canonical www e nada de [A CONFIRMAR]
+  {
+    const slugs = ["copacabana", "ipanema", "leblon", "botafogo", "flamengo"].map((b) => `sindico-profissional-${b}`);
+    const bad = [];
+    for (const s of slugs) {
+      const f = path.join(ROOT, "out", s, "index.html");
+      if (!fs.existsSync(f)) { bad.push(`${s}:missing`); continue; }
+      const h = fs.readFileSync(f, "utf-8");
+      if (!h.includes('"FAQPage"') || !h.includes('"BreadcrumbList"')) bad.push(`${s}:schema`);
+      if (!h.includes(`https://www.sindicone.com.br/${s}/`)) bad.push(`${s}:canonical`);
+      if (h.includes("A CONFIRMAR")) bad.push(`${s}:placeholder`);
+    }
+    check("Páginas por bairro (5) com FAQPage, breadcrumb, canonical www e sem [A CONFIRMAR]", bad.length === 0, bad.join(", ") || "ok");
+  }
+
   // 12. Links internos do build (out/) apontam para páginas existentes ou para _redirects
   const { checkInternalLinks } = await import("./check-links.mjs");
   const linkReport = checkInternalLinks(ROOT);

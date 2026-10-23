@@ -132,7 +132,7 @@ export function HeroCarousel() {
             <div className="mt-8 pt-6 border-t border-[#e2e8f0]/80 w-full flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-5 text-[#45464d] text-[11px] font-bold uppercase tracking-[0.06em]">
                 <span>
-                  Administrador registrado no CRA-RJ {SITE_CONFIG.credentials.craRj}. Seguros de responsabilidade civil de R$ 1.000.000,00 cada: o da empresa na Tokio Marine (PJ) e o do Adriano na Akad (PF).
+                  Administrador registrado no CRA-RJ {SITE_CONFIG.credentials.craRj}. A Síndico Né! tem seguro RCP na Tokio Marine, e o Adriano tem seguro RCP próprio na Akad, cada um de R$ 1.000.000,00.
                 </span>
               </div>
 

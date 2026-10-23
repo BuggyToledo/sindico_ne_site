@@ -20,6 +20,19 @@
 - **Foco Principal — Zona Sul do Rio de Janeiro**: Copacabana, Botafogo, Ipanema, Flamengo, Jardim Botânico, Leme, Leblon, Humaitá, Laranjeiras, Catete, Glória e Gávea.
 - **Atendimento Adicional**: Barra da Tijuca e Tijuca.
 
+## Páginas por Bairro
+- [Síndico profissional em Copacabana](https://www.sindicone.com.br/sindico-profissional-copacabana/)
+- [Síndico profissional em Ipanema](https://www.sindicone.com.br/sindico-profissional-ipanema/)
+- [Síndico profissional no Leblon](https://www.sindicone.com.br/sindico-profissional-leblon/)
+- [Síndico profissional em Botafogo](https://www.sindicone.com.br/sindico-profissional-botafogo/)
+- [Síndico profissional no Flamengo](https://www.sindicone.com.br/sindico-profissional-flamengo/)
+
+## Respostas Diretas
+- **Quanto custa um síndico profissional no RJ?** Depende do número de unidades, da estrutura do prédio e da rotina do condomínio. A proposta é feita sob medida; peça pelo WhatsApp (21) 97878-8211.
+- **Como contratar pela assembleia?** O síndico é eleito em assembleia (Código Civil, art. 1.347), com a eleição na pauta e o quórum previsto na convenção.
+- **O que acontece se o síndico sair?** Uma nova assembleia elege quem assume; a convenção costuma indicar um responsável provisório, em geral o subsíndico. O síndico que sai entrega documentos, contratos e prestação de contas.
+- **O síndico profissional tem seguro?** Sim. A Síndico Né! tem RCP PJ na Tokio Marine (R$ 1.000.000,00, vigência 2026/2027) e o Adriano Toledo tem RCP PF na Akad (R$ 1.000.000,00).
+
 ## Principais Serviços e Estudos de Caso Reais (`/servicos-sindico-profissional/`)
 1. **Gestão Condominial e Redução de Custos**: Redução de despesas fixas mensais por meio de renegociação contratual (`/servico-item/reducao-de-custos/`).
 2. **Planejamento Orçamentário e Financeiro**: Reestruturação da previsão orçamentária anual e controle da inadimplência (`/servico-item/planejamento-orcamentario/`).

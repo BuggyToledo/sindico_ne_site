@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_CONFIG, EDITORIAL_CATEGORIES, EDITORIAL_TAGS } from "@/data/site-config";
 import { SERVICE_CASES, SERVICE_TYPES } from "@/data/services";
 import { getAllArticles } from "@/lib/cms/store";
+import { BAIRROS } from "@/data/bairros";
 
 export const dynamic = "force-static";
 
@@ -31,6 +32,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...BAIRROS.map((b) => ({
+      url: `${baseUrl}/${b.slug}/`,
+      lastModified: new Date("2026-10-23"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
     {
       url: `${baseUrl}/servicos-sindico-profissional/`,
       lastModified: now,
