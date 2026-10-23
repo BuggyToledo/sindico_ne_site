@@ -89,7 +89,7 @@ export function BlogSearchAndFilter({
           </span>
           <Link
             href="/noticias-e-eventos/"
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors shrink-0 ${
+            className={`inline-flex items-center min-h-11 px-4 py-2 rounded-full text-[13px] font-semibold transition-colors shrink-0 ${
               !activeCategorySlug && !activeTagSlug
                 ? "bg-[#171c24] text-[#d9e141]"
                 : "bg-[#f4f6f8] text-[#4a525d] hover:bg-gray-200"
@@ -105,7 +105,7 @@ export function BlogSearchAndFilter({
                 <Link
                   key={cat.slug}
                   href={`/category/${cat.slug}/`}
-                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors shrink-0 ${
+                  className={`inline-flex items-center min-h-11 px-4 py-2 rounded-full text-[13px] font-semibold transition-colors shrink-0 ${
                     isActive
                       ? "bg-[#171c24] text-[#d9e141]"
                       : "bg-[#f4f6f8] text-[#4a525d] hover:bg-gray-200"

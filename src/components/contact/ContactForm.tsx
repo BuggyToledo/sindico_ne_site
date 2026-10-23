@@ -121,7 +121,7 @@ export function ContactForm() {
             required
             minLength={2}
             placeholder="Nome completo"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+            className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
           />
         </div>
 
@@ -138,7 +138,7 @@ export function ContactForm() {
             type="email"
             required
             placeholder="seu@email.com.br"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+            className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
           />
         </div>
       </div>
@@ -157,7 +157,7 @@ export function ContactForm() {
             type="tel"
             required
             placeholder="(21) 99999-9999"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+            className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
           />
         </div>
 
@@ -173,7 +173,7 @@ export function ContactForm() {
             name="neighborhood"
             type="text"
             placeholder="Ex.: Copacabana, Ipanema, Barra, Tijuca..."
-            className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+            className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
           />
         </div>
       </div>
@@ -191,7 +191,7 @@ export function ContactForm() {
             name="condominiumName"
             type="text"
             placeholder="Ex.: Edifício Atlântico"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+            className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
           />
         </div>
 
@@ -207,7 +207,7 @@ export function ContactForm() {
             name="subject"
             required
             defaultValue="Proposta de Síndico Profissional"
-            className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] bg-white focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+            className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] bg-white focus:outline-none focus:ring-2 focus:ring-[#171c24]"
           >
             <option value="Proposta de Síndico Profissional">
               Proposta de Síndico Profissional
@@ -240,7 +240,7 @@ export function ContactForm() {
           required
           minLength={10}
           placeholder="Conte-nos brevemente as necessidades atuais do seu condomínio (número de unidades, principais desafios, etc.)..."
-          className="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 text-sm text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
+          className="w-full min-h-12 px-3.5 py-2.5 rounded-lg border border-gray-300 text-base text-[#171c24] focus:outline-none focus:ring-2 focus:ring-[#171c24]"
         />
       </div>
 

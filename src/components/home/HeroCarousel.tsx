@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/data/site-config";
@@ -60,8 +58,8 @@ const HERO_SLIDES = [
 ];
 
 export function HeroCarousel() {
-  const [current, setCurrent] = useState(0);
-  const slide = HERO_SLIDES[current];
+  // Topo fixo (sem carrossel): uma mensagem só, sem JS no cliente.
+  const slide = HERO_SLIDES[1];
 
   return (
     <section
@@ -130,7 +128,7 @@ export function HeroCarousel() {
               </Link>
             </div>
 
-            {/* Micro indicators + Slide selector */}
+            {/* Micro indicators */}
             <div className="mt-8 pt-6 border-t border-[#e2e8f0]/80 w-full flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-5 text-[#45464d] text-[11px] font-bold uppercase tracking-[0.06em]">
                 <span className="inline-flex items-center gap-1.5">
@@ -143,27 +141,6 @@ export function HeroCarousel() {
                 </span>
               </div>
 
-              <div
-                className="flex items-center gap-1.5"
-                role="tablist"
-                aria-label="Alternar destaque principal"
-              >
-                {HERO_SLIDES.map((s, idx) => (
-                  <button
-                    key={s.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={idx === current}
-                    aria-label={`Destaque ${idx + 1}: ${s.badge}`}
-                    onClick={() => setCurrent(idx)}
-                    className={`h-2 rounded-full transition-all cursor-pointer ${
-                      idx === current
-                        ? "w-7 bg-[#0051d5]"
-                        : "w-2 bg-[#cbd5e1] hover:bg-[#94a3b8]"
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
 
