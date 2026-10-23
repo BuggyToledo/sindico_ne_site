@@ -34,7 +34,7 @@ export function Header() {
                 <span className="material-symbols-outlined text-[14px] text-[#0051d5]" aria-hidden="true">
                   location_on
                 </span>
-                Copacabana, Zona Sul, Barra da Tijuca e Grande Tijuca — RJ
+                Copacabana, Zona Sul, Barra da Tijuca e Grande Tijuca, RJ
               </span>
             </div>
 

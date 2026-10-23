@@ -77,7 +77,7 @@ export default async function ServicoItemPage({
 
       <Subheader
         badge={service.serviceTypeName}
-        title={`${service.title} — ${service.subtitle}`}
+        title={`${service.title}: ${service.subtitle}`}
         subtitle={service.excerpt}
         breadcrumbs={[
           { label: "Serviços", href: "/servicos-sindico-profissional/" },

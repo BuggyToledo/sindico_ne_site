@@ -51,6 +51,7 @@ export function buildLocalBusinessJsonLd() {
         sameAs: [
           SITE_CONFIG.social.instagram,
           SITE_CONFIG.social.facebook,
+          "https://www.linkedin.com/company/sindicone",
         ],
         founder: {
           "@type": "Person",
@@ -87,14 +88,6 @@ export function buildLocalBusinessJsonLd() {
           "@id": `${SITE_CONFIG.url}/#organization`,
         },
         inLanguage: "pt-BR",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${SITE_CONFIG.url}/noticias-e-eventos/?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
       },
     ],
   };
@@ -196,7 +189,7 @@ export function buildServiceCaseJsonLd(service: ServiceCaseStudy) {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${canonical}#service`,
-    name: `${service.title} — ${service.subtitle}`,
+    name: `${service.title}: ${service.subtitle}`,
     description: service.seoDescription,
     provider: {
       "@id": `${SITE_CONFIG.url}/#organization`,
@@ -223,6 +216,7 @@ export function buildAuthorJsonLd(author: Author) {
       description: author.bio,
       image: `${SITE_CONFIG.url}${author.avatarUrl}`,
       url: `${SITE_CONFIG.url}/author/${author.slug}/`,
+      sameAs: [author.socialLinks.linkedin, author.socialLinks.facebook].filter(Boolean),
       worksFor: {
         "@id": `${SITE_CONFIG.url}/#organization`,
       },

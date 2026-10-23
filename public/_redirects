@@ -23,3 +23,5 @@
 
 # Feed RSS: o export gera o arquivo "feed" sem extensão
 /feed/ /feed 200
+/sindico-profissional-e-por-que-contratar/ /o-que-faz-um-sindico-profissional/ 301
+/sindico-profissional-e-por-que-contratar /o-que-faz-um-sindico-profissional/ 301

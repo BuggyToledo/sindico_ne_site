@@ -38,7 +38,7 @@ tags:
 publishedAt: '2025-07-04T13:49:37-03:00'
 updatedAt: '2026-05-16T07:59:05-03:00'
 readingTimeMinutes: 5
-seoTitle: Como Funciona a Contratação de um Síndico Profissional?
+seoTitle: 'Como contratar um síndico profissional | Síndico Né!'
 seoDescription: >-
   Veja passo a passo como contratar um síndico profissional: avaliação,
   proposta, assembleia, contrato e início da gestão. Processo seguro e

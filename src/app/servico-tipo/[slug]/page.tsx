@@ -26,7 +26,7 @@ export async function generateMetadata({
 
   const canonical = `https://www.sindicone.com.br/servico-tipo/${serviceType.slug}/`;
   return {
-    title: `${serviceType.name} — Serviços de Síndico Profissional | Síndico Né!`,
+    title: `${serviceType.name} | Serviços de Síndico Profissional | Síndico Né!`,
     description: serviceType.description,
     alternates: { canonical },
   };

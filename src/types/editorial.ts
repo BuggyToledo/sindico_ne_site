@@ -38,6 +38,7 @@ export interface EditorialAuthor {
   avatarUrl: string;
   socialLinks: {
     facebook?: string;
+    linkedin?: string;
     instagram?: string;
     whatsapp?: string;
   };

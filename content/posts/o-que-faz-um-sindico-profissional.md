@@ -36,9 +36,7 @@ tags:
 publishedAt: '2025-07-19T13:50:00-03:00'
 updatedAt: '2025-08-04T13:25:58-03:00'
 readingTimeMinutes: 4
-seoTitle: >-
-  O Que Faz um Síndico Profissional: Funções, Deveres e Atribuições | Síndico
-  Né!
+seoTitle: 'O que faz um síndico profissional | Síndico Né!'
 seoDescription: >-
   Entenda o que faz um síndico profissional e por que sua contratação pode
   transformar a gestão do seu condomínio. Veja funções, benefícios e resultados.

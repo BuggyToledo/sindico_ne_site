@@ -25,8 +25,8 @@ export async function generateMetadata({
   const { page } = await params;
   const pageNum = Number(page) || 1;
   return {
-    title: `Artigos de ${author.name} — Página ${pageNum} | Síndico Né!`,
-    description: `${author.bio} — Página ${pageNum}.`,
+    title: `Artigos de ${author.name}, página ${pageNum} | Síndico Né!`,
+    description: `${author.bio}, página ${pageNum}.`,
     alternates: {
       canonical:
         pageNum === 1
@@ -61,9 +61,9 @@ export default async function AuthorAdrianoPaginatedPage({
   return (
     <div>
       <Subheader
-        badge={`Autor: ${author.name} — Página ${pageNum} de ${result.totalPages}`}
+        badge={`Autor: ${author.name}, página ${pageNum} de ${result.totalPages}`}
         title={`Publicações de ${author.name}`}
-        subtitle={`${author.role} — ${author.credentials}`}
+        subtitle={`${author.role}: ${author.credentials}`}
         breadcrumbs={[
           { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
           { label: author.name, href: "/author/adriano/" },

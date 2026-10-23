@@ -44,7 +44,7 @@ tags:
 publishedAt: '2026-06-26T07:10:25-03:00'
 updatedAt: '2026-06-26T09:29:34-03:00'
 readingTimeMinutes: 4
-seoTitle: A fachada do seu condomínio pode ser o maior risco jurídico do síndico
+seoTitle: 'Fachada do condomínio: risco jurídico do síndico'
 seoDescription: >-
   A fachada do seu condomínio pode ser o maior risco jurídico do síndico. Seu
   condomínio já tem um plano de manutenção preventiva da fachada? A diferença
