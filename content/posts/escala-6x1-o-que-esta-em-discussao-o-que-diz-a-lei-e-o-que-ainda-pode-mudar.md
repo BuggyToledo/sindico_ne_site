@@ -43,7 +43,7 @@ tags:
 publishedAt: '2026-06-08T17:51:52-03:00'
 updatedAt: '2026-06-09T12:19:45-03:00'
 readingTimeMinutes: 5
-seoTitle: 'Escala 6x1 na CLT: O Que Diz a Lei (Art. 67) e O Que Pode Mudar | Síndico Né!'
+seoTitle: 'Escala 6x1 na CLT: o que diz a lei | Síndico Né!'
 seoDescription: >-
   Entenda de forma clara o que é a escala 6x1 prevista na CLT, o que vem sendo
   debatido sobre possíveis alterações e por que é importante aguardar a

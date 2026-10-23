@@ -144,74 +144,33 @@ export function HeroCarousel() {
             </div>
           </div>
 
-          {/* Right Column: Real-time Governance Cockpit ("Painel Síndico Né! • SIN") */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-            <div className="bg-white rounded-2xl border border-[#e2e8f0] shadow-[0_20px_32px_-8px_rgba(15,23,42,0.08)] p-6 relative">
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#f1f5f9]">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#131b2e] flex items-center justify-center">
-                    <span
-                      className="material-symbols-outlined text-[#d0f121] text-[22px]"
-                      aria-hidden="true"
-                    >
-                      bar_chart
-                    </span>
-                  </div>
-                  <div>
-                    <div className="text-[16px] font-bold text-[#0b1c30]">
-                      Painel Síndico Né! • Syndic CRM
-                    </div>
-                    <div className="text-[12px] text-[#45464d]">
-                      Zona Sul &amp; Barra da Tijuca • RJ
-                    </div>
-                  </div>
-                </div>
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#e5eeff] text-[#0051d5] text-[10px] font-bold uppercase tracking-[0.08em]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  ONLINE
-                </span>
-              </div>
-
-              {/* Credenciais verificáveis (sem números de resultado) */}
-              <ul className="space-y-3 mb-4" role="list">
-                {[
-                  { icon: "verified_user", t: `Registro ativo no CRA-RJ (${SITE_CONFIG.credentials.craRj})` },
-                  { icon: "shield", t: "Seguro RCP PJ: Tokio Marine (R$ 1.000.000,00)" },
-                  { icon: "shield_with_heart", t: "Seguro RCP PF: Akad Seguros (R$ 1.000.000,00)" },
-                  { icon: "chat", t: `Atendimento pelo WhatsApp ${SITE_CONFIG.contact.whatsappDisplay}` },
-                ].map((i) => (
-                  <li key={i.t} className="flex items-center gap-3 bg-[#f8f9ff] rounded-xl p-3.5 border border-[#e2e8f0]">
-                    <span className="material-symbols-outlined text-[#0051d5] text-[20px] shrink-0" aria-hidden="true">
-                      {i.icon}
-                    </span>
-                    <span className="text-[14px] font-semibold text-[#0b1c30]">{i.t}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Integrated Image Preview */}
-              <div className="relative rounded-xl overflow-hidden shadow-xs h-36 bg-[#131b2e]">
-                <Image
-                  src="/img/hero/cityhall-slider-slidebg1-1080.webp"
-                  alt="Condomínios residenciais e comerciais administrados na Zona Sul, Barra da Tijuca e Grande Tijuca no Rio de Janeiro"
-                  fill
-                  priority
-                  fetchPriority="high"
-                  sizes="(max-width: 1024px) 100vw, 460px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1c30]/85 via-[#0b1c30]/20 to-transparent flex items-end p-3.5">
-                  <span className="text-white text-[11px] font-bold uppercase tracking-[0.05em] flex items-center gap-1.5">
-                    <span
-                      className="material-symbols-outlined text-[#d0f121] text-[16px]"
-                      aria-hidden="true"
-                    >
-                      location_on
-                    </span>
-                    Presença Diária: Copacabana, Ipanema, Barra e Grande Tijuca
+          {/* Coluna direita: fatos verificáveis + foto */}
+          <div className="lg:col-span-5 mt-4 lg:mt-0">
+            <ul className="space-y-3 mb-4" role="list">
+              {[
+                { icon: "verified_user", t: `Registro ativo no CRA-RJ (${SITE_CONFIG.credentials.craRj})` },
+                { icon: "shield", t: "Seguro RCP PJ: Tokio Marine (R$ 1.000.000,00)" },
+                { icon: "shield", t: "Seguro RCP PF: Akad Seguros (R$ 1.000.000,00)" },
+                { icon: "chat", t: `WhatsApp ${SITE_CONFIG.contact.whatsappDisplay}` },
+              ].map((i) => (
+                <li key={i.t} className="flex items-center gap-3 bg-white rounded-xl p-3.5 border border-[#e2e8f0]">
+                  <span className="material-symbols-outlined text-[#0051d5] text-[20px] shrink-0" aria-hidden="true">
+                    {i.icon}
                   </span>
-                </div>
-              </div>
+                  <span className="text-[14px] font-semibold text-[#0b1c30] break-words min-w-0">{i.t}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="relative rounded-xl overflow-hidden h-40 bg-[#131b2e]">
+              <Image
+                src="/img/hero/cityhall-slider-slidebg1-1080.webp"
+                alt="Prédios residenciais no Rio de Janeiro"
+                fill
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 1024px) 100vw, 460px"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

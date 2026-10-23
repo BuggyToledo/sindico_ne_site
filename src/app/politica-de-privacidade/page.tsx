@@ -51,7 +51,7 @@ export default function PoliticaDePrivacidadePage() {
               às solicitações de contato comercial, atendimento a condôminos e
               envio de propostas de sindicância profissional, em conformidade
               com a Lei Geral de Proteção de Dados Pessoais (Lei nº
-              13.709/2018 — LGPD):
+              13.709/2018, LGPD):
             </p>
             <ul>
               <li>

@@ -29,8 +29,8 @@ export async function generateMetadata({
   const { page } = await params;
   const pageNum = Number(page) || 1;
   return {
-    title: `Notícias e Eventos — Página ${pageNum} - Síndico Né!`,
-    description: `Arquivo de notícias, artigos e eventos sobre gestão condominial no Rio de Janeiro — Página ${pageNum}.`,
+    title: `Notícias e Eventos, página ${pageNum} - Síndico Né!`,
+    description: `Arquivo de notícias, artigos e eventos sobre gestão condominial no Rio de Janeiro, página ${pageNum}.`,
     alternates: {
       canonical:
         pageNum === 1
@@ -82,7 +82,7 @@ export default async function NoticiasPaginatedPage({
       />
 
       <Subheader
-        badge={`Notícias e Eventos — Página ${pageNum} de ${result.totalPages}`}
+        badge={`Notícias e Eventos, página ${pageNum} de ${result.totalPages}`}
         title="Notícias e Eventos"
         subtitle="Artigos e orientações técnicas sobre administração condominial no Rio de Janeiro."
         breadcrumbs={[

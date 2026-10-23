@@ -72,7 +72,7 @@ export function ArticleView({
           role="status"
           className="bg-amber-400 text-[#171c24] py-3 px-4 border-b border-amber-500 text-center text-sm font-bold"
         >
-          MODO DE PRÉ-VISUALIZAÇÃO EDITORIAL — Status atual:{" "}
+          MODO DE PRÉ-VISUALIZAÇÃO EDITORIAL: Status atual:{" "}
           <span className="uppercase underline">{article.status}</span> (Esta
           página contém <code>noindex, nofollow</code> e não é indexada por
           buscadores).
@@ -323,7 +323,7 @@ export function ArticleView({
                         <span className="font-semibold text-[#171c24]">
                           {ref.title}
                         </span>{" "}
-                        — <span>{ref.publisher}</span>
+                       , <span>{ref.publisher}</span>
                         {ref.url && (
                           <>
                             {" "}
@@ -472,7 +472,7 @@ export function ArticleView({
                         {srv.serviceTypeName}
                       </span>
                       <h3 className="font-heading text-base font-bold text-[#171c24] group-hover:text-white mt-0.5">
-                        {srv.title} — {srv.subtitle}
+                        {srv.title}: {srv.subtitle}
                       </h3>
                       <p className="text-xs text-[#5c6470] group-hover:text-[#c2c7ce] mt-1 line-clamp-2">
                         {srv.excerpt}

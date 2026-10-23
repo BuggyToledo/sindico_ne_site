@@ -36,9 +36,7 @@ tags:
 publishedAt: '2026-03-19T06:45:19-03:00'
 updatedAt: '2026-03-19T08:20:44-03:00'
 readingTimeMinutes: 5
-seoTitle: >-
-  Gestão de Condomínios - RJ - Síndico Né! | (21) 97878-8211 - O que é
-  condomínio
+seoTitle: 'O que é um condomínio? Guia simples | Síndico Né!'
 seoDescription: >-
   Descubra o que é condomínio, quem é condômino, quem manda e o que a taxa
   cobre. Guia prático da Síndico Né! para moradores, inquilinos e síndicos.

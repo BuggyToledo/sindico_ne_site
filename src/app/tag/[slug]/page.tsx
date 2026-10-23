@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   const canonical = `https://www.sindicone.com.br/tag/${tag.slug}/`;
   return {
-    title: `Tópico: ${tag.name} — Gestão Condominial | Síndico Né!`,
+    title: `Tópico: ${tag.name} | Gestão Condominial | Síndico Né!`,
     description: tag.description,
     alternates: { canonical },
     robots: {

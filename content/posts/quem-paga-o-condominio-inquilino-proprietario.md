@@ -38,7 +38,7 @@ tags:
 publishedAt: '2026-03-20T06:43:54-03:00'
 updatedAt: '2026-03-21T06:49:30-03:00'
 readingTimeMinutes: 6
-seoTitle: 'Quem paga o condomínio: inquilino ou proprietário? | Síndico Né!'
+seoTitle: 'Quem paga o condomínio: inquilino ou proprietário?'
 seoDescription: >-
   Entenda quem paga o condomínio, inquilino ou proprietário, o que cada um deve
   pagar e como evitar conflitos e cobranças indevidas no seu prédio.

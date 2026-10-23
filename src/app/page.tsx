@@ -78,9 +78,9 @@ export default async function HomePage() {
                   O <strong className="text-[#0b1c30]">Síndico Né!</strong>{" "}
                   nasceu para profissionalizar a gestão de condomínios
                   residenciais, comerciais e mistos no Rio de Janeiro. Liderado
-                  por <strong className="text-[#0b1c30]">Adriano Toledo</strong>{" "}
-                  — Síndico Profissional certificado com louvor pela Gábor RH
-                  e Administrador —, nosso trabalho une
+                  por <strong className="text-[#0b1c30]">Adriano Toledo</strong>,
+                  Síndico Profissional certificado com louvor pela Gábor RH
+                  e Administrador. Nosso trabalho une
                   rigor financeiro, manutenção preventiva e diálogo construtivo.
                 </p>
                 <p>
@@ -196,7 +196,7 @@ export default async function HomePage() {
                   </span>
                 </div>
                 <span className="text-[11px] font-bold text-[#0051d5] uppercase tracking-[0.08em] block mb-2">
-                  Presença In Loco — Zona Sul RJ
+                  Presença In Loco: Zona Sul RJ
                 </span>
                 <h3 className="text-[22px] sm:text-[24px] font-bold text-[#0b1c30] tracking-[-0.015em] mb-4">
                   ATUAÇÃO PRESENCIAL NA ZONA SUL DO RIO DE JANEIRO
@@ -210,7 +210,7 @@ export default async function HomePage() {
                 <div className="space-y-3 mb-6">
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#45464d] block mb-2">
-                      Foco Principal — Zona Sul RJ:
+                      Foco Principal: Zona Sul RJ:
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {BAIRROS_ZONA_SUL.map((bairro) => (

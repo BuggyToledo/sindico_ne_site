@@ -22,7 +22,7 @@ export default function SobreNosPage() {
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Início", url: "/" },
     {
-      name: "Sobre Nós — Síndico Profissional na Zona Sul do RJ",
+      name: "Sobre Nós: Síndico Profissional na Zona Sul do RJ",
       url: "/sindico-profissional-na-zona-sul-do-rj/",
     },
   ]);
@@ -39,7 +39,7 @@ export default function SobreNosPage() {
         title="Síndico Profissional na Zona Sul do Rio de Janeiro"
         subtitle="Excelência técnica, transparência na prestação de contas e presença constante na Zona Sul do RJ, com atendimento também na Barra da Tijuca e Tijuca."
         breadcrumbs={[
-          { label: "Sobre Nós — Síndico Profissional na Zona Sul do RJ" },
+          { label: "Sobre Nós: Síndico Profissional na Zona Sul do RJ" },
         ]}
       />
 

@@ -35,7 +35,7 @@ tags:
 publishedAt: '2025-05-24T13:51:21-03:00'
 updatedAt: '2025-08-06T09:44:36-03:00'
 readingTimeMinutes: 5
-seoTitle: Quanto Ganha um Síndico Profissional no RJ? Faixas e Fatores | Síndico Né!
+seoTitle: 'Quanto ganha um síndico profissional no RJ?'
 seoDescription: >-
   Descubra quanto ganha um síndico profissional no Rio de Janeiro em 2025. Veja
   valores médios, o que influencia na remuneração e se vale a pena contratar.

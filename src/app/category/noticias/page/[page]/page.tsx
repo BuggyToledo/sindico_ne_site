@@ -22,8 +22,8 @@ export async function generateMetadata({
   const { page } = await params;
   const pageNum = Number(page) || 1;
   return {
-    title: `Categoria: Notícias — Página ${pageNum} - Síndico Né!`,
-    description: `Publicações sobre sindicância profissional e gestão condominial no RJ — Página ${pageNum}.`,
+    title: `Categoria: Notícias, página ${pageNum} - Síndico Né!`,
+    description: `Publicações sobre sindicância profissional e gestão condominial no RJ, página ${pageNum}.`,
     alternates: {
       canonical:
         pageNum === 1
@@ -58,7 +58,7 @@ export default async function CategoryNoticiasPaginatedPage({
   return (
     <div>
       <Subheader
-        badge={`Categoria: Notícias — Página ${pageNum} de ${result.totalPages}`}
+        badge={`Categoria: Notícias, página ${pageNum} de ${result.totalPages}`}
         title="Notícias e Orientações Condominiais"
         breadcrumbs={[
           { label: "Categoria: Notícias", href: "/category/noticias/" },

@@ -11,7 +11,7 @@ import { buildAuthorJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld";
 const author = AUTHORS["adriano-toledo"];
 
 export const metadata: Metadata = {
-  title: `${author.name} — Síndico Profissional (CRA-RJ ${SITE_CONFIG.credentials.craRj}) | Síndico Né!`,
+  title: `${author.name} | Síndico Profissional (CRA-RJ ${SITE_CONFIG.credentials.craRj}) | Síndico Né!`,
   description: author.bio,
   alternates: {
     canonical: "https://www.sindicone.com.br/author/adriano/",
@@ -47,7 +47,7 @@ export default async function AuthorAdrianoPage() {
       <Subheader
         badge="Autor e Responsável Técnico"
         title={author.name}
-        subtitle={`${author.role} — ${author.credentials}`}
+        subtitle={`${author.role}: ${author.credentials}`}
         breadcrumbs={[
           { label: "Notícias e Eventos", href: "/noticias-e-eventos/" },
           { label: author.name },
@@ -71,6 +71,16 @@ export default async function AuthorAdrianoPage() {
                   <Award className="w-3.5 h-3.5" aria-hidden="true" />
                   Certificado com Louvor Gábor RH
                 </span>
+                {author.socialLinks.linkedin && (
+                  <a
+                    href={author.socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer me"
+                    className="inline-flex items-center text-xs font-semibold text-[#0051d5] underline px-1 py-1"
+                  >
+                    LinkedIn de Adriano Toledo
+                  </a>
+                )}
               </div>
               <h2 className="font-heading text-2xl font-bold text-[#171c24]">
                 Sobre {author.name}

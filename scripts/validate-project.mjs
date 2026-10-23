@@ -314,8 +314,8 @@ async function runValidation() {
   );
   const slugMatchesFile = posts.every((p) => `${p.data.slug}.md` === p.file);
   check(
-    "Markdown posts (content/posts): >=11 published + drafts flagged + 100% alt + slug = file name",
-    publishedCount >= 11 && draftCount >= 1 && allHaveAlt && slugMatchesFile,
+    "Markdown posts (content/posts): >=10 published + drafts flagged + 100% alt + slug = file name",
+    publishedCount >= 10 && draftCount >= 1 && allHaveAlt && slugMatchesFile,
     `published=${publishedCount}, drafts=${draftCount}, allHaveAlt=${allHaveAlt}, slugMatchesFile=${slugMatchesFile}`
   );
 

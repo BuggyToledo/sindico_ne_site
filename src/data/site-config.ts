@@ -382,6 +382,7 @@ const ADRIANO_AUTHOR: EditorialAuthor = {
   avatarUrl: "/logo-sindicone-roxo-verde.svg",
   socialLinks: {
     facebook: "https://www.facebook.com/toledo.adriano/",
+    linkedin: "https://www.linkedin.com/in/adriano-toledo-marketing",
     instagram: "https://www.instagram.com/sindico_ne/",
     whatsapp: "https://wa.me/5521978788211",
   },

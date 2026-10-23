@@ -25,8 +25,8 @@ export async function generateMetadata({
   const { page } = await params;
   const pageNum = Number(page) || 1;
   return {
-    title: `Serviços de Síndico Profissional — Página ${pageNum} - Síndico Né!`,
-    description: `Portfólio de serviços e casos reais de gestão condominial do Síndico Né! no Rio de Janeiro — Página ${pageNum}.`,
+    title: `Serviços de Síndico Profissional, página ${pageNum} - Síndico Né!`,
+    description: `Portfólio de serviços e casos reais de gestão condominial do Síndico Né! no Rio de Janeiro, página ${pageNum}.`,
     alternates: {
       canonical:
         pageNum === 1
@@ -56,7 +56,7 @@ export default async function ServicosPaginatedPage({
   return (
     <div>
       <Subheader
-        badge={`Portfólio — Página ${pageNum} de ${totalPages}`}
+        badge={`Portfólio, página ${pageNum} de ${totalPages}`}
         title="Serviços de Síndico Profissional e Casos Reais"
         subtitle="Estudos de caso reais de gestão financeira, manutenção predial e redução de inadimplência no Rio de Janeiro."
         breadcrumbs={[
