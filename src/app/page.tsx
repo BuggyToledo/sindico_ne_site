@@ -396,24 +396,6 @@ export default async function HomePage() {
                   className="material-symbols-outlined text-[#0051d5] text-[16px]"
                   aria-hidden="true"
                 >
-                  check_circle
-                </span>
-                Diagnóstico Gratuito
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[#0051d5] text-[16px]"
-                  aria-hidden="true"
-                >
-                  schedule
-                </span>
-                Retorno em até 24 horas úteis
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="material-symbols-outlined text-[#0051d5] text-[16px]"
-                  aria-hidden="true"
-                >
                   lock
                 </span>
                 Dados protegidos sob a LGPD
