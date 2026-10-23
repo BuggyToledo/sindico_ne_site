@@ -1,12 +1,22 @@
 import React from "react";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG } from "@/data/site-config";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { buildLocalBusinessJsonLd } from "@/lib/seo/json-ld";
+
+// Fonte de texto hospedada pelo próprio site (next/font): sem ida ao Google Fonts,
+// com preload e display: swap.
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-jakarta-face",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -16,6 +26,14 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   applicationName: SITE_CONFIG.name,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   authors: [
     {
       name: SITE_CONFIG.credentials.founder,
@@ -78,17 +96,15 @@ export default function RootLayout({
   const globalJsonLd = buildLocalBusinessJsonLd();
 
   return (
-    <html lang="pt-BR" id="top">
+    <html lang="pt-BR" id="top" className={jakarta.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Ícones Material Symbols: subconjunto local só com os ícones usados (ver public/fonts/README.md) */}
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
+          rel="preload"
+          href="/fonts/material-symbols-outlined-subset.woff2"
+          as="font"
+          type="font/woff2"
           crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
         <script
           type="application/ld+json"

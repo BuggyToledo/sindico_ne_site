@@ -330,6 +330,43 @@ async function runValidation() {
       : `${linkReport.checked} links únicos verificados`
   );
 
+  // 13. Ícones Material Symbols: todo ícone usado existe no subconjunto local
+  const iconReadme = fs.readFileSync(path.join(ROOT, "public/fonts/README.md"), "utf-8");
+  const subsetNames = new Set((iconReadme.match(/NOMES="([^"]+)"/)?.[1] || "").split(","));
+  const usedIcons = new Set();
+  const walkSrc = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) walkSrc(full);
+      else if (/\.tsx?$/.test(e.name)) {
+        const code = fs.readFileSync(full, "utf-8");
+        for (const m of code.matchAll(/material-symbols-outlined[^>]*>\s*([a-z_]+)\s*</g)) usedIcons.add(m[1]);
+        for (const m of code.matchAll(/(?:icon|iconName)\s*[:=]\s*"([a-z_]+)"/g)) usedIcons.add(m[1]);
+        const arr = code.match(/SERVICE_ICONS\s*=\s*\[([^\]]*)\]/);
+        if (arr) for (const m of arr[1].matchAll(/"([a-z_]+)"/g)) usedIcons.add(m[1]);
+      }
+    }
+  };
+  walkSrc(path.join(ROOT, "src"));
+  const missingIcons = [...usedIcons].filter((n) => !subsetNames.has(n));
+  const layoutSrc = fs.readFileSync(path.join(ROOT, "src/app/layout.tsx"), "utf-8");
+  check(
+    "Performance: Material Symbols local subset covers all icons used and no Google Fonts stylesheet",
+    fs.existsSync(path.join(ROOT, "public/fonts/material-symbols-outlined-subset.woff2")) &&
+      missingIcons.length === 0 &&
+      !layoutSrc.includes("fonts.googleapis.com"),
+    missingIcons.length ? `faltando no subset: ${missingIcons.join(", ")}` : `${usedIcons.size} ícones cobertos`
+  );
+
+  // 14. Favicon e ícones
+  check(
+    "Favicon and app icons exist (favicon.ico, icon.svg, apple-touch-icon.png)",
+    ["favicon.ico", "icon.svg", "apple-touch-icon.png", "icon-192.png"].every((f) =>
+      fs.existsSync(path.join(OUT, f))
+    ),
+    "out/"
+  );
+
   const passedCount = results.filter((r) => r.passed).length;
   console.log(`\n============================================================`);
   console.log(

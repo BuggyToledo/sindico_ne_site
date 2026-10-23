@@ -286,10 +286,11 @@ export function HeroCarousel() {
               {/* Integrated Image Preview */}
               <div className="relative rounded-xl overflow-hidden shadow-xs h-36 bg-[#131b2e]">
                 <Image
-                  src="/wp-content/uploads/2019/10/cityhall-slider-slidebg1.jpg"
+                  src="/img/hero/cityhall-slider-slidebg1-1080.webp"
                   alt="Condomínios residenciais e comerciais administrados na Zona Sul, Barra da Tijuca e Grande Tijuca no Rio de Janeiro"
                   fill
                   priority
+                  fetchPriority="high"
                   sizes="(max-width: 1024px) 100vw, 460px"
                   className="object-cover"
                 />
