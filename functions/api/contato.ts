@@ -7,7 +7,8 @@
  *   FORM_ENDPOINT        (opcional) URL que recebe um POST JSON com o lead
  *                        (ex.: endpoint de um serviço de formulários ou webhook próprio).
  *   FORM_ENDPOINT_TOKEN  (opcional, segredo) enviado como "Authorization: Bearer <token>".
- *   ALLOWED_ORIGINS      (opcional) lista separada por vírgula, ex.: "https://www.sindicone.com.br".
+ *   ALLOWED_ORIGINS      (opcional) lista separada por vírgula; aceita "https://*.dominio". Sem ela, vale
+ *                        DEFAULT_ALLOWED_ORIGINS (domínios oficiais + sindico-ne.pages.dev e previews).
  *   WHATSAPP_NUMBER      (opcional) número só com dígitos para o fallback. Padrão: 5521978788211.
  *
  * Sem FORM_ENDPOINT (ou se o serviço falhar) a resposta traz `whatsappUrl` com a mensagem
@@ -82,13 +83,46 @@ export function validateLead(
   return { ok: true, lead };
 }
 
-export const onRequestPost = async ({ request, env }: Context): Promise<Response> => {
-  const allowed = (env.ALLOWED_ORIGINS || "")
+/**
+ * Origens aceitas quando ALLOWED_ORIGINS não está definida no Cloudflare.
+ * "*." aceita qualquer subdomínio daquele domínio (previews do Cloudflare Pages).
+ */
+const DEFAULT_ALLOWED_ORIGINS = [
+  "https://www.sindicone.com.br",
+  "https://sindicone.com.br",
+  "https://sindico-ne.pages.dev",
+  "https://*.sindico-ne.pages.dev",
+];
+
+function isAllowedOrigin(origin: string, configured?: string): boolean {
+  if (!origin) return false;
+  const list = (configured || "")
     .split(",")
     .map((o) => o.trim())
     .filter(Boolean);
+  const rules = list.length > 0 ? list : DEFAULT_ALLOWED_ORIGINS;
+  let url: URL;
+  try {
+    url = new URL(origin);
+  } catch {
+    return false;
+  }
+  return rules.some((rule) => {
+    const wildcard = rule.match(/^(https?):\/\/\*\.(.+)$/);
+    if (wildcard) {
+      return (
+        url.protocol === `${wildcard[1]}:` &&
+        url.port === "" &&
+        url.hostname.endsWith(`.${wildcard[2]}`)
+      );
+    }
+    return origin === rule;
+  });
+}
+
+export const onRequestPost = async ({ request, env }: Context): Promise<Response> => {
   const origin = request.headers.get("Origin") || "";
-  if (allowed.length > 0 && !allowed.includes(origin)) {
+  if (!isAllowedOrigin(origin, env.ALLOWED_ORIGINS)) {
     return json({ ok: false, error: "Origem não permitida." }, 403);
   }
 

@@ -41,7 +41,7 @@
     --color-lime: #d0f121;
     --color-tech-blue: #0051d5;
     --color-bg-light: #f8f9ff;
-    --font-jakarta: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-jakarta: var(--font-jakarta-face), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   html {
@@ -61,10 +61,21 @@
   }
 }
 
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url("/fonts/material-symbols-outlined-subset.woff2") format("woff2");
+}
+
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined";
   font-weight: normal;
   font-style: normal;
+  /* Igual à folha do Google Fonts usada antes (regra fora de @layer, prevalece sobre text-[..px]),
+     para manter o tamanho visual dos ícones idêntico. */
+  font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
